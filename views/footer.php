@@ -1,4 +1,17 @@
+</div>
+<div class="subscribe">
+    <div class="subscribe-content">
+        <img src="views/img/svg/hyperion-subscribe-icon.svg" alt="">
+        <div class="subscribe-description">
+            <p>Subscribe Us Now And Get Discount 10%</p>
+            <p>Will be used in accordance with our Privacy Policy</p>
+        </div>
+        <input placeholder="Your Email Address" type="text">
+        <button type="submit">Sign Up</button>
+    </div>
+</div>
 <div class="footer">
+    
     <div class="infoboxes">
         <img class="info-img" src="views/img/svg/hyperion-ferry-boat.svg" alt="">
         <div class="info">
