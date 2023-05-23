@@ -32,7 +32,7 @@
                 Took sold add play may none him few.
             </p>
         </div>
-        <div class="menu-1">
+        <div class="footer-menu-block">
             <div class="title">
                 Opening Time
             </div>
@@ -43,7 +43,7 @@
             </div>
 
         </div>
-        <div class="menu-2">
+        <div class="footer-menu-block">
             <div class="title">
                 Our Stores
             </div>
@@ -54,7 +54,7 @@
                 <p>Los Angeles</p>
             </div>
         </div>
-        <div class="menu-3">
+        <div class="footer-menu-block">
             <div class="title">
                 Information
             </div>
@@ -65,7 +65,7 @@
                 <p>FAQs</p>
             </div>
         </div>
-        <div class="menu-4">
+        <div class="footer-menu-block">
             <div class="title">
                 Our Apps
             </div>

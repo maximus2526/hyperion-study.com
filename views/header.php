@@ -63,26 +63,94 @@
         <div class="header-slider">
             <div class="drop-down always-open">
                 <div class="drop-down-item">
+                    <img class="item-icon" src="views/img/svg/category menu/hyperion-line-dress.svg" alt="">
                     <p>Women's clothing</p>
                     <img class="show-sign" src="views/img/svg/show.svg" alt="">
                 </div>
                 <div class="drop-down-item">
+                    <img class="item-icon" src="views/img/svg/category menu/hyperion-line-volunteer.svg" alt="">
                     <p>Mans clothing</p>
                     <img class="show-sign" src="views/img/svg/show.svg" alt="">
                 </div>
                 <div class="drop-down-item">
+                    <img class="item-icon" src="views/img/svg/category menu/hyperion-line-smartphone.svg" alt="">
                     <p>Phones and accessories</p>
                     <img class="show-sign" src="views/img/svg/show.svg" alt="">
                 </div>
-                <p class="drop-down-item">Industrial and building tools</p>
-                <p class="drop-down-item">Cars and motorcycles</p>
-                <p class="drop-down-item">Toys hobbies and robot</p>
-                <p class="drop-down-item">Watches and trackers</p>
-                <p class="drop-down-item">Lights and lighting</p>
-                <p class="drop-down-item">Health protection</p>
+
+                <div class="drop-down-item">
+                    <img class="item-icon" src="views/img/svg/category menu/hyperion-line-hammer.svg" alt="">
+                    <p>Industrial and building tools</p>
+                </div>
+                <div class="drop-down-item">
+                    <img class="item-icon" src="views/img/svg/category menu/hyperion-line-car-parts.svg" alt="">
+                    <p>Cars and motorcycles</p>
+                </div>
+                <div class="drop-down-item">
+                    <img class="item-icon" src="views/img/svg/category menu/hyperion-line-duck.svg" alt="">
+                    <p>Toys hobbies and robot</p>
+                </div>
+                <div class="drop-down-item">
+                    <img class="item-icon" src="views/img/svg/category menu/hyperion-line-watch.svg" alt="">
+                    <p>Watches and trackers</p>
+                </div>
+                <div class="drop-down-item">
+                    <img class="item-icon" src="views/img/svg/category menu/hyperion-line-lamp.svg" alt="">
+                    <p>Lights and lighting</p>
+                </div>
+                <div class="drop-down-item">
+                    <img class="item-icon" src="views/img/svg/category menu/hyperion-line-heart.svg" alt="">
+                    <p>Health protection</p>
+                </div>
                             
             </div>
-            <img class="slider-img" src="views/img/hyperion-slider-1.jpg" alt=""> 
+            <div class="slider">
+                <img class="slider-img" src="views/img/hyperion-slider-1.jpg" alt=""> 
+                <div class="slider-filler">
+                    <div class="left-side">
+                        <div class="slider-description">
+                            <p>Subtitle for this title</p>
+                            <h1>Camping & Hiking  Products Discount</h1>
+                            <p>Unpacked reserver sir offering bed judgment may and quitting speaking.</p>
+                            <button class="read-more-btn" href="#">Read More</button>
+                        </div>  
+                        <div class="slider-btn">
+                            <button><</button>
+                            <button>></button>
+                        </div>
+                    </div>
+                    <div class="right-side">
+                        <div class="product">
+                            <img src="views/img/products/hyperion-product-img-26.jpg" alt="Product img">
+                            <div class="product-info">
+                                <p>Eta Lite - Gas Stove</p>
+                                <p class="price">$ 111.96</p>
+                                <p class="old-price">$ 139.95</p>
+                                <a href="#">View More →</a>
+                            </div>
+                        </div>
+                        <div class="product">
+                        <img src="views/img/products/hyperion-product-img-26.jpg" alt="Product img">
+                            <div class="product-info">
+                                <p>Eta Lite - Gas Stove</p>
+                                <p class="price">$ 111.96</p>
+                                <p class="old-price">$ 139.95</p>
+                                <a href="#">View More →</a>
+                            </div>
+                        </div>
+                        <div class="product">
+                        <img src="views/img/products/hyperion-product-img-26.jpg" alt="Product img">
+                            <div class="product-info">
+                                <p>Eta Lite - Gas Stove</p>
+                                <p class="price">$ 111.96</p>
+                                <p class="old-price">$ 139.95</p>
+                                <a href="#">View More →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
         </div>
