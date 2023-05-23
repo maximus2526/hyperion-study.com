@@ -66,9 +66,62 @@
                 <p>Samsung Galaxy S20 Ultra</p>
                 <p class="price">$ 1300.00</p>
             </div>
-            
         </div>
         <div class="slider-btn">
             <button>></button>
         </div>
+</div>
+
+<div class="top-brands">
+    <div class="brands-title"> 
+        <p><img src="" alt=""> Top Brands</p>
+        <a href="#">View All</a>
+    </div>
+    <div class="brands-slider">
+        <div class="slider-btn">
+            <button><</button>
+        </div>
+        <div class="brands">
+            <div class="brand">
+                <img class="brand-img" src="views/img/brands/mini-brands/mi.png" alt="">
+                <p>Xiaomi</p>
+                <p>230 products</p>
+                <img class="product-img" src="views/img/Brands big/hyperion-brand-big-1.jpg" alt="">
+            </div>
+            <div class="brand">
+                <img class="brand-img" src="views/img/brands/mini-brands/mi.png" alt="">
+                <p>Xiaomi</p>
+                <p>230 products</p>
+                <img class="product-img" src="views/img/Brands big/hyperion-brand-big-1.jpg" alt="">
+            </div>
+            <div class="brand">
+                <img class="brand-img" src="views/img/brands/mini-brands/mi.png" alt="">
+                <p>Xiaomi</p>
+                <p>230 products</p>
+                <img class="product-img" src="views/img/Brands big/hyperion-brand-big-1.jpg" alt="">
+            </div>
+            <div class="brand">
+                <img class="brand-img" src="views/img/brands/mini-brands/mi.png" alt="">
+                <p>Xiaomi</p>
+                <p>230 products</p>
+                <img class="product-img" src="views/img/Brands big/hyperion-brand-big-1.jpg" alt="">
+            </div>
+            <div class="brand">
+                <img class="brand-img" src="views/img/brands/mini-brands/mi.png" alt="">
+                <p>Xiaomi</p>
+                <p>230 products</p>
+                <img class="product-img" src="views/img/Brands big/hyperion-brand-big-1.jpg" alt="">
+            </div>
+            <div class="brand">
+                <img class="brand-img" src="views/img/brands/mini-brands/mi.png" alt="">
+                <p>Xiaomi</p>
+                <p>230 products</p>
+                <img class="product-img" src="views/img/Brands big/hyperion-brand-big-1.jpg" alt="">
+            </div>
+                
+        </div>
+        <div class="slider-btn">
+            <button>></button>
+        </div>
+    </div>
 </div>
