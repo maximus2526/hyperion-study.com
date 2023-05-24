@@ -348,17 +348,18 @@ input::placeholder{
 }
 
 /* bestsellers */
-.bestseller-title{
+.block-title{
+    font-weight: 800;
     display: flex;
     align-items: center;
     gap: 10px;
     max-width: 68%; 
     font-size: 32px;
     margin: auto;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
-.bestseller-title::before{
+.block-title::before{
     content: "";
     display: inline-block;
     vertical-align: middle;
@@ -393,17 +394,21 @@ input::placeholder{
 /* Brands */
 .brands-title{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #f0ba2f
 }
 
 .brands-title p {
     font-size: 32px;
     color: white;
+    margin-top: 50px;
+    margin-left: 100px;
 }
 
 .brands-title a{
     color: white;
+    margin-top: 20px;
+    margin-right: 105px;
 }
 .brands-title p::before{
     align-items: center;
@@ -413,17 +418,17 @@ input::placeholder{
 .top-brands{
     position: relative;
     margin: auto;
-    width: 68%; 
-    padding-bottom: 200px;
+    width: 68%;  
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 300px;
 }
+
 .brands-title{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     padding-bottom: 140px;
     border-radius: 5px;
 }
@@ -437,6 +442,7 @@ input::placeholder{
     flex-wrap: nowrap;
     justify-content: space-between;
     gap: 10px;
+
 }
 
 
@@ -446,7 +452,7 @@ input::placeholder{
     align-items: center;
     text-align: center;
     justify-content: space-between;
- 
+    
 }
 .brand{
     background: white;
@@ -462,6 +468,109 @@ input::placeholder{
 .brand-img{
     max-height: 100px;
     max-width: 100%;
+}
+/* Hot category */
+.hot-category-block{ 
+    padding-top: 20px;
+    background: no-repeat url("../../views/img/categories/hyperion-category-bg.jpg");
+    background-size: 100%;
+}
+
+.hot-category{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    gap: 20px;
+    max-width: 68%; 
+}
+
+.hot-categories{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.hot-category .discount{
+    background: no-repeat url("../../views/img/hyperion-banner-5.jpg");
+    background-size: cover;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+}
+
+.nav-btn {
+    margin-right: 70%;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+.nav-btn button{
+    background: none;
+    border: none;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.discount-description{
+    margin: 10%;
+    color: white;
+}
+.discount-description .text{
+    opacity: 80%;
+    font-size: small;
+}
+
+.discount-description button{
+    width: 90px;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+.discount-description .title{
+    font-size: 25px;
+}
+
+.single-hot-category {
+    display: flex;
+    flex-grow: 1;
+    background: white;
+    text-align: center;
+}
+.hot-category-text{
+    display: flex;
+    flex-direction: column;
+}
+.single-hot-category img{
+    max-width: 140px;
+}
+
+.why-we{
+    margin: auto;
+    max-width: 68%; 
+    display: flex;
+    justify-content: space-between; 
+}
+.why-list{
+    display: flex;
+    width: 230px;
+}
+.why-description{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.why-num{
+    font-size: 50px;
+    align-self: center;
+    color: #1169b6;
+}
+/* Recomend products */
+.recomend-product-block{
+    display: flex;
+}
+.notice-block{
+    display: flex;
 }
 /* Footer */
 .footer {
