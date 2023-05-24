@@ -226,73 +226,164 @@
 <div class="recomend-product-block">
     <div class="notice-block">
         <div class="catch-discount">
-            <p>Shoes discount</p>
-            <p>Catch A Discount</p>
+            <p class="sub-title">Shoes discount</p>
+            <p class="title">Catch A Discount</p>
             <div class="counter">
-                <div class="days">
-                    <p>02</p>
-                    <p>DAYS</p>
+                <div class="clock">
+                    <p class="num">02</p>
+                    <p class="time">DAYS</p>
                 </div>
-                <div class="hours">
-                    <p>12</p>
-                    <p>HR</p>
+                <div class="clock">
+                    <p class="num">12</p>
+                    <p class="time">HR</p>
                 </div>
-                <div class="min">
-                    <p>32</p>
-                    <p>MIN</p>
+                <div class="clock">
+                    <p class="num">32</p>
+                    <p class="time">MIN</p>
                 </div>
-                <div class="sec">
-                    <p>54</p>
-                    <p>SC</p>
+                <div class="clock">
+                    <p class="num">54</p>
+                    <p class="time">SC</p>
                 </div>
             </div>
             <button class="read-more-btn">Read More</button>
         </div>
-        <div class="new-collection">
-            <p>For your home</p>
-            <p>New Decore C</p>
+        <div class="new-collection-block">
+            <p class="sub-title">For your home</p>
+            <p class="title">New Decore Collection</p>
+            <p class="text">She dinner she our horses remember depend</p>
+            <button class="read-more-btn">Read More</button>
         </div>
     </div>
-    <div class="recomend-products">
-
+    <div class="products-block">
         <div class="recomend-products-title">
             <div class="block-title">Recomend products</div>
             <div class="product-sort">
-            <div class="bestsellers">
-            <div class="bestsellers-product">
-                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
-                <p>Samsung Galaxy S20 Ultra</p>
-                <p class="price">$ 1300.00</p>
-            </div>
-            <div class="bestsellers-product">
-                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
-                <p>Samsung Galaxy S20 Ultra</p>
-                <p class="price">$ 1300.00</p>
-            </div>
-            <div class="bestsellers-product">
-                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
-                <p>Samsung Galaxy S20 Ultra</p>
-                <p class="price">$ 1300.00</p>
-            </div>
-            <div class="bestsellers-product">
-                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
-                <p>Samsung Galaxy S20 Ultra</p>
-                <p class="price">$ 1300.00</p>
-            </div>
-            <div class="bestsellers-product">
-                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
-                <p>Samsung Galaxy S20 Ultra</p>
-                <p class="price">$ 1300.00</p>
-            </div>
-            <div class="bestsellers-product">
-                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
-                <p>Samsung Galaxy S20 Ultra</p>
-                <p class="price">$ 1300.00</p>
+                <p>Now In</p>
+                <p>Bestsellers</p>
+                <p>Comming Soon</p>
             </div>
         </div>
+        <div class="recomend-products">
+            <div class="single-product">
+                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
+                <p>Samsung Galaxy S29 Ultra</p>
+                <p class="price">$ 1300.00</p> 
+            </div>
+            <div class="single-product">
+                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
+                <p>Samsung Galaxy S29 Ultra</p>
+                <p class="price">$ 1300.00</p> 
+            </div>
+            <div class="single-product">
+                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
+                <p>Samsung Galaxy S29 Ultra</p>
+                <p class="price">$ 1300.00</p> 
+            </div>
+            <div class="single-product">
+                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
+                <p>Samsung Galaxy S29 Ultra</p>
+                <p class="price">$ 1300.00</p> 
+            </div>
+            <div class="single-product">
+                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
+                <p>Samsung Galaxy S29 Ultra</p>
+                <p class="price">$ 1300.00</p> 
+            </div>
+            <div class="single-product">
+                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
+                <p>Samsung Galaxy S29 Ultra</p>
+                <p class="price">$ 1300.00</p> 
+            </div>
+            <div class="single-product">
+                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
+                <p>Samsung Galaxy S29 Ultra</p>
+                <p class="price">$ 1300.00</p> 
+            </div>
+            <div class="single-product">
+                <img src="views/img/products/hyperion-product-img-1.jpg" alt="">
+                <p>Samsung Galaxy S29 Ultra</p>
+                <p class="price">$ 1300.00</p> 
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="our-blog-block">
+    <div class="our-blog-title">
+        <p class="sub-title">Subtitle for this title</p>
+        <p class="title">Our Blog</p>
+    </div>
+    <div class="blog-articles-block">
+        <div class="blog-article">
+            <div class="article-img">
+                <button class="article-label">Room</button>
+                <button class="article-label">Decore</button>
+            </div>  
+            <div class="article-description-block">
+                <div class="article-title">Had Denoting Properly Jointure You.</div>
+                <div class="article-description">
+                    Exeter longer wisdom gay nor design age 
+                    weather to entered norland no...
+                </div>
+                <div class="author">
+                    <div class="author-name"><img class="author-img" src="views\img\team\hyperion-team-4.jpg" alt="Mr. Mackay"><p>Mr. Mackay</p></div>
+                    <p>20.07.2020</p>
+                </div>
+            </div>
+        </div>
+        <div class="blog-article">
+            <div class="article-img">
+                <button class="article-label">Room</button>
+                <button class="article-label">Decore</button>
+            </div>  
+            <div class="article-description-block">
+                <div class="article-title">Had Denoting Properly Jointure You.</div>
+                <div class="article-description">
+                    Exeter longer wisdom gay nor design age 
+                    weather to entered norland no...
+                </div>
+                <div class="author">
+                    <div class="author-name"><img class="author-img" src="views\img\team\hyperion-team-4.jpg" alt="Mr. Mackay"><p>Mr. Mackay</p></div>
+                    <p>20.07.2020</p>
+                </div>
+            </div>
+        </div>
+        <div class="blog-article">
+            <div class="article-img">
+                <button class="article-label">Room</button>
+                <button class="article-label">Decore</button>
+            </div>  
+            <div class="article-description-block">
+                <div class="article-title">Had Denoting Properly Jointure You.</div>
+                <div class="article-description">
+                    Exeter longer wisdom gay nor design age 
+                    weather to entered norland no...
+                </div>
+                <div class="author">
+                    <div class="author-name"><img class="author-img" src="views\img\team\hyperion-team-4.jpg" alt="Mr. Mackay"><p>Mr. Mackay</p></div>
+                    <p>20.07.2020</p>
+                </div>
+            </div>
+        </div>
+        <div class="blog-article">
+            <div class="article-img">
+                <button class="article-label">Room</button>
+                <button class="article-label">Decore</button>
+            </div>  
+            <div class="article-description-block">
+                <div class="article-title">Had Denoting Properly Jointure You.</div>
+                <div class="article-description">
+                    Exeter longer wisdom gay nor design age 
+                    weather to entered norland no...
+                </div>
+                <div class="author">
+                    <div class="author-name"><img class="author-img" src="views\img\team\hyperion-team-4.jpg" alt="Mr. Mackay"><p>Mr. Mackay</p></div>
+                    <p>20.07.2020</p>
+                </div>
             </div>
         </div>
     </div>
-
-
+</div>
 </div>
