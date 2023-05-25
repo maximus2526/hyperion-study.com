@@ -1,8 +1,10 @@
 /* Glogal options */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
+
 body{
     margin: 0;
+    font-family: 'Noto Sans', sans-serif;
 }
-
 button, input{
     padding: 0;
     margin: 0;
@@ -55,8 +57,7 @@ input::placeholder{
 }
 
 .currency {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 0 5px 0 5px;
     border-left: 1px solid #2978bd;
     border-right: 1px solid #2978bd;
 }
@@ -356,8 +357,7 @@ input::placeholder{
     max-width: 68%; 
     font-size: 32px;
     margin: auto;
-    padding-bottom: 50px;
-    padding-top: 20px;
+    padding: 20px 0 50px 0;
 }
 
 .block-title::before{
@@ -410,6 +410,7 @@ input::placeholder{
     color: white;
     margin-top: 20px;
     margin-right: 105px;
+    margin: 20px 105px 0 0;
 }
 .brands-title p::before{
     align-items: center;
@@ -566,6 +567,7 @@ input::placeholder{
     font-size: 50px;
     align-self: center;
     color: #1169b6;
+    margin-right: 15px;
 }
 /* Recomend products */
 .recomend-product-block{
@@ -706,7 +708,9 @@ input::placeholder{
     height: 30px;
     margin-right: 5px
 }
+
 /* Our Blog */
+
 .our-blog-block{
     width: 68%;
     margin: auto;
@@ -791,12 +795,11 @@ input::placeholder{
 
 
 .infoboxes{
-    padding-top: 15px;
     height: 68px;
     justify-content: space-between;
     display: flex;
     border-bottom: 1px solid #e6e6e6;
-    padding-bottom: 25px;
+    padding: 15px 0 25px 0;
     
 }
 

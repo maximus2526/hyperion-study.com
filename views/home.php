@@ -23,7 +23,7 @@
     <div id="article-4" class="article">
         <h4>Laptops 2021</h4>
         <p>Court heard which up above
-            hoped grave do answer</p>
+            hoped grave do answer</p>   
         <a href="#">View More →</a>
     </div>
 </div>
