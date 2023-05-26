@@ -1,0 +1,121 @@
+@import "reset.scss";
+
+
+
+// column system
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+@mixin generate_columns(){
+    @for $i from 1 through 12 {
+        .col-#{$i} {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            flex-shrink: 0;
+            max-width: 100%;
+            flex-basis: percentage(100 / 12 * $i);
+        }
+    }
+}
+
+@mixin generate_media_columns() {
+    @each $breakpoint, $width in $breakpoints {
+        @media (min-width: $width) {
+            .row {
+                @include column($width);
+              }
+        }
+    }
+}
+@mixin column($width){
+    .row > .col {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-grow: 1;
+        flex-basis: $width;
+    }
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        @include column(100%);
+        @include generate_columns();
+        @include generate_media_columns()
+    }
+}
+
+.block {
+    height: 100px;
+    width: 100px;
+    background: gray;
+    border: 5px solid white;
+}
+
+
+
+
+
+
+
+// header-top
+
+.nav {
+    > li {
+        > a {
+            color: black;
+        }
+        &:not(:last-child){
+            > a {
+                border-left: 1px solid #f9f9f9;
+            }
+        }
+        .scheme-light & {
+            > li {
+                > a {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.header-top{
+    background-color: #1169b6;
+    height: 40px;
+    > & p, a{
+        color: white;
+    }
+}
+
+
+
+.dropdown {
+    position: relative;
+    ul {
+        display: none;
+    }
+
+    &:hover ul {
+        align-items: center;
+        background-color: white;
+        border-radius: 5px;
+        border: 1px solid gray;
+        position: absolute;
+        display: block;
+    }
+}

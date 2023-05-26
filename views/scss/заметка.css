@@ -1,0 +1,62 @@
+.nav > li > a {
+    color: red;
+}
+
+.scheme-light .nav > li > a{
+    color: white;
+}
+
+.nav.style-underline > li > a {
+    border-bottom: 2px solid red;
+}
+
+.scheme-light .nav.style-underline > li > a{
+    border-color: white;
+}
+
+.nav.style-divider > li > a{
+    border-left: 1px solid #f9f9f9;
+}
+
+.nav.style-divider > li:not(:last-child) > a{
+    border-left: 1px solid #f9f9f9;
+}
+
+.nav {
+    > li {
+        > a {
+            color: red;
+        }
+        &:not(:last-child){
+            > a {
+                border-left: 1px solid #f9f9f9;
+            }
+        }
+        .scheme-light & {
+            > li {
+                > a {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+<div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="block">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magni suscipit dignissimos numquam eos, nemo libero expedita velit, nostrum et nulla totam molestiae veritatis porro delectus eum voluptas. Necessitatibus, numquam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magni suscipit dignissimos numquam eos, nemo libero expedita velit, nostrum et nulla totam molestiae veritatis porro delectus eum voluptas. Necessitatibus, numquam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magni suscipit dignissimos numquam eos, nemo libero expedita velit, nostrum et nulla totam molestiae veritatis porro delectus eum voluptas. Necessitatibus, numquam!
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="block">2</div>
+                </div>
+                <div class="col">
+                    <div class="block">3</div>
+                </div>
+                <div class="col">
+                    <div class="block">4</div>
+                </div>
+            </div>
+        </div>
