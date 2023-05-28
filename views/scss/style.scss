@@ -17,6 +17,7 @@
 
 .row {
     display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     margin-left: -20px;
     margin-right: -20px;
@@ -30,7 +31,7 @@
     flex-grow: 0;
     padding-left: 15px;
     padding-right: 15px;
-
+    flex-direction: column;
 }
 .col-1{
     display: flex;
@@ -38,6 +39,7 @@
     flex-grow: 0;
     padding-left: 15px;
     padding-right: 15px;
+    flex-direction: column;
 }
 
 .col-2{
@@ -46,6 +48,7 @@
     flex-grow: 0;
     padding-left: 15px;
     padding-right: 15px;
+    flex-direction: column;
 }
 
 .col-3{
@@ -55,6 +58,7 @@
     flex-grow: 0;
     padding-left: 15px;
     padding-right: 15px;
+    flex-direction: column;
 }
 .col-4{
     display: flex;
@@ -62,6 +66,7 @@
     flex-grow: 0;
     padding-left: 15px;
     padding-right: 15px;
+    flex-direction: column;
 }
 
 .col-5{
@@ -70,6 +75,7 @@
     flex-grow: 0;
     padding-left: 15px;
     padding-right: 15px;
+    flex-direction: column;
 }
 
 .col-6{
@@ -78,6 +84,7 @@
     flex-grow: 0;
     padding-left: 15px;
     padding-right: 15px;
+    flex-direction: column;
 }
 
 .col-8{
@@ -86,8 +93,25 @@
     flex-grow: 0;
     padding-left: 15px;
     padding-right: 15px;
+    flex-direction: column;
+}
+.col-9{
+    display: flex;
+    flex-basis: calc(((100% / 12) * 9) - 30px); 
+    flex-grow: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    flex-direction: column;
 }
 
+.col-10{
+    display: flex;
+    flex-basis: calc(((100% / 12) * 10) - 30px); 
+    flex-grow: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    flex-direction: column;
+}
 
 // HEADER
 
@@ -133,9 +157,6 @@
     // header-search
     .header-search{
         margin-bottom: 20px;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-
         .search-button{
             color: white;
             background: #1169b6;
@@ -143,7 +164,6 @@
             border-radius: 5px;
             height: 44px;
             min-width: 50px;
-            
         }
 
         >:last-child{
@@ -151,10 +171,10 @@
                 margin-left: 10px;     
             }
             :first-child {
-                display: flex;
                 &::after{   
                     content: "My account";
                     margin-left: 10px;
+                    vertical-align: top;
                 }
             }
         }
@@ -166,14 +186,13 @@
     }
 
 
-    [class^="col-"] {
-        align-items: center;
-    }
     // header-menu
     .header-menu{  
+        [class^="col"] {
+            flex-direction: row;
+        }
+
         .nav {
-            justify-content: space-between;
-            align-items: center;
             display: flex;
             .active {
                 margin-top: 10px;
@@ -207,103 +226,114 @@
         background: #333333;
         border: 1px solid black;
         border-radius: 5px 5px 0 0;
+        .browse-sign{
+            padding-right: 10px;
+        }
         .show-sign{
-            padding-left: 150px;
+            padding-left: 135px;
         }
     }
-    // Header Bottom  
-
-    .item-icon {
-        width: 17px;
-        height: 17px;
-        margin-right: 8px;
-    }
-    .product{
-        width: 17px;
-        height: 17px;
-    }
-
-    .bottom-header > .row{
-        .always-open {
-            display: block;
-        }
-        
-        .drop-down{
-            box-shadow: 0 7px 25px -8px rgb(182, 182, 182);
-            border-bottom: 1px solid #ebebeb;
-            background: #ffffff;
-        }
     
-        .drop-down .show-sign{
+    [class^="col-"] {
+        flex-direction: row;
+    }
+}
+
+// Header Bottom  
+.header-bottom{
+    
+    .always-open {
+        display: block;
+    }
+    .drop-down{
+        background: white;
+
+        .show-sign{
             height: auto;
             rotate: 270deg;
             margin-left: auto;
             filter: invert(50%);
         }
- 
-
-    }
-  
-
-
-
-
-
-    .product-info{
-        line-height: 5px;
-    }
-    .product-info .price{
-        color: #4c8ec7;
+        [class^="col"] {
+            .item-icon{
+                padding-right: 10px;
+            }
+            padding: 20px 20px;
+            border-bottom: 1px solid #ebebeb;
+            flex-direction: row;   
+        }
     }
 
-    .product-info .old-price{
-        opacity: 50%;
-        text-decoration: line-through;
-    }
-    .product-info a{
-        font-weight: 800;
-    }
-
-    .product img{
-        max-width: 100px;
-        border-radius: 5px;
-    }
-    .slider-btn {
-        display: flex;
-        gap: 10px;
-    }
-    .slider-btn button{
-        margin-top: 100px;
-        width: 30px;
-        height: 30px;
-        border-radius: 50px;
-    }
-
-    .read-more-btn {
+    .slider {
         margin-top: 20px;
-        background: #f1bb2f;
         border-radius: 5px;
-        width: 125px;
-        height: 41px;
-        color: white;
-    }
+        background: no-repeat url('../../views/img/hyperion-slider-1.jpg');
+        background-size: cover;
+        width: 100%;
+        .row{
+            padding-left: 20px;
+            height: 100%;
+            [class^="col"] {
+                justify-content: space-around;     
+            }
+            .slider-btn {
+                display: flex;
+                gap: 10px;
+            }
+            .read-more-btn {
+                background: #f1bb2f;
+                font-weight: 700;
+                border-radius: 5px;
+                max-width: 80px;
+                padding: 7px;
+                color: white;
+            }
+            .read-more-btn:hover{
+                background: #af8c34;
+            }
 
-    .slider-description p{
-        opacity: 50%;
-    }
-
-
-
-
-
-
-
-   
-
-
+            .switch-btn{
+                min-height: 25px;
+                min-width: 25px;
+                text-align: center;
+                vertical-align: bottom;
+                border-radius: 50%;
+                background-color: #fafafa;
+                line-height: 25px;
+            }
+            .col-6 .col{
+                background: white;
+                border-radius: 5px;
+                flex-direction: row;
+                .col {
+                    min-height: 125px;
+                    flex-direction: column;
+                    :first-child{
+                        font-size: large;
+                        font-weight: 600;
+                    }
+                    a{
+                        font-weight: 600;
+                    }
+                    a:hover{
+                        color: #1169b6; 
+                    }
+                    .price{
+                        color: #4c8ec7;
+                    }
     
+                    .old-price{
+                        opacity: 50%;
+                        text-decoration: line-through;
+                    }
+                }
+            }
+        }
+    }
 
 }
+    
+
 
 
 
