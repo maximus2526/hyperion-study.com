@@ -1,0 +1,598 @@
+
+// Old styles
+
+/* Glogal options */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
+
+
+button, input{
+    border-style: none;
+    border-radius: 5px;
+    border: 1px solid #ebebeb;
+    background-color: white;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+input::placeholder{
+    padding-left: 20px;
+}
+
+
+
+
+
+
+
+/* home */
+
+.content{
+    background: #fafafa;
+    box-shadow: inset 0 7px 25px -8px rgb(182, 182, 182);
+}
+
+/* articles */
+.blog-articles{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 20px auto;
+    color: white;
+    height: 200px;
+    max-width: 100%; 
+    gap: 20px;
+}
+
+#article-1 {
+    background: no-repeat url('../../views/img/blog/home-blog/blog-1.png');
+    background-size: cover;
+}
+#article-2 {
+    background: no-repeat url('../../views/img/blog/home-blog/blog-2.png');
+    background-size: cover;
+}
+#article-3 {
+    background: no-repeat url('../../views/img/blog/home-blog/blog-3.png');
+    background-size: cover;
+}
+#article-4 {
+    background: no-repeat url('../../views/img/blog/home-blog/blog-4.png');
+    background-size: cover;
+}
+
+.article{
+    border-radius: 5px;
+    padding-left: 20px;
+    width: 312px;
+}
+
+.article h4{
+    font-size: 25px;
+}
+
+.article p{
+    opacity: 60%;
+}
+
+.article a{
+    color: white;
+    text-decoration: none;
+    opacity: 90%;
+}
+
+/* bestsellers */
+.block-title{
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%; 
+    font-size: 32px;
+    margin: auto;
+    padding: 20px 0 50px 0;
+}
+
+.block-title::before{
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url('../../views/img/svg/hyperion-booster.svg');
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px
+}
+
+.bestseller-slider{
+    display: flex;
+    gap: 20px;
+    margin: auto;
+    width: 100%; 
+    flex-wrap: nowrap;
+
+}
+.bestsellers {
+    display: flex;
+    gap: 20px;
+}
+
+.bestsellers-product img{
+    max-width: 100%;
+}
+
+.bestsellers .price{
+    color: #4c8ec7;
+}
+/* Brands */
+.brands-title{
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0ba2f
+}
+
+.brands-title p {
+    font-size: 32px;
+    color: white;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.brands-title a{
+    color: white;
+    margin-top: 20px;
+    margin-right: 105px;
+    margin: 20px 105px 0 0;
+}
+.brands-title p::before{
+    align-items: center;
+    content:  url('../../views/img/svg/hyperion-crown.svg');
+    padding-right: 10px;
+}
+.top-brands{
+    position: relative;
+    margin: auto;
+    width: 100%;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 300px;
+}
+
+.brands-title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 140px;
+    border-radius: 5px;
+}
+
+
+.brands-slider{
+    position: absolute;
+    top: 160px;
+    width: 90%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 10px;
+
+}
+
+
+.brands{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    
+}
+.brand{
+    background: white;
+    border-radius: 5px;
+    max-height: 285px;
+    width: 15%;
+    
+}
+.product-img{
+    max-height: 100px;
+    max-width: 173px;
+}
+.brand-img{
+    max-height: 100px;
+    max-width: 100%;
+}
+/* Hot category */
+.hot-category-block{ 
+    background: no-repeat url("../../views/img/categories/hyperion-category-bg.jpg");
+    background-size: 100%;
+}
+
+.hot-category{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: auto;
+    max-width: 100%; 
+}
+
+.hot-categories{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.hot-category .discount{
+    background: no-repeat url("../../views/img/hyperion-banner-5.jpg");
+    background-size: cover;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+}
+
+.nav-btn {
+    margin-right: 70%;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+.nav-btn button{
+    background: none;
+    border: none;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.discount-description{
+    margin: 10%;
+    color: white;
+}
+.discount-description .text{
+    opacity: 80%;
+    font-size: small;
+}
+
+.discount-description button{
+    width: 90px;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+.discount-description .title{
+    font-size: 25px;
+}
+
+.single-hot-category {
+    display: flex;
+    flex-grow: 1;
+    background: white;
+    text-align: center;
+}
+.hot-category-text{
+    display: flex;
+    flex-direction: column;
+}
+.single-hot-category img{
+    max-width: 140px;
+}
+
+.why-we{
+    margin: auto;
+    max-width: 100%; 
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 35px;
+}
+.why-list{
+    display: flex;
+    width: 230px;
+}
+.why-description{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.why-num{
+    font-size: 50px;
+    align-self: center;
+    color: #1169b6;
+    margin-right: 15px;
+}
+/* Recomend products */
+.recomend-product-block{
+    display: flex;
+    margin: auto;
+    max-width: 100%; 
+    gap: 20px;
+}
+
+.catch-discount{
+    border-radius: 5px;
+    padding-left: 20px;
+    width: 420px;
+    height: 400px;
+    background: no-repeat url("../../views/img/hyperion-banner-7.jpg");
+    background-size: 100%;
+}
+
+
+.recomend-product-block .read-more-btn{
+    background: #1169b6;
+    border-color: #1169b6;
+    font-weight: 800;
+}
+
+.counter {
+    display: flex;
+    gap: 5px;
+} 
+.title{
+    font-size: 20px;
+    font-weight: 700;
+}
+.sub-title{
+    font-size: 12px;
+    opacity: 60%;
+}
+.clock{
+    background-color: white;
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+    line-height: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.clock .num{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.clock .time{
+    margin-top: 0px;
+    font-size: 12px;
+    color: gray;
+}
+
+.notice-block{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.new-collection-block{
+    border-radius: 5px;
+    padding-left: 20px;
+    width: 420px;
+    height: 400px;
+    background: no-repeat url("../../views/img/hyperion-banner-8.jpg");
+    background-size: 100%;
+}
+
+.new-collection-block .text{
+    max-width: 180px;
+    color: #939393;
+
+}
+
+.recomend-product-block{
+    width: 100%;
+}
+
+.product-sort{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+
+}
+
+.recomend-products{
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.single-product{
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    line-height: 2px;
+}
+.author-name{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+.single-product img{
+    padding-bottom: 10px;
+}
+
+.products-block{
+    display: flex;
+    flex-direction: column;
+
+}
+.recomend-products-title{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.products-block .block-title{
+    margin: 0;
+}
+
+.products-block .block-title::before{
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url('../../views/img/svg/hyperion-booster.svg');
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px
+}
+
+/* Our Blog */
+
+.our-blog-block{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.our-blog-title{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.blog-articles-block{
+    display: flex;
+    gap: 20px;
+}
+.article-img{
+    border-radius: 5px;
+    height: 180px;
+    display: flex;
+    color: white;
+    background: no-repeat url('../../views/img/blog/hyperion-blog-1.jpg');
+    background-size: cover;
+}
+
+.article-label{
+    margin-top: 20px;
+    border: none;
+    color: white;
+    margin-left: 10px;
+    font-size: 12px;
+    opacity: 90%;
+    height: 24px;
+    width: 50px;
+    border-radius: 5px;
+    background: #1169b6;
+}
+.article-description-block{
+    background-color: white;
+    border-end-end-radius: 5px;
+    padding: 15px;
+}
+.article-title{ 
+    margin-bottom: 10px;
+    font-size: 20px;
+    width: 70%;
+    font-weight: 700;
+}
+
+.article-description{
+    padding-bottom: 15px;
+    font-size: 15px;
+    color: grey;
+    border-bottom: 1px solid #d1d1ce;
+}
+.author{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.author:last-child{
+    color: #d1d1ce;
+}
+
+.author-img{
+    width: 40px;
+    border-radius: 50%;
+}
+
+/* Footer */
+.footer {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.info-img{
+    max-width: 46px;
+}
+
+
+.infoboxes{
+    height: 68px;
+    justify-content: space-between;
+    display: flex;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 15px 0 25px 0;
+    
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: space-between;
+    max-height: 300px;
+    padding: 50px 0 20px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.description{
+    max-width: 30%;
+}
+
+.partnership{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+}
+
+.credentials{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+
+.subscribe{
+    background: no-repeat url('../../views/img/hyperion-subscribe-bg.jpg');
+    background-size: 100%;
+    height: 200px;
+    width: 100%;
+    
+}
+
+.subscribe button{
+    width: 100px;
+    height: 41px;
+    color: white;
+    background: #1169b6;
+    border-radius: 5px;
+}
+
+.subscribe input{
+    height: 41px;
+    width: 300px;
+}
+
+
+.subscribe img{
+    width: 80px;
+}
+
+.subscribe-content{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin: auto;
+    height: 200px;
+}

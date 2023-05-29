@@ -1,4 +1,56 @@
-<div class="container">
+
+<div class="content">
+    <div class="container">
+        
+<div class="content">
+    <div class="container"> 
+        <div class="row">  
+            <div class="slider col-9">
+                <div class="row">
+                    <div class="col scheme-light">
+                        <div class="slider-description">
+                            <p>Subtitle for this title</p>
+                            <h1>Camping & Hiking  Products Discount</h1>
+                            <p>Unpacked reserver sir offering bed judgment may and quitting speaking.</p>
+                        </div>  
+                        <a class="read-more-btn" href="#">Read More</a>
+                        <div class="slider-btn">
+                            <a class='switch-btn'><</a>
+                            <a class='switch-btn'>></a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col">
+                            <img class="product-img" src="views/img/products/hyperion-product-img-26.jpg" alt="Product img">
+                            <div class="col">
+                                <p>Eta Lite - Gas Stove</p>
+                                <p class="price">$ 111.96</p>
+                                <p class="old-price">$ 139.95</p>
+                                <a href="#">View More →</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img class="product-img" src="views/img/products/hyperion-product-img-26.jpg" alt="Product img">
+                            <div class="col">
+                                <p>Eta Lite - Gas Stove</p>
+                                <p class="price">$ 111.96</p>
+                                <p class="old-price">$ 139.95</p>
+                                <a href="#">View More →</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img  class="product-img" src="views/img/products/hyperion-product-img-26.jpg" alt="Product img">
+                            <div class="col">
+                                <p>Eta Lite - Gas Stove</p>
+                                <p class="price">$ 111.96</p>
+                                <p class="old-price">$ 139.95</p>
+                                <a href="#">View More →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <article class="blog-articles">
             <div id="article-1" class="article">
                 <h4>Laptops 2021</h4>
@@ -388,4 +440,4 @@
             </div>
         </div>
     </div>
- </div>
+</div>
