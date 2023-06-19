@@ -1,1 +1,48 @@
-/*# sourceMappingURL=single-page.css.map */
+.content {
+  margin-bottom: 20px;
+}
+
+.add-to-cart a {
+  background: #1169b6;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.add-to-cart a:hover {
+  color: white;
+  background: #073d6d;
+}
+
+.single-product {
+  padding: 20px 0;
+  padding-bottom: 20px;
+}
+.single-product .product-img-section {
+  margin-bottom: 20px;
+}
+.single-product .product-img {
+  margin-bottom: 20px;
+}
+.single-product .product-img img {
+  border-radius: 5px;
+}
+.single-product .product-content {
+  padding: 20px;
+}
+.single-product .read-more {
+  margin-bottom: 50px;
+}
+.single-product .read-more:hover {
+  color: #073d6d;
+}
+.single-product .delivery {
+  padding: 20px;
+}
+.single-product .block-purchase p {
+  margin-bottom: 0;
+}
+
+.warranty {
+  padding: 20px;
+}/*# sourceMappingURL=single-page.css.map */

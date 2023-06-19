@@ -1,11 +1,11 @@
 
 <?php 
     class Hyperion_Model{
-        private $pdo;
+        // private $pdo;
 
-        function __construct($pdo){
-            $this->pdo = $pdo;
-        }
+        // function __construct($pdo){
+        //     $this->pdo = $pdo;
+        // }
 
         
     }
