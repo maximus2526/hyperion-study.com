@@ -3,7 +3,7 @@
 @import "shop/shop.css";
 @import "about-us/about-us.css";
 @import "contact-us/contact-us.css";
-@import "single-page/single-page.css";
+@import "single-product/single-product.css";
 /* Glogal options */
 .closed {
   display: none;
