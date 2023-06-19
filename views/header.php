@@ -1,172 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="views/css/style.css">
+    <link rel="stylesheet" href="<?php echo get_url() ?>/views/css/base.css">
     <title>Document</title>
 </head>
+
 <body>
-<header>
-    <div class="header-top scheme-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-auto">
-                    <ul class="nav">
-                        <li>Call Now: <a href="tel:+035527171070">(+035) 527-1710-70</a></li>
-                        <li>Email: <a href="mailto:Contact@hyperion.com">Contact@hyperion.com</a></li>
-                    </ul>
-                </div>
-                <div class="col-auto header-col-right">
-                    <p>Ample end might folly quiet one set spoke.</p>
-                    <ul class="style-bordered nav">
-                        <li class="has-dropdown"><a href="/?currency=uan">USD</a></li>
-                        <li class="has-dropdown"><a href="/?language=ua"><img src="views/img/svg/usa.svg" alt=""></a></li>
-                    </ul>
-                </div> 
-            </div>
-        </div>
-    </div>
-
-    <div class="container header-middle scheme-dark">
-        <div class="row header-search">
-            <img class="logo-img" src="views/img/svg/hyperion-logo.svg" alt="Hyperion logo">
-            <form class="col-auto">
-                <input placeholder="Smart watch" class="search-field" type="text">
-                <button title="Search" class="search-button" type="submit"><img class="search-img" src="views/img/svg/search.svg" alt=""></button>
-                <div class="has-dropdown select-category scheme-dark">
-                    <a href="#">Select Category</a>
-                </div>
-            </form>
-            <div class="col-3">      
-                <div class="my-account">   
-                    <a href="#"><img src="views/temp-img/svg/account.svg" alt="Account"></a>
-                    <span>My account</span>
-                </div>
-                <a href="#"><img src="views/temp-img/svg/wish.svg" alt="Wish"></a>
-                <div class="cart">
-                    <a href="#"><img src="views/temp-img/svg/shop.svg" alt="Shop"></a>
-                    <a href="#">$280.00</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container header-bottom"> 
-        <div class="row header-menu">
-            <div class="col-3 browse-categories">
-                <div class="categories-btn scheme-light ">
-                    <img class="browse-sign" src="views/img/svg/browse.svg" alt="">
-                    <div class="has-dropdown">
-                        <p>Browse Categories</p> 
-                    </div>       
-                    <ul class="drop-down scheme-dark always-open">
-                        <li class="has-dropdown-horizontal">
-                            <img class="item-icon" src="views/img/svg/category-menu/hyperion-line-dress.svg" alt="">
-                            <a href="#">Women's clothing</a>
-                        </li>
-                        <li class="has-dropdown-horizontal">
-                            <img class="item-icon" src="views/img/svg/category-menu/hyperion-line-volunteer.svg" alt="">
-                            <a href="#">Mans clothing</a>
-
-                        </li>
-                        <li class="has-dropdown-horizontal">
-                            <img class="item-icon" src="views/img/svg/category-menu/hyperion-line-smartphone.svg" alt="">
-                            <a href="#">Phones and accessories</a>
-                        </li>
-                        <li>
-                            <img class="item-icon" src="views/img/svg/category-menu/hyperion-line-hammer.svg" alt="">
-                            <a href="#">Industrial and building tools</a>
-                        </li>
-                        <li>
-                            <img class="item-icon" src="views/img/svg/category-menu/hyperion-line-car-parts.svg" alt="">
-                            <a href="#">Cars and motorcycles</a>
-                        </li>
-                        <li>
-                            <img class="item-icon" src="views/img/svg/category-menu/hyperion-line-duck.svg" alt="">
-                            <a href="#">Toys hobbies and robot</a>
-                        </li>
-                        <li>
-                            <img class="item-icon" src="views/img/svg/category-menu/hyperion-line-watch.svg" alt="">
-                            <a href="#">Watches and trackers</a>
-                        </li>
-                        <li>
-                            <img class="item-icon" src="views/img/svg/category-menu/hyperion-line-lamp.svg" alt="">
-                            <a href="#">Lights and lighting</a>
-                        </li>
-                        <li>
-                            <img class="item-icon" src="views/img/svg/category-menu/hyperion-line-heart.svg" alt="">
-                            <a href="#">Health protection</a>
-                        </li>  
-                    </ul>                 
-                </div>
-            </div>
-            <nav class="col-5 scheme-dark">
-                <ul>
-                    <li class="has-dropdown active"><a href="#">Home</a></li>
-                    <li class="has-dropdown"><a href="#">Shop</a></li>
-                    <li class="has-dropdown"><a href="#">Blog</a></li>
-                    <li class="has-dropdown"><a href="#">About us</a></li>
-                    <li class="has-dropdown"><a href="#">Contact us</a></li>
-                </ul>
-            </nav>
-            <div class="col-3 style-bordered">
-                <a href="#" class="purchase-now">Purchase Now!</a>
-                <p>Free Shipping from $300</p>
-            </div>
-        </div>
-    </div>
-</header>
-
-<div class="content">
-    <div class="container">
-        <div class="row"> 
-            <div class="col-3"></div> 
-            <div class="col-8 slider">
-                <div class="row">
-                    <div class="col-auto scheme-light">
-                        <div class="slider-description">
-                            <p>Subtitle for this title</p>
-                            <h1>Camping & Hiking  Products Discount</h1>
-                            <p>Unpacked reserver sir offering bed judgment may and quitting speaking.</p>
-                        </div>  
-                        <a class="read-more-btn" href="#">Read More</a>
-                        <div class="slider-btn">
-                            <a class='switch-btn'>&lt;</a>
-                            <a class='switch-btn'>&gt;</a>
-                        </div>
+    <header>
+        <div class="header-top">
+            <div class="container scheme-light">
+                <div class="row align-center">
+                    <div class="col-auto">
+                        <ul class="nav display-flex">
+                            <li class="size-s opacity-80">Call Now: <a href="tel:+035527171070">(+035)
+                                    527-1710-70</a></li>
+                            <li class="size-s opacity-80">Email: <a
+                                    href="mailto:Contact@hyperion.com">Contact@hyperion.com</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <img class="product-img" src="views/img/products/hyperion-product-img-26.jpg" alt="Product img">
-                            <div class="col-auto">
-                                <p>Eta Lite - Gas Stove</p>
-                                <p class="price">$ 111.96</p>
-                                <p class="old-price">$ 139.95</p>
-                                <a href="#">View More →</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <img class="product-img" src="views/img/products/hyperion-product-img-26.jpg" alt="Product img">
-                            <div class="col-auto">
-                                <p>Eta Lite - Gas Stove</p>
-                                <p class="price">$ 111.96</p>
-                                <p class="old-price">$ 139.95</p>
-                                <a href="#">View More →</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <img  class="product-img" src="views/img/products/hyperion-product-img-26.jpg" alt="Product img">
-                            <div class="col-auto">
-                                <p>Eta Lite - Gas Stove</p>
-                                <p class="price">$ 111.96</p>
-                                <p class="old-price">$ 139.95</p>
-                                <a href="#">View More →</a>
-                            </div>
-                        </div>
+                    <div class="col-auto display-flex col-right content-center no-filter">
+                        <p class="subtitle opacity-80">Ample end might folly quiet one
+                            set spoke.</p>
+                        <ul class="nav style-bordered">
+                            <li class="has-dropdown size-s opacity-80">
+                                <a href="/?currency=uan">USD</a>
+                            </li>
+                            <li class="has-dropdown size-s opacity-80">
+                                <a href="/?language=ua">
+                                    <img class="usa" src="/views/img/svg/usa.svg" alt>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <div class="header-middle">
+            <div class="container scheme-dark">
+                <div class="row content-center">
+                    <div class="col-fixed ">
+                        <div class="logo">
+                            <a href="/">
+                                <img src="/views/img/svg/hyperion-logo.svg" alt="Hyperion logo">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-auto">
+                        <form class="input-form display-flex">
+                            <div class="input-field">
+                                <input placeholder="Smart watch" type="text">
+                                <div class="select-category scheme-dark has-dropdown ">
+                                    <a class="display-flex" href="#">Select
+                                        Category</a>
+                                </div>
+                            </div>
+
+                            <a title="Search" class="btn input-button display-flex content-center" type="submit"><img
+                                    class="search-img" src="/views/img/svg/search.svg" alt></a>
+
+                        </form>
+                    </div>
+
+                    <div class="col-fixed">
+                        <div class="profile-element">
+                            <a class="content-center display-flex" href="#">
+                                <img src="/views/img/svg/account.svg" alt="Account">
+                                <span>My account</span>
+                            </a>
+                        </div>
+
+                        <div class="profile-element wish">
+                            <a class="content-center display-flex" href="#">
+                                <img src="/views/img/svg/wish.svg" alt="Wish">
+                            </a>
+                        </div>
+
+                        <div class="profile-element">
+                            <a class="content-center display-flex" href="#">
+                                <img src="/views/img/svg/shop.svg" alt="Shop">
+                                <span>$280.00</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <div class="row align-center bg-white">
+                    <div class="col-fixed">
+                        <div class="browse-categories">
+                            <div class="heading scheme-light">
+                                <div class="dropdown-title display-flex align-center justify-center">
+                                    <div class="left display-flex content-center">
+                                        <img class="browse-sign" src="/views/img/svg/browse.svg"
+                                            alt="Browse Categories Icon">
+                                        <span class="button-title">Browse
+                                            Categories</span>
+                                    </div>
+                                    <div class="right">
+                                        <img class="dropdown-icon" src="/views/img/svg/dropdown-sign.svg" alt>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="dropdown always-open">
+                                <div class="scheme-dark">
+                                    <ul class="vertical nav display-flex column">
+                                        <li class="has-dropdown-horizontal">
+                                            <a href="#">
+                                                <span class="display-flex">
+                                                    <img class="item-icon"
+                                                        src="/views/img/svg/category-menu/hyperion-line-dress.svg" alt>
+                                                    <p>Women's clothing</p>
+                                                </span>
+                                                <img class="dropdown-icon" src="/views/img/svg/dropdown-sign.svg" alt>
+                                            </a>
+                                        </li>
+                                        <li class="has-dropdown-horizontal">
+                                            <a href="#">
+                                                <span class="display-flex">
+                                                    <img class="item-icon"
+                                                        src="/views/img/svg/category-menu/hyperion-line-volunteer.svg"
+                                                        alt>
+                                                    <p>Mans clothing</p>
+                                                </span>
+                                                <img class="dropdown-icon" src="/views/img/svg/dropdown-sign.svg" alt>
+                                            </a>
+                                        </li>
+                                        <li class="has-dropdown-horizontal">
+                                            <a href="#">
+                                                <span class="display-flex">
+                                                    <img class="item-icon"
+                                                        src="/views/img/svg/category-menu/hyperion-line-smartphone.svg"
+                                                        alt>
+                                                    <p>Phones and
+                                                        accessories</p>
+                                                </span>
+                                                <img class="dropdown-icon" src="/views/img/svg/dropdown-sign.svg" alt>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img class="item-icon"
+                                                    src="/views/img/svg/category-menu/hyperion-line-hammer.svg" alt>
+                                                <span>Industrial and
+                                                    building tools</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img class="item-icon"
+                                                    src="/views/img/svg/category-menu/hyperion-line-car-parts.svg" alt>
+                                                <span>Cars and motorcycles</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img class="item-icon"
+                                                    src="/views/img/svg/category-menu/hyperion-line-duck.svg" alt>
+                                                <span>Toys hobbies and robot</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img class="item-icon"
+                                                    src="/views/img/svg/category-menu/hyperion-line-watch.svg" alt>
+                                                <span>Watches and trackers</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img class="item-icon"
+                                                    src="/views/img/svg/category-menu/hyperion-line-lamp.svg" alt>
+                                                <span>Lights and lighting</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img class="item-icon"
+                                                    src="/views/img/svg/category-menu/hyperion-line-heart.svg" alt>
+                                                <span>Health protection</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto col-sm-10 scheme-dark ">
+                        <ul class="nav">
+                            <li class="has-dropdown"><a href="/?action=home"><span class="active">Home</span></a></li>
+                            <li class="has-dropdown"><a href="/?action=shop">Shop</a></li>
+                            <li class="has-dropdown"><a href="#">Blog</a></li>
+                            <li><a href="/?action=about-us">About us</a></li>
+                            <li><a href="/?action=contact-us">
+                                    Contact us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <div class="promo-block style-bordered col-right display-flex">
+                            <a href="#" class="purchase-now">Purchase Now!</a>
+                            <p>Free Shipping from $300</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>

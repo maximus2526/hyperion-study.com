@@ -1,0 +1,69 @@
+
+.block-title.main {
+    margin-bottom: 40px;
+}
+
+.contact-blocks {
+    margin-bottom: 50px;
+}
+
+table {
+    border-spacing:50px;
+    width: 100%;
+
+    td {
+        padding: 10px;
+      }
+}
+
+
+.contact-block {
+    padding: 50px;
+
+    .block-title {
+        padding-top: 0;   
+    }
+
+}
+
+.widget {
+    height: 100%;
+}
+
+// form
+
+.send-btn {
+    background: #1169b6;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 40px;
+    border: none;
+    &:hover {
+        color: white;
+        background: #073d6d;
+    }
+}
+
+.questions-form {
+    margin-bottom: 50px;
+    input {
+        width: 100%;
+        height: 30px;
+        margin-bottom: 20px;
+        box-shadow: none;
+        border-style:solid;
+        border-color: #e9e9e9;
+        &::placeholder {
+            font-size: 12px;
+            opacity: 50%;
+            padding-left: 10px;
+        }
+    }
+    .big-input {
+        min-height: 100px;
+    }
+}
+
+.another-contact-method .read-more-btn{
+    white-space: nowrap;
+}
