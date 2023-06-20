@@ -17,3 +17,7 @@ function render(string $name, array $tamplate_data = NULL)
     include_once 'views/' . $name . '.php';
     include_once 'views/footer.php';
 }
+
+function throw_404() {
+    redirect("404.php");
+}

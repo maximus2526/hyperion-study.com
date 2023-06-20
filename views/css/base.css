@@ -78,10 +78,11 @@
 
 .info-blocks {
   margin-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 .info-block {
-  gap: 40px;
+  gap: 15px;
 }
 .info-block img {
   min-width: 30px;

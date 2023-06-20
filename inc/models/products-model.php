@@ -29,7 +29,6 @@ class Products_Model
         return $product;
     }
 
-
     public function get_count_of_buttons(array $options)
     {
         $sql = "SELECT COUNT(*) FROM `products`;";
@@ -41,6 +40,31 @@ class Products_Model
         }
         return range(1, count(array_chunk(range(1, $products_count), $options['entries_limit'])));
     }
+
+
+    public function get_bestsellers()
+    {
+        $sql = "SELECT * FROM `products` ORDER BY `products`.`order_number` DESC LIMIT 6";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        $products = $statement->fetchAll();
+        return $products;
+    }
+
+    public function get_top_products(int $limit, string $column)
+    {
+        $options = [
+            'limit' => $limit,
+        ];
+
+        $sql = "SELECT * FROM `products` ORDER BY `products`.`{$column}` DESC LIMIT :limit";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute($options);
+        $products = $statement->fetchAll();
+        return $products;
+    }
+
+
 
 
 }
