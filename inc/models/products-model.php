@@ -20,13 +20,14 @@ class Products_Model
         return $products;
     }
 
-    function get_product(int $product_id)
+    function get_banner_products(array $product_ids)
     {
-        $sql = "SELECT * FROM `products` WHERE product_id = {$product_id}";
+        $placeholders = implode(' , ', array_fill(0, count($product_ids), '?'));
+        $sql = "SELECT * FROM `products` WHERE product_id IN ({$placeholders})";
         $statement = $this->pdo->prepare($sql);
-        $statement->execute();
-        $product = $statement->fetchAll();
-        return $product;
+        $statement->execute($product_ids);
+        $products = $statement->fetchAll();
+        return $products;
     }
 
     
@@ -44,7 +45,7 @@ class Products_Model
     }
 
 
-    public function get_bestsellers()
+    public function get_bestsellers_products()
     {
         $sql = "SELECT * FROM `products` ORDER BY `products`.`order_number` DESC LIMIT 6";
         $statement = $this->pdo->prepare($sql);
@@ -53,21 +54,14 @@ class Products_Model
         return $products;
     }
 
-    public function get_top_products(int $limit, string $column)
+    public function get_recomended_products()
     {
-        $options = [
-            'limit' => $limit,
-        ];
-
-        $sql = "SELECT * FROM `products` ORDER BY `products`.`{$column}` DESC LIMIT :limit";
+        $sql = "SELECT * FROM `products` ORDER BY `products`.`order_number` DESC LIMIT 8";
         $statement = $this->pdo->prepare($sql);
-        $statement->execute($options);
+        $statement->execute();
         $products = $statement->fetchAll();
         return $products;
     }
-
-
-
 
 }
 
