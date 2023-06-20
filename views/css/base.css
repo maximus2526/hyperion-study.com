@@ -202,6 +202,9 @@
   font-size: 15px;
   color: #1169b6;
 }
+.price::after {
+  content: " $";
+}
 
 .view-more {
   font-weight: 600;

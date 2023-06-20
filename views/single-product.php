@@ -10,7 +10,7 @@
                 <div class="col-6">
                     <div class="product-img-section">
                         <div class="product-img">
-                            <img src="/views/img/products/hyperion-product-img-1.jpg" alt="Product img">
+                            <img class="<?php echo $product['hot'] ?>" src="<?php echo $product['product_img'] ?>" alt="Product img">
                         </div>
                         <div class="more-photo">
                             <div class="row content-center">
@@ -41,19 +41,14 @@
                         <div class="col-auto">
                             <div class="product-content bg-white">
                                 <div class="product-title display-flex space-between">
-                                    <h2 href="#">Eta Lite
-                                        - Gas Stove</h2>
+                                    <h2 href="#">
+                                        <?php echo $product['product_name'] ?>
+                                    </h2>
                                 </div>
                                 <div class="product-description">
                                     <div class="product-info">
                                         <p class="text">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat dolor,
-                                            qui ut
-                                            nobis
-                                            sit in facilis quae omnis blanditiis? Neque ipsa numquam hic velit
-                                            laboriosam!
-                                            Saepe
-                                            esse magnam iste laudantium!
+                                            <?php echo $product['short_description'] ?>
                                         </p>
 
                                     </div>
@@ -69,8 +64,8 @@
                                 <div class="block-purchase display-flex gap col-right content-center">
                                     <div class="block-price display-flex gap-5 content-center">
                                         <p class="text">Price:</p>
-                                        <p class="price">$111.96</p>
-                                        <p class="old-price">$139.95</p>
+                                        <p class="price"><?php echo $product['product_cost'] ?></p>
+                                
                                     </div>
                                     <div class="add-to-cart">
                                         <a class="btn" href="#">Add to cart </a>

@@ -251,6 +251,10 @@
 .price {
     font-size: 15px;
     color: #1169b6;
+
+    &::after {
+        content: " $";
+    }
 }
 
 

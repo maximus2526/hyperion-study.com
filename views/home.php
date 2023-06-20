@@ -37,64 +37,29 @@
 
                             <div class="col-6 scheme-dark">
                                 <div class="products">
+                                
                                     <div class="row">
-                                        <div class="col-12">
-                                            <div class="product design-horizontal bg-white">
-                                                <div class="product-img">
-                                                    <img src="/views/img/products/hyperion-product-img-26.jpg"
-                                                        alt="Product img">
-                                                </div>
 
-                                                <div class="product-content">
-                                                    <a href="#">Eta Lite
-                                                        - Gas Stove</a>
-                                                    <p class="price">$
-                                                        111.96</p>
-                                                    <p class="old-price">$
-                                                        139.95</p>
-                                                    <a class="views-more" href="#">View
-                                                        More →</a>
+                                        <?php foreach($banner_products as $product): ?>
+                                            <div class="col-12">
+                                                <div class="product design-horizontal bg-white">
+                                                    <div class="product-img">
+                                                        <img src="<?php echo $product["product_img"] ?>"
+                                                            alt="Product img">
+                                                    </div>
+
+                                                    <div class="product-content">
+                                                        <p href="#"><?php echo $product["product_name"] ?></p>
+                                                        <p class="price">
+                                                            <?php echo $product["product_cost"] ?></p>
+                                                        <p class="old-price">
+                                                            139.95</p>
+                                                        <a class="views-more" href="<?php get_url() ?>?action=product&product-id=<?php echo $product['product_id'] ?>">View
+                                                            More →</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="product design-horizontal bg-white">
-                                                <div class="product-img">
-                                                    <img src="/views/img/products/hyperion-product-img-26.jpg"
-                                                        alt="Product img">
-                                                </div>
-
-                                                <div class="product-content">
-                                                    <a href="#">Eta Lite
-                                                        - Gas Stove</a>
-                                                    <p class="price">$
-                                                        111.96</p>
-                                                    <p class="old-price">$
-                                                        139.95</p>
-                                                    <a class="views-more" href="#">View
-                                                        More →</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="product design-horizontal bg-white">
-                                                <div class="product-img">
-                                                    <img src="/views/img/products/hyperion-product-img-26.jpg"
-                                                        alt="Product img">
-                                                </div>
-
-                                                <div class="product-content">
-                                                    <a href="#">Eta Lite
-                                                        - Gas Stove</a>
-                                                    <p class="price">$
-                                                        111.96</p>
-                                                    <p class="old-price">$
-                                                        139.95</p>
-                                                    <a class="views-more" href="#">View
-                                                        More →</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       <?php endforeach; ?>
 
                                     </div>
                                 </div>
@@ -202,8 +167,8 @@
                                     <a href="#" class="product-title">Samsung
                                         Galaxy S20 Ultra</a>
                                 </div>
-                                <div class="price">
-                                    <p class="price">$ 1300.00</p>
+                                <div class="price-block">
+                                    <p class="price"> 1300.00</p>
                                 </div>
                             </div>
                         </div>
@@ -218,8 +183,8 @@
                                     <a href="#" class="product-title">Samsung
                                         Galaxy S20 Ultra</a>
                                 </div>
-                                <div class="price">
-                                    <p class="price">$ 1300.00</p>
+                                <div class="price-block">
+                                    <p class="price"> 1300.00</p>
                                 </div>
                             </div>
                         </div>
@@ -234,8 +199,8 @@
                                     <a href="#" class="product-title">Samsung
                                         Galaxy S20 Ultra</a>
                                 </div>
-                                <div class="price">
-                                    <p class="price">$ 1300.00</p>
+                                <div class="price-block">
+                                    <p class="price"> 1300.00</p>
                                 </div>
                             </div>
                         </div>
@@ -250,8 +215,8 @@
                                     <a href="#" class="product-title">Samsung
                                         Galaxy S20 Ultra</a>
                                 </div>
-                                <div class="price">
-                                    <p class="price">$ 1300.00</p>
+                                <div class="price-block">
+                                    <p class="price"> 1300.00</p>
                                 </div>
                             </div>
                         </div>
@@ -266,8 +231,8 @@
                                     <a href="#" class="product-title">Samsung
                                         Galaxy S20 Ultra</a>
                                 </div>
-                                <div class="price">
-                                    <p class="price">$ 1300.00</p>
+                                <div class="price-block">
+                                    <p class="price"> 1300.00</p>
                                 </div>
                             </div>
                         </div>
@@ -282,8 +247,8 @@
                                     <a href="#" class="product-title">Samsung
                                         Galaxy S20 Ultra</a>
                                 </div>
-                                <div class="price">
-                                    <p class="price">$ 1300.00</p>
+                                <div class="price-block">
+                                    <p class="price"> 1300.00</p>
                                 </div>
                             </div>
                         </div>
@@ -660,8 +625,8 @@
                                             <a href="#" class="product-title">Samsung
                                                 Galaxy S20</a>
                                         </div>
-                                        <div class="price">
-                                            <p class="price">$ 1300.00</p>
+                                        <div class="price-block">
+                                            <p class="price"> 1300.00</p>
                                         </div>
                                     </div>
                                 </div>
@@ -676,8 +641,8 @@
                                             <a href="#" class="product-title">Patterned
                                                 shirt</a>
                                         </div>
-                                        <div class="price">
-                                            <p class="price">$ 30.00</p>
+                                        <div class="price-block">
+                                            <p class="price"> 30.00</p>
                                         </div>
                                     </div>
                                 </div>
@@ -692,8 +657,8 @@
                                             <a href="#" class="product-title">Junghans
                                                 Max Bill</a>
                                         </div>
-                                        <div class="price">
-                                            <p class="price">$ 695.00</p>
+                                        <div class="price-block">
+                                            <p class="price"> 695.00</p>
                                         </div>
                                     </div>
                                 </div>
@@ -707,8 +672,8 @@
                                         <div class="product-title">
                                             <a href="#" class="product-title">OneBlade</a>
                                         </div>
-                                        <div class="price">
-                                            <p class="price">$ 80.00</p>
+                                        <div class="price-block">
+                                            <p class="price"> 80.00</p>
                                         </div>
                                     </div>
                                 </div>
@@ -723,8 +688,8 @@
                                             <a href="#" class="product-title">Dji
                                                 mavic mini</a>
                                         </div>
-                                        <div class="price">
-                                            <p class="price">$ 400.00</p>
+                                        <div class="price-block">
+                                            <p class="price"> 400.00</p>
                                         </div>
                                     </div>
                                 </div>
@@ -739,8 +704,8 @@
                                             <a href="#" class="product-title">Braun
                                                 electric shaver</a>
                                         </div>
-                                        <div class="price">
-                                            <p class="price">$ 125.50</p>
+                                        <div class="price-block">
+                                            <p class="price"> 125.50</p>
                                         </div>
                                     </div>
                                 </div>
@@ -755,8 +720,8 @@
                                             <a href="#" class="product-title">fujijilm
                                                 x-pro3</a>
                                         </div>
-                                        <div class="price">
-                                            <p class="price">$ 2300.00</p>
+                                        <div class="price-block">
+                                            <p class="price"> 2300.00</p>
                                         </div>
                                     </div>
                                 </div>
@@ -771,8 +736,8 @@
                                             <a href="#" class="product-title">cotton
                                                 pants</a>
                                         </div>
-                                        <div class="price">
-                                            <p class="price">$ 80.00</p>
+                                        <div class="price-block">
+                                            <p class="price"> 80.00</p>
                                         </div>
                                     </div>
                                 </div>

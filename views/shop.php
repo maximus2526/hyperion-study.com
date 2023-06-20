@@ -158,288 +158,55 @@
 
                 <div class="products scheme-dark">
                     <div class="row content-center row-spacing">
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
+                        <?php foreach ($products as $product): ?>
+                            <div class="col-3">
+                                <div
+                                    class="product <?php echo ($product['hot'] == 1 ? "hot" : "")?>">
+                                    <div class="product-img">
+                                        <img src="<?php echo $product['product_img'] ?>" alt="product's img">
                                     </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
+                                    <div class="product-content">
+                                        <div class="product-title">
+                                            <a href="<?php get_url() ?>?action=product&product-id=<?php echo $product['product_id'] ?>" class="product-title">
+                                                <?php echo $product['product_name'] ?>
+                                            </a>
+                                        </div>
+                                        <div class="price">
+                                            <p class="price">
+                                                <?php echo $product['product_cost']?>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="product hot">
-                                <div class="product-img">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="product's img">
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title">Samsung
-                                            Galaxy S20 Ultra</a>
-                                    </div>
-                                    <div class="price">
-                                        <p class="price">$ 1300.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
-                <div class="pagination display-flex content-center gap">
-                    <div class="arrow-left">
-                        <a href="#">
-                            <img src="/views/img/svg/arrow-3/arrow-left.svg" alt>
-                        </a>
-                    </div>
 
-                    <div class="pagination-button active scheme-light">
-                        <a href="#">1.</a>
-                    </div>
-                    <div class="pagination-button">
-                        <a href="#">2.</a>
-                    </div>
-                    <div class="pagination-button">
-                        <a href="#">3.</a>
-                    </div>
+                <?php if (count($pages) > 1): ?>
+                    <div class="pagination display-flex content-center gap">
+                        <div class="arrow-left">
+                            <a href="<?php get_url() ?>?action=shop&page_num=<?php echo $_GET['page_num'] <= 1 ? 1 : $_GET['page_num'] - 1 ?>">
+                                <img src="/views/img/svg/arrow-3/arrow-left.svg" alt>
+                            </a>
+                        </div>
+                        <?php
+                        foreach ($pages as $pagenum):
+                            ?>
+                            <div class="pagination-button active scheme-light">
+                                <a href="/?action=shop&page_num=<?php echo $pagenum ?>"><?php echo $pagenum ?></a>
+                            </div>
+                            <?php
+                        endforeach;
+                        ?>
 
-                    <div class="arrow-right scheme-dark">
-                        <a href="#" class="display-flex">
-                            <p class="text">Next</p>
-                            <img src="/views/img/svg/arrow-3/arrow-right.svg" alt>
-                        </a>
-                    </div>
-
+                        <div class="arrow-right scheme-dark">
+                            <a class="display-flex" href="<?php get_url() ?>?action=shop&page_num=<?php echo $_GET['page_num'] < end($pages) ? $_GET['page_num'] + 1 :  $_GET['page_num'] ?>">
+                                <p class="text">Next</p>
+                                <img src="/views/img/svg/arrow-3/arrow-right.svg" alt>
+                            </a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

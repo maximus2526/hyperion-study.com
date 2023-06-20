@@ -16,7 +16,7 @@
                 case 'contact-us':
                     $this->hyperion_controller->render_contact_us_action();
                     break;
-                case 'single-product':
+                case 'product':
                     $this->hyperion_controller->render_single_product_action();
                     break;
                 default:

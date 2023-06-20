@@ -1,13 +1,18 @@
 <?php
-function get_url(){
+function get_url()
+{
     return 'http://' . $_SERVER['SERVER_NAME'];
 }
 
-function redirect(string $path = ''){
-    header("Location: /".$path);
+function redirect(string $path = '')
+{
+    header("Location: /" . $path);
 }
 
-function render(string $name){
+function render(string $name, array $tamplate_data = NULL)
+{
+    if (isset($tamplate_data))
+        extract($tamplate_data);
     include_once 'views/header.php';
     include_once 'views/' . $name . '.php';
     include_once 'views/footer.php';
