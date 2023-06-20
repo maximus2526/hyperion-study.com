@@ -171,7 +171,7 @@
                                                 <?php echo $product['product_name'] ?>
                                             </a>
                                         </div>
-                                        <div class="price">
+                                        <div class="price-block">
                                             <p class="price">
                                                 <?php echo $product['product_cost']?>
                                             </p>
