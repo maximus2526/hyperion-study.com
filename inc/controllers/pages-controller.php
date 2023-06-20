@@ -12,19 +12,12 @@ class Pages_Controller
 
     public function render_main_page_action()
     {
-        $needed_products_id = [3, 4, 5]; // Choice product ids for home page banner's products
-        $banner_products = array();
-        foreach ($needed_products_id as $id) {
-            $product = $this->products_model->get_product($id)[0]; 
-            if (!empty($product)) {
-                array_push($banner_products, $product);
-            } 
-        }
-
+        $banner_products_id = [3, 4, 5]; // Choice product ids for home page banner's products
+        $banner_products = $this->products_model->get_banner_products($banner_products_id); // Дороби
         $tamplate_data = [
             'banner_products' => $banner_products,
-            'bestsellers' => $this->products_model->get_top_products(6, 'order_number'),
-            'recomended_products' => $this->products_model->get_top_products(8, 'recommended'),
+            'bestsellers' => $this->products_model->get_bestsellers_products(),
+            'recomended_products' => $this->products_model->get_recomended_products(),
         ];
 
         render('home', $tamplate_data);
@@ -46,7 +39,7 @@ class Pages_Controller
 
     public function render_single_product_action()
     {
-
+        
         $tamplate_data = [
             'product' => $this->products_model->get_product($_GET['product-id'])[0],
         ];
@@ -68,6 +61,6 @@ class Pages_Controller
     }
 
 
-  
+
 
 }
