@@ -107,7 +107,8 @@
                                             Categories</span>
                                     </div>
                                     <div class="right">
-                                        <img class="dropdown-icon" src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
+                                        <img class="dropdown-icon"
+                                            src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
                                     </div>
 
 
@@ -120,10 +121,12 @@
                                             <a href="#">
                                                 <span class="display-flex">
                                                     <img class="item-icon"
-                                                        src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-dress.svg" alt>
+                                                        src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-dress.svg"
+                                                        alt>
                                                     <p>Women's clothing</p>
                                                 </span>
-                                                <img class="dropdown-icon" src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
+                                                <img class="dropdown-icon"
+                                                    src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
                                             </a>
                                         </li>
                                         <li class="has-dropdown-horizontal">
@@ -134,7 +137,8 @@
                                                         alt>
                                                     <p>Mans clothing</p>
                                                 </span>
-                                                <img class="dropdown-icon" src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
+                                                <img class="dropdown-icon"
+                                                    src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
                                             </a>
                                         </li>
                                         <li class="has-dropdown-horizontal">
@@ -146,13 +150,15 @@
                                                     <p>Phones and
                                                         accessories</p>
                                                 </span>
-                                                <img class="dropdown-icon" src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
+                                                <img class="dropdown-icon"
+                                                    src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <img class="item-icon"
-                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-hammer.svg" alt>
+                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-hammer.svg"
+                                                    alt>
                                                 <span>Industrial and
                                                     building tools</span>
                                             </a>
@@ -160,35 +166,40 @@
                                         <li>
                                             <a href="#">
                                                 <img class="item-icon"
-                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-car-parts.svg" alt>
+                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-car-parts.svg"
+                                                    alt>
                                                 <span>Cars and motorcycles</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <img class="item-icon"
-                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-duck.svg" alt>
+                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-duck.svg"
+                                                    alt>
                                                 <span>Toys hobbies and robot</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <img class="item-icon"
-                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-watch.svg" alt>
+                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-watch.svg"
+                                                    alt>
                                                 <span>Watches and trackers</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <img class="item-icon"
-                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-lamp.svg" alt>
+                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-lamp.svg"
+                                                    alt>
                                                 <span>Lights and lighting</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <img class="item-icon"
-                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-heart.svg" alt>
+                                                    src="<?php get_url() ?>views/img/svg/category-menu/hyperion-line-heart.svg"
+                                                    alt>
                                                 <span>Health protection</span>
                                             </a>
                                         </li>
@@ -199,12 +210,23 @@
                     </div>
                     <div class="col-auto col-sm-10 scheme-dark ">
                         <ul class="nav">
-                            <li class="has-dropdown"><a href="/?action=home"><span class="active">Home</span></a></li>
-                            <li class="has-dropdown"><a href="/?action=shop">Shop</a></li>
-                            <li class="has-dropdown"><a href="#">Blog</a></li>
-                            <li><a href="/?action=about-us">About us</a></li>
-                            <li><a href="/?action=contact-us">
-                                    Contact us</a></li>
+                            <li class="has-dropdown"><a href="/?action=home"><span
+                                        class="<?php echo $_GET['action'] == "home" ? "active" : "" ?>">Home</span></a>
+                            </li>
+                            <li class="has-dropdown"><a href="/?action=shop"><span
+                                        class="<?php echo $_GET['action'] == "shop" ? "active" : "" ?>">Shop</span></a>
+                            </li>
+                            <li class="has-dropdown"><a href="#"><span
+                                        class="<?php echo $_GET['action'] == "blog" ? "active" : "" ?>">Blog</span></a>
+                            </li>
+                            <li><a href="/?action=about-us"><span
+                                        class="<?php echo $_GET['action'] == "about-us" ? "active" : "" ?>">About
+                                        us</span></a>
+                            </li>
+                            <li><a href="/?action=contact-us"><span
+                                        class="<?php echo $_GET['action'] == "contact-us" ? "active" : "" ?>">Contact
+                                        us</span>
+                                </a></li>
                         </ul>
                     </div>
                     <div class="col-auto">

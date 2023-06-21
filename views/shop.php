@@ -88,7 +88,8 @@
                         <div class="products ">
                             <div class="product design-horizontal bg-white">
                                 <div class="product-img">
-                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-20.jpg" alt="Product img">
+                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-20.jpg"
+                                        alt="Product img">
                                 </div>
 
                                 <div class="product-content">
@@ -100,7 +101,8 @@
                             </div>
                             <div class="product design-horizontal bg-white">
                                 <div class="product-img">
-                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-21.jpg" alt="Product img">
+                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-21.jpg"
+                                        alt="Product img">
                                 </div>
 
                                 <div class="product-content">
@@ -112,7 +114,8 @@
                             </div>
                             <div class="product design-horizontal bg-white">
                                 <div class="product-img">
-                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-22.jpg" alt="Product img">
+                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-22.jpg"
+                                        alt="Product img">
                                 </div>
 
                                 <div class="product-content">
@@ -156,9 +159,12 @@
                             </p>
                         </span>
                         <span class="show-more-icons display-flex">
-                            <a href="<?php echo get_url() ?>?action=shop&layout=col-6"><img src="<?php get_url() ?>views/img/sort/2x2.png" alt></a>
-                            <a href="<?php echo get_url() ?>?action=shop&layout=col-4"><img src="<?php get_url() ?>views/img/sort/3x3.png" alt></a>
-                            <a href="<?php echo get_url() ?>?action=shop&layout=col-3"><img src="<?php get_url() ?>views/img/sort/4x4.png" alt></a>
+                            <a href="<?php echo get_url() ?>?action=shop&layout=col-6"><img
+                                    src="<?php get_url() ?>views/img/sort/2x2.png" alt></a>
+                            <a href="<?php echo get_url() ?>?action=shop&layout=col-4"><img
+                                    src="<?php get_url() ?>views/img/sort/3x3.png" alt></a>
+                            <a href="<?php echo get_url() ?>?action=shop&layout=col-3"><img
+                                    src="<?php get_url() ?>views/img/sort/4x4.png" alt></a>
                         </span>
 
                     </div>
@@ -202,7 +208,8 @@
                         <?php
                         foreach ($pages as $pagenum):
                             ?>
-                            <div class="pagination-button <? echo $pagenum == $_GET['page_num'] ? 'active': ''  ?> scheme-light">
+                            <div
+                                class="pagination-button <? echo $pagenum == $_GET['page_num'] ? 'active' : '' ?> scheme-light">
                                 <a href="/?action=shop&<?php echo $has_сount_of_products ?>page_num=<?php echo $pagenum ?>"><?php echo $pagenum ?></a>
                             </div>
                             <?php

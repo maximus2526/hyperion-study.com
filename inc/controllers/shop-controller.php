@@ -10,11 +10,6 @@ class Shop_Controller
         $this->errors = $errors;
     }
 
-    public function switch_product_layout_action()
-    {
-
-    }
-
 
     public function render_shop_action()
     {
@@ -41,7 +36,7 @@ class Shop_Controller
         $has_paginated = has_param('page_num'); // For saving page with changed filter 
         $has_сount_of_products = has_param('count_of_products'); // For saving showing more products with changed page
 
-        $tamplate_data = [
+        $template_data = [
             'count_of_products' => $count_of_products,
             'products_limit' => $products_limit,
             'products' => $this->products_model->get_paginated_products($model_options),
@@ -50,7 +45,7 @@ class Shop_Controller
             'has_сount_of_products' => $has_сount_of_products,
         ];
 
-        render('shop', $tamplate_data);
+        render('shop', $template_data);
     }
 
 
