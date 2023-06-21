@@ -31,8 +31,9 @@ class Errors
     {
         if (!empty($_SESSION['errors'])) {
             echo "<div class='errors'>";
+            echo "<p class='text'>We are having problems:</p>";
             foreach ($_SESSION['errors'] as $error) {
-                echo "<p class='errors-text'>$error</p>";
+                echo "<p class='text bold'>$error</p>";
             }
             echo "</div>";
             Errors::clean();

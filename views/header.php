@@ -90,7 +90,13 @@
 
                     </div>
                 </div>
+                <?php
+
+                Errors::display();
+
+                ?>
             </div>
+
         </div>
         <div class="header-bottom">
             <div class="container">
@@ -216,4 +222,5 @@
                 </div>
             </div>
         </div>
+
     </header>

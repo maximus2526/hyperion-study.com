@@ -4,9 +4,10 @@ class Pages_Controller
 {
     public $products_model;
     public $errors;
-    public function __construct($products_model)
+    public function __construct($products_model, $errors)
     {
         $this->products_model = $products_model;
+        $this->errors = $errors;
     }
 
     public function render_main_page_action()

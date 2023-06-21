@@ -31,11 +31,12 @@ class App
         include_once 'controllers/single-product-controller.php';
         include_once 'controllers/contact-us-controller.php';
         include_once 'router.php';
+        $errors = new Errors;
         $products_model = new Products_Model($this->pdo);
-        $pages_controller = new Pages_Controller($products_model);
-        $shop_controller = new Shop_Controller($products_model);
-        $contact_us_controller = new Contact_Us_Controller();
-        $single_product_controller = new Single_Product_Controller($products_model);
+        $pages_controller = new Pages_Controller($products_model, $errors);
+        $shop_controller = new Shop_Controller($products_model, $errors);
+        $contact_us_controller = new Contact_Us_Controller($errors);
+        $single_product_controller = new Single_Product_Controller($products_model, $errors);
         $to_route_list = [
             "pages_controller" => $pages_controller,
             "shop_controller" => $shop_controller,
