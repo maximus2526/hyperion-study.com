@@ -37,10 +37,10 @@ class App
         $contact_us_controller = new Contact_Us_Controller();
         $single_product_controller = new Single_Product_Controller($products_model);
         $to_route_list = [
-            "pages_controller" =>  $pages_controller,
+            "pages_controller" => $pages_controller,
             "shop_controller" => $shop_controller,
             "single_product_controller" => $single_product_controller,
-            "contact_us_controller" =>  $contact_us_controller,
+            "contact_us_controller" => $contact_us_controller,
         ];
 
         $router = new Router($to_route_list);

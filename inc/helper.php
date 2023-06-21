@@ -4,6 +4,7 @@ function get_url()
     return 'http://' . $_SERVER['SERVER_NAME'];
 }
 
+
 function redirect(string $path = '')
 {
     header("Location: /" . $path);
@@ -18,6 +19,7 @@ function render(string $name, array $tamplate_data = NULL)
     include_once 'views/footer.php';
 }
 
-function throw_404() {
+function throw_404()
+{
     redirect("404.php");
 }

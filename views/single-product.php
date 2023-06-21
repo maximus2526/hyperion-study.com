@@ -10,7 +10,8 @@
                 <div class="col-6">
                     <div class="product-img-section">
                         <div class="product-img">
-                            <img class="<?php echo $product['hot'] ?>" src="<?php echo $product['product_img'] ?>" alt="Product img">
+                            <img class="<?php echo $product['hot'] ?>" src="<?php echo $product['product_img'] ?>"
+                                alt="Product img">
                         </div>
                         <div class="more-photo">
                             <div class="row content-center">
@@ -64,8 +65,10 @@
                                 <div class="block-purchase display-flex gap col-right content-center">
                                     <div class="block-price display-flex gap-5 content-center">
                                         <p class="text">Price:</p>
-                                        <p class="price"><?php echo $product['product_cost'] ?></p>
-                                
+                                        <p class="price">
+                                            <?php echo $product['product_cost'] ?>
+                                        </p>
+
                                     </div>
                                     <div class="add-to-cart">
                                         <a class="btn" href="#">Add to cart </a>

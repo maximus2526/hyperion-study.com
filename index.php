@@ -1,3 +1,3 @@
 <?php
-    include_once 'inc/app.php';
+include_once 'inc/app.php';
 ?>

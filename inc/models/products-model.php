@@ -20,7 +20,7 @@ class Products_Model
         return $products;
     }
 
-    
+
     public function get_count_of_buttons(array $options)
     {
         $sql = "SELECT COUNT(*) FROM `products`;";

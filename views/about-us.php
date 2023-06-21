@@ -1,7 +1,7 @@
 <style>
-.dropdown {
-    display: none;
-}
+    .dropdown {
+        display: none;
+    }
 </style>
 <div class="content">
     <div class="about-us">

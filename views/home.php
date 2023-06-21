@@ -556,7 +556,9 @@
                                                     class="product-title"><?php echo $product["product_name"] ?></a>
                                             </div>
                                             <div class="price-block">
-                                                <p class="price"> <?php echo $product["product_cost"] ?></p>
+                                                <p class="price">
+                                                    <?php echo $product["product_cost"] ?>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>

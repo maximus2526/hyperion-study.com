@@ -160,20 +160,20 @@
                     <div class="row content-center row-spacing">
                         <?php foreach ($products as $product): ?>
                             <div class="col-3">
-                                <div
-                                    class="product <?php echo ($product['hot'] == 1 ? "hot" : "")?>">
+                                <div class="product <?php echo ($product['hot'] == 1 ? "hot" : "") ?>">
                                     <div class="product-img">
                                         <img src="<?php echo $product['product_img'] ?>" alt="product's img">
                                     </div>
                                     <div class="product-content">
                                         <div class="product-title">
-                                            <a href="<?php get_url() ?>?action=product&product-id=<?php echo $product['product_id'] ?>" class="product-title">
+                                            <a href="<?php get_url() ?>?action=product&product-id=<?php echo $product['product_id'] ?>"
+                                                class="product-title">
                                                 <?php echo $product['product_name'] ?>
                                             </a>
                                         </div>
                                         <div class="price-block">
                                             <p class="price">
-                                                <?php echo $product['product_cost']?>
+                                                <?php echo $product['product_cost'] ?>
                                             </p>
                                         </div>
                                     </div>
@@ -186,7 +186,8 @@
                 <?php if (count($pages) > 1): ?>
                     <div class="pagination display-flex content-center gap">
                         <div class="arrow-left">
-                            <a href="<?php get_url() ?>?action=shop&page_num=<?php echo $_GET['page_num'] <= 1 ? 1 : $_GET['page_num'] - 1 ?>">
+                            <a
+                                href="<?php get_url() ?>?action=shop&page_num=<?php echo $_GET['page_num'] <= 1 ? 1 : $_GET['page_num'] - 1 ?>">
                                 <img src="/views/img/svg/arrow-3/arrow-left.svg" alt>
                             </a>
                         </div>
@@ -201,7 +202,8 @@
                         ?>
 
                         <div class="arrow-right scheme-dark">
-                            <a class="display-flex" href="<?php get_url() ?>?action=shop&page_num=<?php echo $_GET['page_num'] < end($pages) ? $_GET['page_num'] + 1 :  $_GET['page_num'] ?>">
+                            <a class="display-flex"
+                                href="<?php get_url() ?>?action=shop&page_num=<?php echo $_GET['page_num'] < end($pages) ? $_GET['page_num'] + 1 : $_GET['page_num'] ?>">
                                 <p class="text">Next</p>
                                 <img src="/views/img/svg/arrow-3/arrow-right.svg" alt>
                             </a>
