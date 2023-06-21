@@ -11,8 +11,9 @@ class Shop_Controller
 
     public function render_shop_action()
     {
+        $page_num = (int)$_GET['page_num'];
         $model_options = [
-            'page_num' => !$_GET['page_num'] ? 1 : $_GET['page_num'],
+            'page_num' => !$page_num ? 1 : $page_num,
             'entries_limit' => 20,
         ];
 
