@@ -2,11 +2,10 @@
 
 class Shop_Controller
 {
-    public $pages_model, $products_model;
+    public $products_model;
     public $errors;
-    public function __construct($pages_model, $products_model)
+    public function __construct($products_model)
     {
-        $this->pages_model = $pages_model;
         $this->products_model = $products_model;
     }
 
