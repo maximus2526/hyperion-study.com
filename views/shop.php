@@ -156,9 +156,9 @@
                             </p>
                         </span>
                         <span class="show-more-icons display-flex">
-                            <a href><img src="<?php get_url() ?>views/img/sort/2x2.png" alt></a>
-                            <a href><img src="<?php get_url() ?>views/img/sort/3x3.png" alt></a>
-                            <a href><img src="<?php get_url() ?>views/img/sort/4x4.png" alt></a>
+                            <a href="<?php echo get_url() ?>?action=shop&layout=col-6"><img src="<?php get_url() ?>views/img/sort/2x2.png" alt></a>
+                            <a href="<?php echo get_url() ?>?action=shop&layout=col-4"><img src="<?php get_url() ?>views/img/sort/3x3.png" alt></a>
+                            <a href="<?php echo get_url() ?>?action=shop&layout=col-3"><img src="<?php get_url() ?>views/img/sort/4x4.png" alt></a>
                         </span>
 
                     </div>
@@ -167,7 +167,7 @@
                 <div class="products">
                     <div class="row content-center row-spacing ">
                         <?php foreach ($products as $product): ?>
-                            <div class="col-3 scheme-dark">
+                            <div class="<?php echo isset($_GET["layout"]) ? $_GET["layout"] : "col-3" ?>  scheme-dark">
                                 <div class="product <?php echo ($product['hot'] == 1 ? "hot" : "") ?>">
                                     <div class="product-img">
                                         <img src="<?php echo $product['product_img'] ?>" alt="product's img">
