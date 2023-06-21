@@ -5,12 +5,12 @@ class Router
     public $shop_controller;
     public $single_product_controller;
     public $contact_us_controller;
-    public function __construct($pages_controller, $shop_controller, $single_product_controller, $contact_us_controller)
+    public function __construct(array $to_route_list)
     {
-        $this->pages_controller = $pages_controller;
-        $this->shop_controller = $shop_controller;
-        $this->single_product_controller = $single_product_controller;
-        $this->contact_us_controller = $contact_us_controller;
+        $this->pages_controller = $to_route_list['pages_controller'];
+        $this->shop_controller = $to_route_list['shop_controller'];
+        $this->single_product_controller = $to_route_list['single_product_controller'];
+        $this->contact_us_controller = $to_route_list['contact_us_controller'];
     }
     public function route()
     {

@@ -36,7 +36,14 @@ class App
         $shop_controller = new Shop_Controller($products_model);
         $contact_us_controller = new Contact_Us_Controller();
         $single_product_controller = new Single_Product_Controller($products_model);
-        $router = new Router($pages_controller, $shop_controller, $single_product_controller, $contact_us_controller);
+        $to_route_list = [
+            "pages_controller" =>  $pages_controller,
+            "shop_controller" => $shop_controller,
+            "single_product_controller" => $single_product_controller,
+            "contact_us_controller" =>  $contact_us_controller,
+        ];
+
+        $router = new Router($to_route_list);
         $router->route();
     }
 }
