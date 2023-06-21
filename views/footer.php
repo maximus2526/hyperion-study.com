@@ -5,7 +5,7 @@
                 <div class="col-3">
                     <div class="info-block content-center display-flex">
                         <div class="info-content left col-sm-12">
-                            <img src="/views/img/svg/hyperion-ferry-boat.svg" alt>
+                            <img src="<?php get_url() ?>views/img/svg/hyperion-ferry-boat.svg" alt>
                         </div>
 
                         <div class="info-content right col-sm-12">
@@ -19,7 +19,7 @@
                 <div class="col-3">
                     <div class="info-block content-center display-flex">
                         <div class="info-content left col-sm-12">
-                            <img src="/views/img/svg/hyperion-shield.svg" alt>
+                            <img src="<?php get_url() ?>views/img/svg/hyperion-shield.svg" alt>
                         </div>
 
                         <div class="info-content right col-sm-12">
@@ -31,7 +31,7 @@
                 <div class="col-3">
                     <div class="info-block content-center display-flex">
                         <div class="info-content left col-sm-12">
-                            <img src="/views/img/svg/hyperion-money.svg" alt>
+                            <img src="<?php get_url() ?>views/img/svg/hyperion-money.svg" alt>
                         </div>
 
                         <div class="info-content right col-sm-12">
@@ -45,7 +45,7 @@
                 <div class="col-3">
                     <div class="info-block content-center display-flex">
                         <div class="info-content left col-sm-12">
-                            <img src="/views/img/svg/hyperion-customer-service.svg" alt>
+                            <img src="<?php get_url() ?>views/img/svg/hyperion-customer-service.svg" alt>
                         </div>
 
                         <div class="info-content right col-sm-12">
@@ -64,7 +64,7 @@
                 <div class="col-4">
                     <div class="description">
                         <div class="hyperion-logo">
-                            <img class="logo-img" src="/views/img/svg/hyperion-logo.svg" alt="Hyperion logo">
+                            <img class="logo-img" src="<?php get_url() ?>views/img/svg/hyperion-logo.svg" alt="Hyperion logo">
                         </div>
                         <p class="text">
                             Sentiments two occasional affronting
@@ -116,8 +116,8 @@
                         <h5>Our Apps</h5>
                     </div>
                     <ul class="list-menu">
-                        <li><a href="#"><img src="/views/img/svg/google-play.svg" alt></a></li>
-                        <li><a href="#"><img src="/views/img/svg/app-store.svg" alt></a></li>
+                        <li><a href="#"><img src="<?php get_url() ?>views/img/svg/google-play.svg" alt></a></li>
+                        <li><a href="#"><img src="<?php get_url() ?>views/img/svg/app-store.svg" alt></a></li>
                     </ul>
 
                 </div>
@@ -130,26 +130,26 @@
             <div class="row ">
                 <div class="col-auto display-flex content-center">
                     <span>Payment System: </span>
-                    <img src="/views/img/svg/footer/payment/Mastercard.svg" alt>
-                    <img src="/views/img/svg/footer/payment/Visa.svg" alt>
-                    <img src="/views/img/svg/footer/payment/Apple Pay.svg" alt>
-                    <img src="/views/img/svg/footer/payment/Google Pay.svg" alt>
+                    <img src="<?php get_url() ?>views/img/svg/footer/payment/Mastercard.svg" alt>
+                    <img src="<?php get_url() ?>views/img/svg/footer/payment/Visa.svg" alt>
+                    <img src="<?php get_url() ?>views/img/svg/footer/payment/Apple Pay.svg" alt>
+                    <img src="<?php get_url() ?>views/img/svg/footer/payment/Google Pay.svg" alt>
                 </div>
                 <div class="col-auto display-flex content-center">
                     <span>Shipping System:</span>
-                    <img src="/views/img/svg/footer/shipping/dhl.svg" alt>
-                    <img src="/views/img/svg/footer/shipping/dpd.svg" alt>
-                    <img src="/views/img/svg/footer/shipping/fedex.svg" alt>
-                    <img src="/views/img/svg/footer/shipping/paypal.svg" alt>
+                    <img src="<?php get_url() ?>views/img/svg/footer/shipping/dhl.svg" alt>
+                    <img src="<?php get_url() ?>views/img/svg/footer/shipping/dpd.svg" alt>
+                    <img src="<?php get_url() ?>views/img/svg/footer/shipping/fedex.svg" alt>
+                    <img src="<?php get_url() ?>views/img/svg/footer/shipping/paypal.svg" alt>
                 </div>
 
                 <div class="col-auto display-flex content-center">
                     <span>Our Social links:</span>
-                    <a href><img src="/views/img/svg/footer/social/facebook.svg" alt></a>
-                    <a href><img src="/views/img/svg/footer/social/in.svg" alt></a>
-                    <a href><img src="/views/img/svg/footer/social/pinterest.svg" alt></a>
-                    <a href><img src="/views/img/svg/footer/social/telegram.svg" alt></a>
-                    <a href><img src="/views/img/svg/footer/social/twitter.svg" alt></a>
+                    <a href><img src="<?php get_url() ?>views/img/svg/footer/social/facebook.svg" alt></a>
+                    <a href><img src="<?php get_url() ?>views/img/svg/footer/social/in.svg" alt></a>
+                    <a href><img src="<?php get_url() ?>views/img/svg/footer/social/pinterest.svg" alt></a>
+                    <a href><img src="<?php get_url() ?>views/img/svg/footer/social/telegram.svg" alt></a>
+                    <a href><img src="<?php get_url() ?>views/img/svg/footer/social/twitter.svg" alt></a>
                 </div>
             </div>
         </div>

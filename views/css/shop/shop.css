@@ -18,22 +18,21 @@
   margin-bottom: 0;
 }
 .pagination .active {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .pagination .pagination-button a {
   display: block;
-}
-.pagination .pagination-button a:active {
-  color: #e6e6e6;
+  color: black;
 }
 .pagination .pagination-button.active a {
+  color: white;
   background-color: #1169b6;
   border: 1px solid black;
 }
 .pagination .pagination-button a {
   background-color: #ffffff;
   border: 1px solid black;
-  padding: 5px 12px;
+  padding: 5px 15px;
 }
 .pagination .text {
   opacity: 100%;

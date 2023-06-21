@@ -15,7 +15,7 @@
                     <div class="col-4 col-md-12">
                         <div class="info-block bg-white">
                             <div class="hover-bg">
-                                <img src="/views/img/hyperion-about-us-infobox-1.jpg" alt>
+                                <img src="<?php get_url() ?>views/img/hyperion-about-us-infobox-1.jpg" alt>
                             </div>
                             <div class="info-content">
                                 <p class="big-num">01.</p>
@@ -36,7 +36,7 @@
                     <div class="col-4 col-md-12">
                         <div class="info-block bg-white">
                             <div class="hover-bg">
-                                <img src="/views/img/hyperion-about-us-infobox-2.jpg" alt>
+                                <img src="<?php get_url() ?>views/img/hyperion-about-us-infobox-2.jpg" alt>
                             </div>
                             <div class="info-content">
                                 <p class="big-num">02.</p>
@@ -57,7 +57,7 @@
                     <div class="col-4 col-md-12">
                         <div class="info-block bg-white">
                             <div class="hover-bg ">
-                                <img src="/views/img/hyperion-about-us-infobox-3.jpg" alt>
+                                <img src="<?php get_url() ?>views/img/hyperion-about-us-infobox-3.jpg" alt>
                             </div>
                             <div class="info-content">
                                 <p class="big-num">03.</p>
@@ -103,7 +103,7 @@
                                 <div class="col-3">
                                     <div class="member display-flex column bg-white content-center">
                                         <div class="team-img">
-                                            <img src="/views/img/team/hyperion-team-1.jpg" alt="Member's photo">
+                                            <img src="<?php get_url() ?>views/img/team/hyperion-team-1.jpg" alt="Member's photo">
                                         </div>
 
                                         <div class="member-bio text-center">
@@ -115,14 +115,14 @@
                                             </p>
                                         </div>
                                         <div class="member-social">
-                                            <img src="/views/img/svg/mini-social/social.png" alt>
+                                            <img src="<?php get_url() ?>views/img/svg/mini-social/social.png" alt>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="member display-flex column bg-white content-center">
                                         <div class="team-img">
-                                            <img src="/views/img/team/hyperion-team-2.jpg" alt="Member's photo">
+                                            <img src="<?php get_url() ?>views/img/team/hyperion-team-2.jpg" alt="Member's photo">
                                         </div>
 
                                         <div class="member-bio text-center">
@@ -134,14 +134,14 @@
                                             </p>
                                         </div>
                                         <div class="member-social">
-                                            <img src="/views/img/svg/mini-social/social.png" alt>
+                                            <img src="<?php get_url() ?>views/img/svg/mini-social/social.png" alt>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="member display-flex column bg-white content-center">
                                         <div class="team-img">
-                                            <img src="/views/img/team/hyperion-team-3.jpg" alt="Member's photo">
+                                            <img src="<?php get_url() ?>views/img/team/hyperion-team-3.jpg" alt="Member's photo">
                                         </div>
 
                                         <div class="member-bio text-center">
@@ -153,14 +153,14 @@
                                             </p>
                                         </div>
                                         <div class="member-social">
-                                            <img src="/views/img/svg/mini-social/social.png" alt>
+                                            <img src="<?php get_url() ?>views/img/svg/mini-social/social.png" alt>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="member display-flex column bg-white content-center">
                                         <div class="team-img">
-                                            <img src="/views/img/team/hyperion-team-4.jpg" alt="Member's photo">
+                                            <img src="<?php get_url() ?>views/img/team/hyperion-team-4.jpg" alt="Member's photo">
                                         </div>
 
                                         <div class="member-bio text-center">
@@ -172,19 +172,19 @@
                                             </p>
                                         </div>
                                         <div class="member-social">
-                                            <img src="/views/img/svg/mini-social/social.png" alt>
+                                            <img src="<?php get_url() ?>views/img/svg/mini-social/social.png" alt>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="btn-left">
                                     <a href="#" class='switch-btn'>
-                                        <img src="/views/img/svg/arrow-2/left.svg" alt>
+                                        <img src="<?php get_url() ?>views/img/svg/arrow-2/left.svg" alt>
                                     </a>
                                 </div>
                                 <div class="btn-right">
                                     <a href="#" class='switch-btn'>
-                                        <img src="/views/img/svg/arrow-2/right.svg" alt>
+                                        <img src="<?php get_url() ?>views/img/svg/arrow-2/right.svg" alt>
                                     </a>
                                 </div>
                             </div>
@@ -199,8 +199,8 @@
             <div class="row">
                 <div class="col-6">
                     <div class="stack-photos">
-                        <img src="/views/img/about-us-questions-1.png" alt>
-                        <img src="/views/img/about-us-questions-2.png" alt>
+                        <img src="<?php get_url() ?>views/img/about-us-questions-1.png" alt>
+                        <img src="<?php get_url() ?>views/img/about-us-questions-2.png" alt>
                     </div>
                 </div>
                 <div class="col-6">
@@ -226,7 +226,7 @@
                                     <a href="#" class="display-flex space-between">
                                         <h6 class="title">Will I receive the same product that I see in the picture?
                                         </h6>
-                                        <img class="" src="/views/img/svg/dropdown-sign.svg" alt>
+                                        <img class="" src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
                                     </a>
                                 </div>
                                 <div class="accordion-content">
@@ -244,7 +244,7 @@
                                 <div class="accordion-heading">
                                     <a href="#" class="display-flex space-between">
                                         <h6 class="title">Where can I view my sales receipt?</h6>
-                                        <img class="" src="/views/img/svg/dropdown-sign.svg" alt>
+                                        <img class="" src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
                                     </a>
                                 </div>
                                 <div class="accordion-content closed">
@@ -262,7 +262,7 @@
                                 <div class="accordion-heading">
                                     <a href="#" class="display-flex space-between">
                                         <h6 class="title">How can I return an item?</h6>
-                                        <img class="" src="/views/img/svg/dropdown-sign.svg" alt>
+                                        <img class="" src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
                                     </a>
                                 </div>
                                 <div class="accordion-content closed">
@@ -280,7 +280,7 @@
                                 <div class="accordion-heading">
                                     <a href="#" class="display-flex space-between">
                                         <h6 class="title">Will you restock items indicated as “out of stock?”</h6>
-                                        <img class="" src="/views/img/svg/dropdown-sign.svg" alt>
+                                        <img class="" src="<?php get_url() ?>views/img/svg/dropdown-sign.svg" alt>
                                     </a>
                                 </div>
                                 <div class="accordion-content closed">

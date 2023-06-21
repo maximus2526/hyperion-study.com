@@ -16,22 +16,22 @@
                         <div class="more-photo">
                             <div class="row content-center">
                                 <div class="col-2">
-                                    <img src="/views/img/products/hyperion-product-img-1.jpg" alt="Product img">
+                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-1.jpg" alt="Product img">
                                 </div>
                                 <div class="col-2">
-                                    <img src="/views/img/products/hyperion-product-img-2.jpg" alt="Product img">
+                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-2.jpg" alt="Product img">
                                 </div>
                                 <div class="col-2">
-                                    <img src="/views/img/products/hyperion-product-img-3.jpg" alt="Product img">
+                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-3.jpg" alt="Product img">
                                 </div>
                                 <div class="col-2">
-                                    <img src="/views/img/products/hyperion-product-img-4.jpg" alt="Product img">
+                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-4.jpg" alt="Product img">
                                 </div>
                                 <div class="col-2">
-                                    <img src="/views/img/products/hyperion-product-img-5.jpg" alt="Product img">
+                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-5.jpg" alt="Product img">
                                 </div>
                                 <div class="col-2">
-                                    <img src="/views/img/products/hyperion-product-img-6.jpg" alt="Product img">
+                                    <img src="<?php get_url() ?>views/img/products/hyperion-product-img-6.jpg" alt="Product img">
                                 </div>
                             </div>
                         </div>
@@ -92,10 +92,10 @@
 
                                 <div class="shiping-system display-flex content-center gap-5">
                                     <span>Shipping System:</span>
-                                    <img src="/views/img/svg/footer/shipping/dhl.svg" alt>
-                                    <img src="/views/img/svg/footer/shipping/dpd.svg" alt>
-                                    <img src="/views/img/svg/footer/shipping/fedex.svg" alt>
-                                    <img src="/views/img/svg/footer/shipping/paypal.svg" alt>
+                                    <img src="<?php get_url() ?>views/img/svg/footer/shipping/dhl.svg" alt>
+                                    <img src="<?php get_url() ?>views/img/svg/footer/shipping/dpd.svg" alt>
+                                    <img src="<?php get_url() ?>views/img/svg/footer/shipping/fedex.svg" alt>
+                                    <img src="<?php get_url() ?>views/img/svg/footer/shipping/paypal.svg" alt>
                                 </div>
                             </div>
 
