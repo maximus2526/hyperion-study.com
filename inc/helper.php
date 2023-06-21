@@ -10,6 +10,7 @@ function has_param($param)
 }
 
 
+
 function redirect(string $path = '')
 {
     header("Location: /" . $path);
