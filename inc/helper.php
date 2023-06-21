@@ -4,7 +4,7 @@ function get_url()
     return 'http://' . $_SERVER['SERVER_NAME'];
 }
 
-function has_param($param)
+function get_param_query($param)
 {
     return isset($_GET["$param"]) ? "$param=" . (int) $_GET["$param"] . "&" : "";
 }

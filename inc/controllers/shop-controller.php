@@ -33,8 +33,8 @@ class Shop_Controller
         ];
 
         $count_of_buttons = $this->products_model->get_count_of_buttons($model_options);
-        $has_paginated = has_param('page_num'); // For saving page with changed filter 
-        $has_сount_of_products = has_param('count_of_products'); // For saving showing more products with changed page
+        $has_paginated = get_param_query('page_num'); // For saving page with changed filter 
+        $has_сount_of_products = get_param_query('count_of_products'); // For saving showing more products with changed page
 
         $template_data = [
             'count_of_products' => $count_of_products,
