@@ -72,8 +72,14 @@
                     </div>
                 </div>
             </div>
+            <?php
+
+            Errors::display();
+
+            ?>
             <div class="row">
                 <div class="col-7">
+
                     <div class="questions-form">
                         <div class="block-title display-flex column">
                             <p class="subtitle">Subtitle for this

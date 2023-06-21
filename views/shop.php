@@ -4,6 +4,11 @@
     }
 </style>
 <div class="content">
+    <?php
+
+    Errors::display();
+
+    ?>
     <div class="container">
         <div class="shop-heading size-s opacity-50 scheme-dark display-flex align-center space-between">
             <ul class="breadcrumb display-flex ">
@@ -12,7 +17,10 @@
             </ul>
 
             <div class="products-on-page">
-                <p class="size-s">Showing 1-16 of 617 results</p>
+                <p class="size-s">Showing 1-
+                    <?php echo $products_limit ?> of
+                    <?php echo $count_of_products ?> results
+                </p>
             </div>
         </div>
         <div class="row">
@@ -141,10 +149,10 @@
                         <span class="show-more">
                             <p class="size-s opacity-80">
                                 Show:
-                                <a href="#">12</a>
-                                <a href="#">16</a>
-                                <a href="#">20</a>
-                                <a href="#">24</a>
+                                <a href="/?action=shop&<?php echo $has_paginated ?>count_of_products=12">12</a>
+                                <a href="/?action=shop&<?php echo $has_paginated ?>count_of_products=16">16</a>
+                                <a href="/?action=shop&<?php echo $has_paginated ?>count_of_products=20">20</a>
+                                <a href="/?action=shop&<?php echo $has_paginated ?>count_of_products=24">24</a>
                             </p>
                         </span>
                         <span class="show-more-icons display-flex">
@@ -195,7 +203,7 @@
                         foreach ($pages as $pagenum):
                             ?>
                             <div class="pagination-button active scheme-light">
-                                <a href="/?action=shop&page_num=<?php echo $pagenum ?>"><?php echo $pagenum ?></a>
+                                <a href="/?action=shop&<?php echo $has_сount_of_products ?>page_num=<?php echo $pagenum ?>"><?php echo $pagenum ?></a>
                             </div>
                             <?php
                         endforeach;

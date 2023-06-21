@@ -9,6 +9,8 @@
 .pagination {
   margin: 0 auto;
   margin-bottom: 100px;
+  max-width: 100%;
+  overflow: auto;
   width: fit-content;
   position: relative;
 }

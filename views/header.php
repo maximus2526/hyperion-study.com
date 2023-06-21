@@ -90,11 +90,6 @@
 
                     </div>
                 </div>
-                <?php
-
-                Errors::display();
-
-                ?>
             </div>
 
         </div>

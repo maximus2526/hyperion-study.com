@@ -4,6 +4,11 @@ function get_url()
     return 'http://' . $_SERVER['SERVER_NAME'];
 }
 
+function has_param($param)
+{
+    return isset($_GET["$param"]) ? "$param=" . (int) $_GET["$param"] . "&" : "";
+}
+
 
 function redirect(string $path = '')
 {
