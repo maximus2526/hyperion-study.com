@@ -20,18 +20,7 @@ class Products_Model
         return $products;
     }
 
-    function get_banner_products(array $product_ids)
-    {
-        $placeholders = implode(' , ', array_fill(0, count($product_ids), '?'));
-        $sql = "SELECT * FROM `products` WHERE product_id IN ({$placeholders})";
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute($product_ids);
-        $products = $statement->fetchAll();
-        return $products;
-    }
-
     
-
     public function get_count_of_buttons(array $options)
     {
         $sql = "SELECT COUNT(*) FROM `products`;";
@@ -43,6 +32,28 @@ class Products_Model
         }
         return range(1, count(array_chunk(range(1, $products_count), $options['entries_limit'])));
     }
+
+    function get_banner_products(array $product_ids)
+    {
+        $placeholders = implode(' , ', array_fill(0, count($product_ids), '?'));
+        $sql = "SELECT * FROM `products` WHERE product_id IN ({$placeholders})";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute($product_ids);
+        $products = $statement->fetchAll();
+        return $products;
+    }
+
+    function get_product($product_id)
+    {
+        $sql = "SELECT * FROM `products` WHERE product_id = :product_id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindParam(':product_id', $product_id, PDO::PARAM_INT);
+        $statement->execute();
+        $product = $statement->fetchAll();
+        return $product;
+    }
+
+
 
 
     public function get_bestsellers_products()

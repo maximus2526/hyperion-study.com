@@ -1,32 +1,33 @@
-<?php 
-    class Router{
-        public $hyperion_controller;
-        public function __construct($hyperion_controller){
-            $this->hyperion_controller = $hyperion_controller;
-
+<?php
+class Router
+{
+    public $pages_controller;
+    public $shop_controller;
+    public $single_product_controller;
+    public function __construct($pages_controller, $shop_controller, $single_product_controller)
+    {
+        $this->pages_controller = $pages_controller;
+        $this->shop_controller = $shop_controller;
+        $this->single_product_controller = $single_product_controller;
+    }
+    public function route()
+    {
+        switch ($_GET['action']) {
+            case 'shop':
+                $this->shop_controller->render_shop_action();
+                break;
+            case 'about-us':
+                $this->pages_controller->render_about_us_action();
+                break;
+            case 'contact-us':
+                $this->pages_controller->render_contact_us_action();
+                break;
+            case 'product':
+                $this->single_product_controller->render_single_product_action();
+                break;
+            default:
+                $this->pages_controller->render_main_page_action();
         }
-        public function route(){
-            switch($_GET['action']){
-                case 'shop':
-                    $this->hyperion_controller->render_shop_action();
-                    break;
-                case 'about-us':
-                    $this->hyperion_controller->render_about_us_action();
-                    break;
-                case 'contact-us':
-                    $this->hyperion_controller->render_contact_us_action();
-                    break;
-                case 'product':
-                    $this->hyperion_controller->render_single_product_action();
-                    break;
-                default:
-                    $this->hyperion_controller->render_main_page_action();
-            }
-        }
-
     }
 
-
-
-
-
+}
