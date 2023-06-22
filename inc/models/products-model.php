@@ -30,7 +30,9 @@ class Products_Model
         if (empty($products_count)) {
             return array();
         }
-        return range(1, round(count(array_chunk(range(1, $products_count), $options['products_limit']))));
+        $chunked_array = array_chunk(range(1, $products_count), $options['products_limit']);
+        $count_of_buttons = count($chunked_array, $options['products_limit']);
+        return range(1, round($count_of_buttons));
     }
 
     public function get_count_of_products()
@@ -59,7 +61,7 @@ class Products_Model
         $statement->bindParam(':product_id', $product_id, PDO::PARAM_INT);
         $statement->execute();
         $product = $statement->fetchAll();
-        return $product;
+        return $product[0];
     }
 
 

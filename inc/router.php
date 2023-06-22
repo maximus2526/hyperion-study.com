@@ -25,10 +25,11 @@ class Router
                 $this->contact_us_controller->render_contact_us_action();
                 break;
             case 'product':
-                $this->single_product_controller->render_single_product_action();
+                $this->shop_controller->render_single_product_action();
                 break;
             default:
                 $this->pages_controller->render_main_page_action();
+              
         }
     }
 

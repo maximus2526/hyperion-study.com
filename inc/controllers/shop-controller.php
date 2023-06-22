@@ -33,21 +33,30 @@ class Shop_Controller
         ];
 
         $count_of_buttons = $this->products_model->get_count_of_buttons($model_options);
-        $has_paginated = get_param_query('page_num'); // For saving page with changed filter 
-        $has_сount_of_products = get_param_query('count_of_products'); // For saving showing more products with changed page
-
+        
         $template_data = [
             'count_of_products' => $count_of_products,
             'products_limit' => $products_limit,
             'products' => $this->products_model->get_paginated_products($model_options),
             'pages' => $count_of_buttons,
-            'has_paginated' => $has_paginated,
-            'has_сount_of_products' => $has_сount_of_products,
+            
         ];
 
         render('shop', $template_data);
     }
 
+    public function render_single_product_action()
+    {
+        $product_id = (int) $_GET['product-id'];
+        $product = $this->products_model->get_product($product_id);
+        $tamplate_data = [
+            'product' => $product,
+        ];
 
+        if (is_null($product)) {
+            throw_404();
+        }
 
+        render('single-product', $tamplate_data);
+    }
 }

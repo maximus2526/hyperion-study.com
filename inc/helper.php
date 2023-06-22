@@ -4,10 +4,30 @@ function get_url()
     return 'http://' . $_SERVER['SERVER_NAME'];
 }
 
-function get_param_query($param)
+
+function get_param_query()
 {
-    return isset($_GET["$param"]) ? "$param=" . (int) $_GET["$param"] . "&" : "";
+    $params_list = [
+        'action',
+        'count_of_products',
+        'layout',
+        'page_num'
+    ];
+
+    $queryArray = [];
+    parse_str($_SERVER['QUERY_STRING'], $queryArray);
+    $queryParams = [];
+
+    foreach ($params_list as $param) {
+        if (isset($queryArray[$param]) && !isset($queryParams[$param])) {
+            $queryParams[$param] = $queryArray[$param];
+        }
+    }
+
+    return http_build_query($queryParams);
 }
+
+
 
 
 

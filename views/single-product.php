@@ -10,7 +10,7 @@
                 <div class="col-6">
                     <div class="product-img-section">
                         <div class="product-img">
-                            <img class="<?php echo $product['hot'] ?>" src="<?php echo $product['product_img'] ?>"
+                            <img src="<?php echo $product['product_img'] ?>"
                                 alt="Product img">
                         </div>
                         <div class="more-photo">
