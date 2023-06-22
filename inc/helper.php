@@ -5,7 +5,7 @@ function get_url()
 }
 
 
-function get_param_query()
+function get_param_query($current_param)
 {
     $params_list = [
         'action',
@@ -19,9 +19,13 @@ function get_param_query()
     $queryParams = [];
 
     foreach ($params_list as $param) {
-        if (isset($queryArray[$param]) && !isset($queryParams[$param])) {
+        if (isset($queryArray[$param])) {
             $queryParams[$param] = $queryArray[$param];
         }
+    }
+
+    if (!empty($current_param)) {
+        $queryParams = array_merge($queryParams, $current_param);
     }
 
     return http_build_query($queryParams);

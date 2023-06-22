@@ -153,18 +153,18 @@
                         <span class="show-more">
                             <p class="size-s opacity-80">
                                 Show:
-                                <a href="/?<?php echo get_param_query(); ?>&count_of_products=12">12</a>
-                                <a href="/?<?php echo get_param_query(); ?>&count_of_products=16">16</a>
-                                <a href="/?<?php echo get_param_query(); ?>&count_of_products=20">20</a>
-                                <a href="/?<?php echo get_param_query(); ?>&count_of_products=24">24</a>
+                                <a href="/?<?php echo get_param_query(['count_of_products' => 12]); ?>">12</a>
+                                <a href="/?<?php echo get_param_query(['count_of_products' => 16]); ?>">16</a>
+                                <a href="/?<?php echo get_param_query(['count_of_products' => 20]); ?>">20</a>
+                                <a href="/?<?php echo get_param_query(['count_of_products' => 24]); ?>">24</a>
                             </p>
                         </span>
                         <span class="show-more-icons display-flex">
-                            <a href="<?php echo get_url() ?>?<?php echo get_param_query(); ?>&layout=col-6"><img
+                            <a href="<?php echo get_url() ?>?<?php echo get_param_query(['layout' => 'col-6']); ?>"><img
                                     src="<?php get_url() ?>views/img/sort/2x2.png" alt></a>
-                            <a href="<?php echo get_url() ?>?<?php echo get_param_query(); ?>&layout=col-4"><img
+                            <a href="<?php echo get_url() ?>?<?php echo get_param_query(['layout' => 'col-4']); ?>"><img
                                     src="<?php get_url() ?>views/img/sort/3x3.png" alt></a>
-                            <a href="<?php echo get_url() ?>?<?php echo get_param_query(); ?>&layout=col-3"><img
+                            <a href="<?php echo get_url() ?>?<?php echo get_param_query(['layout' => 'col-3']); ?>"><img
                                     src="<?php get_url() ?>views/img/sort/4x4.png" alt></a>
                         </span>
 
@@ -202,7 +202,7 @@
                     <div class="pagination display-flex content-center gap">
                         <div class="arrow-left">
                             <a
-                                href="<?php echo get_url() ?>?<?php echo get_param_query(); ?>&page_num=<?php echo $_GET['page_num'] <= 1 ? 1 : $_GET['page_num'] - 1 ?>">
+                                href="<?php echo get_url() ?>?<?php echo get_param_query(['page_num'=> $_GET['page_num'] <= 1 ? 1 : $_GET['page_num'] - 1]); ?>">
                                 <img src="<?php get_url() ?>views/img/svg/arrow-3/arrow-left.svg" alt>
                             </a>
                         </div>
@@ -212,7 +212,7 @@
                             <div
                                 class="pagination-button <? echo $pagenum == $_GET['page_num'] ? 'active' : '' ?> scheme-light">
                                 <a
-                                    href="<?php echo get_url() ?>?<?php echo get_param_query(); ?>&page_num=<?php echo $pagenum ?>"><?php echo $pagenum ?></a>
+                                    href="<?php echo get_url() ?>?<?php echo get_param_query(['page_num'=> $pagenum]); ?>"><?php echo $pagenum ?></a>
                             </div>
                             <?php
                         endforeach;
@@ -220,7 +220,8 @@
 
                         <div class="arrow-right scheme-dark">
                             <a class="display-flex"
-                                href="<?php echo get_url() ?>?<?php echo get_param_query(); ?>&page_num=<?php echo $_GET['page_num'] < end($pages) ? $_GET['page_num'] + 1 : $_GET['page_num'] ?>">
+                            
+                                href="<?php echo get_url() ?>?<?php echo get_param_query(['page_num'=>$_GET['page_num'] < end($pages) ? $_GET['page_num'] + 1 : $_GET['page_num']]); ?>">
                                 <p class="text">Next</p>
                                 <img src="<?php get_url() ?>views/img/svg/arrow-3/arrow-right.svg" alt>
                             </a>
