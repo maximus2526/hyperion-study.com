@@ -6,7 +6,7 @@
 
 <div class="content">
     <div class="container">
-        <form method="post" class="checkout">
+        <form action="/?action=post-order" method="post" class="checkout">
             <div class="row">
                 <div class="col-6 col-md-12">
                     <div class="billing-details">
@@ -78,7 +78,7 @@
                                                         </p>
                                                     </div>
                                                     <div class="product-count">
-                                                        <input type="number" name="product-count" min="1" max="100">
+                                                        <input type="number" name="product-count" min="1" max="100" value="1">
                                                     </div>
                                                     <div class="delete-product">
                                                         <a
@@ -96,7 +96,20 @@
 
                                     </div>
                                 <?php endforeach ?>
+
                             </div>
+
+                            <div class="total-price display-flex space-between align-center">
+                                <div class="block-title">
+                                    <p class="title bold">Total</p>
+                                </div>
+                                <div class="total">
+                                    <p class="price"><?php echo $total_price ?></p>
+                                    
+                                </div>
+
+                            </div>
+
                             <div class="payment-method">
                                 <div class="block-title">
                                     <h3 class="title">Payment-method</h3>

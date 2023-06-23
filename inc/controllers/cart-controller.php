@@ -13,8 +13,6 @@ class Cart_Controller
     }
     public function render_cart_action()
     {
-        var_dump($_SESSION['product_ids']);
-        
         if (isset($_GET['product-id'])) {
             if (empty($_SESSION['product_ids'])) {
                 $_SESSION['product_ids'] = array();
@@ -29,11 +27,17 @@ class Cart_Controller
             $this->errors::add_error("Don't have any added products");
             $products = [];
         } else {
+            var_dump($_SESSION['product_ids']);
             $products = $this->products_model->get_products_by_ids((array) $_SESSION['product_ids']);
+        }   
+
+        foreach($products as $product) {
+            $total_price += $product['product_cost'];
         }
 
         $tamplate_data = [
             'products' => $products,
+            'total_price' => $total_price,
         ];
 
         render('cart', $tamplate_data);
@@ -48,4 +52,14 @@ class Cart_Controller
             unset($_SESSION['product_ids'][$index]);
         }
     }
+
+    function post_order_action() {
+        // Handle form
+        $products_ids = $_SESSION['product_ids'];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            var_dump($_POST);
+            
+        }
+    }
+
 }

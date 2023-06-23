@@ -26,6 +26,9 @@ class Router
                 }
                 $this->cart_controller->render_cart_action();
                 break;
+            case 'post-order':
+                $this->cart_controller->post_order_action();
+                break;
             case 'about-us':
                 $this->pages_controller->render_about_us_action();
                 break;
@@ -37,7 +40,6 @@ class Router
                 break;
             default:
                 $this->pages_controller->render_main_page_action();
-              
         }
     }
 
