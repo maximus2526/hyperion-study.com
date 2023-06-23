@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 22 2023 г., 10:16
+-- Время создания: Июн 23 2023 г., 12:34
 -- Версия сервера: 5.7.33
 -- Версия PHP: 7.1.33
 
@@ -20,6 +20,43 @@ SET time_zone = "+00:00";
 --
 -- База данных: `hyperion-study`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `clients_info`
+--
+
+CREATE TABLE `clients_info` (
+  `client_info_id` int(11) NOT NULL,
+  `first_name` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notes` text COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `clients_info`
+--
+
+INSERT INTO `clients_info` (`client_info_id`, `first_name`, `last_name`, `email`, `address`, `notes`) VALUES
+(1, 'test', 'test', 'test', 'test', 'test');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `client_info_id` int(11) NOT NULL,
+  `payment_method` tinyint(1) NOT NULL,
+  `delivery_method` tinyint(1) NOT NULL,
+  `products_ids` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -81,6 +118,19 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_cost`, `short_des
 --
 
 --
+-- Индексы таблицы `clients_info`
+--
+ALTER TABLE `clients_info`
+  ADD PRIMARY KEY (`client_info_id`);
+
+--
+-- Индексы таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `client_info_id` (`client_info_id`);
+
+--
 -- Индексы таблицы `products`
 --
 ALTER TABLE `products`
@@ -91,10 +141,26 @@ ALTER TABLE `products`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `clients_info`
+--
+ALTER TABLE `clients_info`
+  MODIFY `client_info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`client_info_id`) REFERENCES `clients_info` (`client_info_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

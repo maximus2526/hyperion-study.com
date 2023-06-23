@@ -71,7 +71,7 @@
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <a class="btn" href="#">Add to cart </a>
+                                        <a class="btn" href="/?action=cart&product-id=<?php echo $product['product_id']?>">Add to cart </a>
                                     </div>
                                 </div>
                             </div>

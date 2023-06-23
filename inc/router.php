@@ -5,18 +5,23 @@ class Router
     public $shop_controller;
     public $single_product_controller;
     public $contact_us_controller;
+    public $cart_controller;
     public function __construct(array $to_route_list)
     {
         $this->pages_controller = $to_route_list['pages_controller'];
         $this->shop_controller = $to_route_list['shop_controller'];
         $this->single_product_controller = $to_route_list['single_product_controller'];
         $this->contact_us_controller = $to_route_list['contact_us_controller'];
+        $this->cart_controller = $to_route_list['cart_controller'];
     }
     public function route()
     {
         switch ($_GET['action']) {
             case 'shop':
                 $this->shop_controller->render_shop_action();
+                break;
+            case 'cart':
+                $this->cart_controller->render_cart_action();
                 break;
             case 'about-us':
                 $this->pages_controller->render_about_us_action();

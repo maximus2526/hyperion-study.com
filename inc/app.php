@@ -25,21 +25,25 @@ class App
     {
         include_once 'helper.php';
         include_once "models/products-model.php";
+        include_once "models/cart-model.php";
         include_once "errors.php";
         include_once 'controllers/pages-controller.php';
         include_once 'controllers/shop-controller.php';
         include_once 'controllers/contact-us-controller.php';
+        include_once 'controllers/cart-controller.php';
         include_once 'router.php';
         $errors = new Errors;
         $products_model = new Products_Model($this->pdo);
         $pages_controller = new Pages_Controller($products_model, $errors);
         $shop_controller = new Shop_Controller($products_model, $errors);
+        $cart_controller = new Cart_Controller($products_model, $cart_model, $errors);
         $contact_us_controller = new Contact_Us_Controller($errors);
         $to_route_list = [
             "pages_controller" => $pages_controller,
             "shop_controller" => $shop_controller,
             "single_product_controller" => $single_product_controller,
             "contact_us_controller" => $contact_us_controller,
+            "cart_controller" => $cart_controller,
         ];
 
         $router = new Router($to_route_list);

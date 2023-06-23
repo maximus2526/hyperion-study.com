@@ -13,7 +13,7 @@ class Pages_Controller
     public function render_main_page_action()
     {
         $banner_products_id = [3, 4, 5]; // Choice product ids for home page banner's products
-        $banner_products = $this->products_model->get_banner_products($banner_products_id); // Дороби
+        $banner_products = $this->products_model->get_products_by_ids($banner_products_id); // Дороби
         $tamplate_data = [
             'banner_products' => $banner_products,
             'bestsellers' => $this->products_model->get_bestsellers_products(),

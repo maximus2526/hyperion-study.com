@@ -44,7 +44,7 @@ class Products_Model
         return $products_count;
     }
 
-    function get_banner_products(array $product_ids)
+    function get_products_by_ids(array $product_ids)
     {
         $placeholders = implode(' , ', array_fill(0, count($product_ids), '?'));
         $sql = "SELECT * FROM `products` WHERE product_id IN ({$placeholders})";
