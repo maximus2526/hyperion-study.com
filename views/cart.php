@@ -78,10 +78,11 @@
                                                         </p>
                                                     </div>
                                                     <div class="product-count">
-
+                                                        <input type="number" name="product-count" min="1" max="100">
                                                     </div>
                                                     <div class="delete-product">
-                                                        <a href="/?action=cart&delete_product=<?php echo $product["product_id"] ?>">Delete</a>
+                                                        <a
+                                                            href="/?action=cart&delete_product=<?php echo $product["product_id"] ?>">Delete</a>
                                                     </div>
                                                     <div class="product-price text-right">
                                                         <p class="price">

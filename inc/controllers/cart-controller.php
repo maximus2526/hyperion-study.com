@@ -13,6 +13,8 @@ class Cart_Controller
     }
     public function render_cart_action()
     {
+        var_dump($_SESSION['product_ids']);
+        
         if (isset($_GET['product-id'])) {
             if (empty($_SESSION['product_ids'])) {
                 $_SESSION['product_ids'] = array();
@@ -33,7 +35,7 @@ class Cart_Controller
         $tamplate_data = [
             'products' => $products,
         ];
-        
+
         render('cart', $tamplate_data);
     }
 
