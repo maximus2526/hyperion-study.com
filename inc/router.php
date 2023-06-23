@@ -21,6 +21,9 @@ class Router
                 $this->shop_controller->render_shop_action();
                 break;
             case 'cart':
+                if (isset($_GET["delete_product"])) {
+                    $this->cart_controller->delete_product_action();
+                }
                 $this->cart_controller->render_cart_action();
                 break;
             case 'about-us':
