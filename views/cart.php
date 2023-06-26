@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="total">
                                     <p class="price"><?php echo $total_price ?></p>
-                                    <input type="hidden" value="<?php echo $total_price ?>">
+                                    <input type="hidden" name="total-price" value="<?php echo $total_price ?>">
                                 </div>
 
                             </div>
@@ -124,7 +124,7 @@
                                     </span>
                                     <span class="input-wrapper display-flex gap">
                                         <input id="payment-method-on-delivery" type="radio" class="input-radio"
-                                            name="payment-method" value="on-delivery" checked="checked"
+                                            name="payment-method" value="on-delivery"
                                             data-order_button_text="">
                                         <label for="payment-method-on-delivery">
                                             Cash on delivery </label>
@@ -145,7 +145,7 @@
                                     </span>
                                     <span class="input-wrapper display-flex gap">
                                         <input id="delivery-method-ukr" type="radio" class="input-radio"
-                                            name="delivery-method" value="ukr" checked="checked"
+                                            name="delivery-method" value="ukr"
                                             data-order_button_text="">
                                         <label for="delivery-method-ukr">
                                             Ukr Delivery </label>

@@ -34,6 +34,7 @@ class App
         include_once 'router.php';
         $errors = new Errors;
         $products_model = new Products_Model($this->pdo);
+        $cart_model = new Cart_Model($this->pdo);
         $pages_controller = new Pages_Controller($products_model, $errors);
         $shop_controller = new Shop_Controller($products_model, $errors);
         $cart_controller = new Cart_Controller($products_model, $cart_model, $errors);
