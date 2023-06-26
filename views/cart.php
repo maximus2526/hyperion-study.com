@@ -14,33 +14,33 @@
                             <h3 class="title">BILLING DETAILS</h3>
                         </div>
                         <span class="input-wrapper display-flex column">
-                            <label for="billing-first-name" class="">First name&nbsp;<abbr class="required"
+                            <label for="first-name" class="">First name&nbsp;<abbr class="required"
                                     title="required">*</abbr></label>
-                            <input type="text" class="input-text" name="billing-first-name" id="billing-first-name"
-                                placeholder="" value="" autocomplete="given-name">
+                            <input type="text" class="input-text" name="first-name" id="first-name"
+                                placeholder="" value="" autocomplete="given-name" required>
                         </span>
                         <span class="input-wrapper display-flex column">
-                            <label for="billing-last-name" class="">Last name&nbsp;<abbr class="required"
+                            <label for="last-name" class="">Last name&nbsp;<abbr class="required"
                                     title="required">*</abbr></label>
-                            <input type="text" class="input-text" name="billing-last-name" id="billing-last-name"
-                                placeholder="" value="" autocomplete="family-name">
+                            <input type="text" class="input-text" name="last-name" id="last-name"
+                                placeholder="" value="" autocomplete="family-name" required>
                         </span>
                         <span class="input-wrapper display-flex column">
-                            <label for="billing-email" class="">Email&nbsp;<abbr class="required"
+                            <label for="email" class="">Email&nbsp;<abbr class="required"
                                     title="required">*</abbr></label>
-                            <input type="text" class="input-text" name="billing-email" id="billing-email" placeholder=""
-                                value="" autocomplete="email">
+                            <input type="text" class="input-text" name="email" id="email" placeholder=""
+                                value="" autocomplete="email" required>
                         </span>
                         <span class="input-wrapper display-flex column">
-                            <label for="billing-address" class="">Address&nbsp;<abbr class="required"
+                            <label for="address" class="">Address&nbsp;<abbr class="required"
                                     title="required">*</abbr></label>
-                            <input type="text" class="input-text" name="billing-address" id="billing-address"
-                                placeholder="" value="" autocomplete="address-line1">
+                            <input type="text" class="input-text" name="address" id="address"
+                                placeholder="" value="" autocomplete="address-line1" required>
                         </span>
                         <span class="input-wrapper display-flex column">
-                            <label for="order-comments" class="">Order notes&nbsp;<span
+                            <label for="notes" class="">Order notes&nbsp;<span
                                     class="optional">(optional)</span></label>
-                            <textarea name="order-comments" class="input-text " id="order-comments"
+                            <textarea name="notes" class="input-text " id="notes"
                                 placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"
                                 spellcheck="false"></textarea>
                         </span>
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="total">
                                     <p class="price"><?php echo $total_price ?></p>
-                                    
+                                    <input type="hidden" value="<?php echo $total_price ?>">
                                 </div>
 
                             </div>
@@ -144,10 +144,10 @@
                                             Nova-Poshta </label>
                                     </span>
                                     <span class="input-wrapper display-flex gap">
-                                        <input id="delivery-method-urk" type="radio" class="input-radio"
-                                            name="delivery-method" value="urk" checked="checked"
+                                        <input id="delivery-method-ukr" type="radio" class="input-radio"
+                                            name="delivery-method" value="ukr" checked="checked"
                                             data-order_button_text="">
-                                        <label for="delivery-method-urk">
+                                        <label for="delivery-method-ukr">
                                             Ukr Delivery </label>
                                     </span>
                                 </div>
