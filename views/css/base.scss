@@ -4,6 +4,7 @@
 @import "about-us/about-us.css";
 @import "contact-us/contact-us.css";
 @import "single-product/single-product.css";
+@import "cart/cart.css";
 // @import "old-style.scss";
 
 /* Glogal options */
@@ -31,8 +32,6 @@
     border-bottom: 1px solid #e6e6e6;
 }
 
-
-
 .dropdown p {
     margin-bottom: 0;
 }
@@ -41,8 +40,6 @@
     border-radius: 5px;
     font-size: 14px;
 }
-
-
 
 .out-shadow {
     box-shadow: 0 0 25px rgb(231, 231, 231);
@@ -549,6 +546,10 @@ p {
 
 .size-m {
     font-size: 15px;
+}
+
+.size-l {
+    font-size: 20px;
 }
 
 h5 {

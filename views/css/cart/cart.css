@@ -1,0 +1,26 @@
+.checkout {
+  padding: 50px 0;
+}
+.checkout .input-text {
+  padding-left: 5px;
+  max-width: 100%;
+}
+.checkout .required {
+  color: red;
+}
+.checkout .products-review {
+  margin-bottom: 20px;
+}
+.checkout .delivery-method {
+  margin-bottom: 20px;
+}
+.checkout .place-order {
+  width: 100%;
+  padding: 15px 0;
+  background: #74a32f;
+  border-style: none;
+  color: white;
+}
+.checkout .place-order:hover {
+  background: #5c7b2d;
+}/*# sourceMappingURL=cart.css.map */

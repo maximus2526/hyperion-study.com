@@ -4,6 +4,7 @@
 @import "about-us/about-us.css";
 @import "contact-us/contact-us.css";
 @import "single-product/single-product.css";
+@import "cart/cart.css";
 /* Glogal options */
 .massage, .errors {
   border-radius: 5px;
@@ -449,6 +450,10 @@ p {
 
 .size-m {
   font-size: 15px;
+}
+
+.size-l {
+  font-size: 20px;
 }
 
 h5 {

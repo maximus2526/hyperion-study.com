@@ -13,29 +13,38 @@
                         <div class="block-title">
                             <h3 class="title">BILLING DETAILS</h3>
                         </div>
-                        <span class="input-wrapper display-flex column">
-                            <label for="first-name" class="">First name&nbsp;<abbr class="required"
-                                    title="required">*</abbr></label>
-                            <input type="text" class="input-text" name="first-name" id="first-name"
-                                placeholder="" value="" autocomplete="given-name" required>
-                        </span>
-                        <span class="input-wrapper display-flex column">
-                            <label for="last-name" class="">Last name&nbsp;<abbr class="required"
-                                    title="required">*</abbr></label>
-                            <input type="text" class="input-text" name="last-name" id="last-name"
-                                placeholder="" value="" autocomplete="family-name" required>
-                        </span>
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="input-wrapper display-flex column">
+                                    <label for="first-name" class="">First name&nbsp;<abbr class="required"
+                                            title="required">*</abbr></label>
+                                    <input type="text" class="input-text" name="first-name" id="first-name"
+                                        placeholder="" value="" autocomplete="given-name" required>
+                                </span>
+                            </div>
+                            <div class="col-6">
+                                <span class="input-wrapper display-flex column">
+                                    <label for="last-name" class="">Last name&nbsp;<abbr class="required"
+                                            title="required">*</abbr></label>
+                                    <input type="text" class="input-text" name="last-name" id="last-name" placeholder=""
+                                        value="" autocomplete="family-name" required>
+                                </span>
+                            </div>
+
+
+                        </div>
+
                         <span class="input-wrapper display-flex column">
                             <label for="email" class="">Email&nbsp;<abbr class="required"
                                     title="required">*</abbr></label>
-                            <input type="text" class="input-text" name="email" id="email" placeholder=""
-                                value="" autocomplete="email" required>
+                            <input type="text" class="input-text" name="email" id="email" placeholder="" value=""
+                                autocomplete="email" required>
                         </span>
                         <span class="input-wrapper display-flex column">
                             <label for="address" class="">Address&nbsp;<abbr class="required"
                                     title="required">*</abbr></label>
-                            <input type="text" class="input-text" name="address" id="address"
-                                placeholder="" value="" autocomplete="address-line1" required>
+                            <input type="text" class="input-text" name="address" id="address" placeholder="" value=""
+                                autocomplete="address-line1" required>
                         </span>
                         <span class="input-wrapper display-flex column">
                             <label for="notes" class="">Order notes&nbsp;<span
@@ -57,12 +66,12 @@
                         Errors::display();
 
                         ?>
-                        <div class="checkout-order-review display-flex column gap">
-                            <div class="products-review">
+                        <div class="checkout-order-review">
+                            <div class="products-review  display-flex column gap">
                                 <?php
 
                                 foreach ($products as $product): ?>
-                                    <div class="product bg-white display-flex">
+                                    <div class="product design-bordered bg-white display-flex">
                                         <div class="row">
                                             <div class="col-3">
                                                 <div class="product-img">
@@ -78,7 +87,8 @@
                                                         </p>
                                                     </div>
                                                     <div class="product-count">
-                                                        <input type="number" name="product-count" min="1" max="100" value="1">
+                                                        <input type="number" name="product-count" min="1" max="100"
+                                                            value="1">
                                                     </div>
                                                     <div class="delete-product">
                                                         <a
@@ -104,7 +114,9 @@
                                     <p class="title bold">Total</p>
                                 </div>
                                 <div class="total">
-                                    <p class="price"><?php echo $total_price ?></p>
+                                    <p class="price size-l">
+                                        <?php echo $total_price ?>
+                                    </p>
                                     <input type="hidden" name="total-price" value="<?php echo $total_price ?>">
                                 </div>
 
@@ -124,8 +136,7 @@
                                     </span>
                                     <span class="input-wrapper display-flex gap">
                                         <input id="payment-method-on-delivery" type="radio" class="input-radio"
-                                            name="payment-method" value="on-delivery"
-                                            data-order_button_text="">
+                                            name="payment-method" value="on-delivery" data-order_button_text="">
                                         <label for="payment-method-on-delivery">
                                             Cash on delivery </label>
                                     </span>
@@ -145,14 +156,13 @@
                                     </span>
                                     <span class="input-wrapper display-flex gap">
                                         <input id="delivery-method-ukr" type="radio" class="input-radio"
-                                            name="delivery-method" value="ukr"
-                                            data-order_button_text="">
+                                            name="delivery-method" value="ukr" data-order_button_text="">
                                         <label for="delivery-method-ukr">
                                             Ukr Delivery </label>
                                     </span>
                                 </div>
                             </div>
-                            <button type="submit">PLACE ORDER</button>
+                            <button class="place-order btn bold" type="submit">PLACE ORDER</button>
                         </div>
                     </div>
                 </div>

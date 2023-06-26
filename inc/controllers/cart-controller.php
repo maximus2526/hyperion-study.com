@@ -77,6 +77,11 @@ class Cart_Controller
                 'product-count' => (int) $post_array['product-count']
             ];
             
+
+            if (!filter_var($post_array['email'], FILTER_VALIDATE_EMAIL)) {
+                $this->errors::add_error("Invalid email");
+            }
+
             $client_info = [
                 'first-name' => $post_array['first-name'],
                 'last-name' => $post_array['last-name'],
