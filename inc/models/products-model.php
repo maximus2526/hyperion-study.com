@@ -60,8 +60,8 @@ class Products_Model
         $statement = $this->pdo->prepare($sql);
         $statement->bindParam(':product_id', $product_id, PDO::PARAM_INT);
         $statement->execute();
-        $product = $statement->fetchAll();
-        return $product[0];
+        $product = $statement->fetch();
+        return $product;
     }
 
 
