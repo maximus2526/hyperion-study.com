@@ -12,16 +12,6 @@ class Cart_Controller
 
     public function render_cart_action()
     {
-        if (isset($_GET['product-id'])) {
-            if (empty($_SESSION['product_ids'])) {
-                $_SESSION['product_ids'] = array();
-            }
-            if (!in_array($_GET['product-id'], $_SESSION['product_ids'])) {
-                $product_id = (int) $_GET['product-id'];
-                array_push($_SESSION['product_ids'], $product_id);
-            } // else: product_count ++
-        }
-
         if (empty($_SESSION['product_ids']) or ($_SESSION['product_ids'] == NULL)) {
             Errors::add_error("Don't have any added products");
             $products = [];
@@ -37,15 +27,13 @@ class Cart_Controller
             'products' => $products,
             'total_price' => $total_price,
         ];
-
         render('cart', $tamplate_data);
-
     }
 
     function add_product_action()
     {
-
         $this->cart_model->add_product_to_cart();
+        redirect('?action=cart');
     }
 
     function delete_product_action()
@@ -57,13 +45,11 @@ class Cart_Controller
 
     function post_order_action()
     {
-
         // Handle form
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $post_array = $_POST;
 
-            if($post_array['agree-terms'] != 'on') {
+            if ($post_array['agree-terms'] != 'on') {
                 Errors::add_error("Please read and accept the terms and conditions to proceed with your order.");
             }
 
@@ -78,7 +64,8 @@ class Cart_Controller
                 'address' => trim(htmlspecialchars($post_array['address']))
             ];
 
-
+            $products_ids = $_SESSION['product_ids'];
+            
             $delivery_options = ['nova', 'ukr'];
             $payment_options = ['direct', 'on-delivery'];
 
@@ -102,32 +89,33 @@ class Cart_Controller
                 Errors::add_error("Address field is empty!");
             }
 
-
             if (!in_array($post_array['delivery-method'], $delivery_options) or !in_array($post_array['payment-method'], $payment_options)) {
                 Errors::add_error("Something wrong with radio buttons! Contact with administrator.");
             }
 
-            $products_ids = implode(',', $_SESSION['product_ids']);
-
             $order_details['product-ids'] = $products_ids;
-            
+
             if (empty($products_ids)) {
                 Errors::add_error("Don't added any product!");
             }
 
             if (!empty($post_array['order-comments'])) {
-                $order_details['notes'] = $post_array['order-comments'];
+                $order_details['notes'] = trim(htmlspecialchars($post_array['order-comments']));
             }
             if (!Errors::has_errors()) {
-                $this->cart_model->post_order($order_details);
-                Errors::set_message('Successfully! Whait while you will be contacted by operator.');
+                if ($this->cart_model->post_order($order_details)) {
+                    Errors::set_message('Successfully! Whait while you will be contacted by operator.');
+                    redirect('?action=order-complete');
+                }
+            } else {
+                redirect('?action=cart');
+            
             }
-
         } else {
             Errors::add_error("Something wrong! Contact with administrator.");
         }
 
-        redirect('?action=cart');
+        
     }
 
 }

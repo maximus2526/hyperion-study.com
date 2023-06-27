@@ -20,6 +20,9 @@ class Router
             case 'shop':
                 $this->shop_controller->render_shop_action();
                 break;
+            case 'add-to-cart':
+                $this->cart_controller->add_product_action();
+                break;     
             case 'cart':
                 if (isset($_GET["delete_product"])) {
                     $this->cart_controller->delete_product_action();
@@ -37,6 +40,9 @@ class Router
                 break;
             case 'product':
                 $this->shop_controller->render_single_product_action();
+                break;
+            case 'order-complete':
+                $this->pages_controller->render_complete_test_action();
                 break;
             default:
                 $this->pages_controller->render_main_page_action();

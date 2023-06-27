@@ -44,10 +44,6 @@ class Products_Model
         return $products_count;
     }
 
-
-
-    
-
     function get_products_by_ids(array $product_ids)
     {
         $placeholders = implode(' , ', array_fill(0, count($product_ids), '?'));

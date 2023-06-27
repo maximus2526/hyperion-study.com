@@ -34,11 +34,11 @@ class App
         include_once 'router.php';
         $errors = new Errors;
         $products_model = new Products_Model($this->pdo);
-        $cart_model = new Cart_Model($this->pdo, $errors );
-        $pages_controller = new Pages_Controller($products_model, $errors);
-        $shop_controller = new Shop_Controller($products_model, $errors);
-        $cart_controller = new Cart_Controller($products_model, $cart_model, $errors);
-        $contact_us_controller = new Contact_Us_Controller($errors);
+        $cart_model = new Cart_Model($this->pdo);
+        $pages_controller = new Pages_Controller($products_model);
+        $shop_controller = new Shop_Controller($products_model);
+        $cart_controller = new Cart_Controller($products_model, $cart_model);
+        $contact_us_controller = new Contact_Us_Controller();
         $to_route_list = [
             "pages_controller" => $pages_controller,
             "shop_controller" => $shop_controller,
