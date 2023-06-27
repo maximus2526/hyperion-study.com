@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 23 2023 г., 12:34
+-- Время создания: Июн 27 2023 г., 10:34
 -- Версия сервера: 5.7.33
 -- Версия PHP: 7.1.33
 
@@ -41,7 +41,10 @@ CREATE TABLE `clients_info` (
 --
 
 INSERT INTO `clients_info` (`client_info_id`, `first_name`, `last_name`, `email`, `address`, `notes`) VALUES
-(1, 'test', 'test', 'test', 'test', 'test');
+(21, 'Максим', '1', 'maxim.kliakhin@gmail.com', '213231', NULL),
+(22, '21312', '231', '2132', '123231321', NULL),
+(23, '1', '1', 'maxim.kliakhin@gmail.com', '213', NULL),
+(24, '213', '123', 'maxim.kliakhin@gmail.com', '321', NULL);
 
 -- --------------------------------------------------------
 
@@ -52,11 +55,22 @@ INSERT INTO `clients_info` (`client_info_id`, `first_name`, `last_name`, `email`
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `client_info_id` int(11) NOT NULL,
-  `payment_method` tinyint(1) NOT NULL,
-  `delivery_method` tinyint(1) NOT NULL,
+  `count_of_products` int(11) NOT NULL DEFAULT '1',
+  `payment_method` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `delivery_method` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `products_ids` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
   `total_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `client_info_id`, `count_of_products`, `payment_method`, `delivery_method`, `products_ids`, `total_price`) VALUES
+(14, 21, 1, 'direct', 'nova', '5,4', 468),
+(15, 22, 1, 'direct', 'nova', '5,4', 468),
+(16, 23, 1, 'direct', 'nova', '4', 233),
+(17, 24, 1, 'direct', 'nova', '4', 233);
 
 -- --------------------------------------------------------
 
@@ -144,7 +158,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `clients_info`
 --
 ALTER TABLE `clients_info`
-  MODIFY `client_info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `client_info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT для таблицы `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
