@@ -71,7 +71,11 @@ class Cart_Controller
                 'payment-method' => $post_array['payment-method'],
                 'delivery-method' => $post_array['delivery-method'],
                 'total-price' => (int) $post_array['total-price'],
-                'product-count' => (int) $post_array['product-count']
+                'product-count' => (int) $post_array['product-count'],
+                'first-name' => $post_array['first-name'],
+                'last-name' => $post_array['last-name'],
+                'email' => $post_array['email'],
+                'address' => $post_array['address']
             ];
             
 
@@ -79,15 +83,8 @@ class Cart_Controller
                 $this->errors::add_error("Invalid email");
             }
 
-            $client_info = [
-                'first-name' => $post_array['first-name'],
-                'last-name' => $post_array['last-name'],
-                'email' => $post_array['email'],
-                'address' => $post_array['address']
-            ];
-
             $has_have_empty_field = false;
-
+            
             $delivery_options = ['nova', 'ukr'];
             $payment_options = ['direct', 'on-delivery'];
 
@@ -97,10 +94,6 @@ class Cart_Controller
             }
 
             if ((count(array_filter($order_details, 'is_empty')) > 0)) {
-                $has_have_empty_field = true;
-            }
-
-            if ((count(array_filter($client_info, 'is_empty')) > 0)) {
                 $has_have_empty_field = true;
             }
 
@@ -118,7 +111,7 @@ class Cart_Controller
                 $order_details['notes'] = $post_array['order-comments'];
             }
             if (!$this->errors::has_errors()) {
-                $this->cart_model->post_order($order_details, $client_info);
+                $this->cart_model->post_order($order_details);
                 $this->errors::set_message('Successfully! Whait while you will be contacted by operator.');
             }
 
