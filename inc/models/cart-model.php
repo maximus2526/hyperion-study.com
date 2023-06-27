@@ -33,6 +33,11 @@ class Cart_Model
     public function get_products_ids () {
         return implode(',', $_SESSION['product_ids']);
     }
+    
+    public function is_cart_empty () {
+        return empty($_SESSION['product_ids']);
+    }
+
 
 
     public function post_order(array $order_details)
