@@ -4,13 +4,12 @@ class Cart_Controller
 {
     public $products_model;
     public $cart_model;
-    public $errors;
-    public function __construct($products_model, $cart_model, $errors)
+    public function __construct($products_model, $cart_model)
     {
         $this->products_model = $products_model;
         $this->cart_model = $cart_model;
-        $this->errors = $errors;
     }
+    
     public function render_cart_action()
     {
         if (isset($_GET['product-id'])) {
@@ -24,7 +23,7 @@ class Cart_Controller
         }
 
         if (empty($_SESSION['product_ids']) or ($_SESSION['product_ids'] == NULL)) {
-            $this->errors::add_error("Don't have any added products");
+            Errors::add_error("Don't have any added products");
             $products = [];
         } else {
             $products = $this->products_model->get_products_by_ids((array) $_SESSION['product_ids']);
@@ -80,17 +79,17 @@ class Cart_Controller
             
 
             if (!filter_var($post_array['email'], FILTER_VALIDATE_EMAIL)) {
-                $this->errors::add_error("Invalid email");
+                Errors::add_error("Invalid email");
             }
 
             $has_have_empty_field = false;
-            
+
             $delivery_options = ['nova', 'ukr'];
             $payment_options = ['direct', 'on-delivery'];
 
             if (!in_array($post_array['delivery-method'], $delivery_options) or !in_array($post_array['payment-method'], $payment_options)) {
 
-                $this->errors::add_error("Something wrong with radio buttons! Contact with administrator.");
+                Errors::add_error("Something wrong with radio buttons! Contact with administrator.");
             }
 
             if ((count(array_filter($order_details, 'is_empty')) > 0)) {
@@ -98,25 +97,25 @@ class Cart_Controller
             }
 
             if ($has_have_empty_field) {
-                $this->errors::add_error("Empty fields for required* are not allowed ");
+                Errors::add_error("Empty fields for required* are not allowed ");
             }
 
             $products_ids = implode(',', $_SESSION['product_ids']);
             $order_details['product-ids'] = $products_ids;
             if (empty($products_ids)) {
-                $this->errors::add_error("Don't added any product!");
+                Errors::add_error("Don't added any product!");
             }
 
             if (!empty($post_array['order-comments'])) {
                 $order_details['notes'] = $post_array['order-comments'];
             }
-            if (!$this->errors::has_errors()) {
+            if (!Errors::has_errors()) {
                 $this->cart_model->post_order($order_details);
-                $this->errors::set_message('Successfully! Whait while you will be contacted by operator.');
+                Errors::set_message('Successfully! Whait while you will be contacted by operator.');
             }
 
         } else {
-            $this->errors::add_error("Something wrong! Contact with administrator.");
+            Errors::add_error("Something wrong! Contact with administrator.");
         }
 
         redirect('?action=cart');

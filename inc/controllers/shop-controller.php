@@ -3,11 +3,10 @@
 class Shop_Controller
 {
     public $products_model;
-    public $errors;
-    public function __construct($products_model, $errors)
+    public function __construct($products_model)
     {
         $this->products_model = $products_model;
-        $this->errors = $errors;
+
     }
 
 
@@ -20,10 +19,10 @@ class Shop_Controller
 
         $products_limit = (int) $_GET["count_of_products"] ? $_GET["count_of_products"] : $default_product_limit;
         if ($products_limit < 1) {
-            $this->errors::add_error("Can't show the negative number of products");
+            Errors::add_error("Can't show the negative number of products");
             $products_limit = $default_product_limit;
         } elseif ($products_limit > $count_of_products) {
-            $this->errors::add_error("Can't show bigger than have products");
+            Errors::add_error("Can't show bigger than have products");
             $products_limit = $default_product_limit;
         }
 
