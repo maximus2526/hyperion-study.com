@@ -8,9 +8,16 @@ class Cart_Model
         $this->pdo = $pdo;
     }
 
+    public function delete_product_from_cart($product_id)
+    {
+        $index = array_search($product_id, $_SESSION['product_ids']);
+        if ($index !== false) {
+            unset($_SESSION['product_ids'][$index]);
+        }
+    }
+
     public function post_order(array $order_details, array $client_info)
     {
-
         $clients_info_options = [
             ':first_name' => $client_info["first-name"],
             ':last_name' => $client_info["last-name"],

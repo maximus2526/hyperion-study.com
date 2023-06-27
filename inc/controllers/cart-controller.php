@@ -48,10 +48,7 @@ class Cart_Controller
     function delete_product_action()
     {
         $id_to_delete = $_GET["delete_product"];
-        $index = array_search($id_to_delete, $_SESSION['product_ids']);
-        if ($index !== false) {
-            unset($_SESSION['product_ids'][$index]);
-        }
+        $this->cart_model->delete_product_from_cart($id_to_delete);
     }
 
 
