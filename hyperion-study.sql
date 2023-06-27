@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 27 2023 г., 10:34
+-- Время создания: Июн 27 2023 г., 17:49
 -- Версия сервера: 5.7.33
 -- Версия PHP: 7.1.33
 
@@ -24,37 +24,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `clients_info`
---
-
-CREATE TABLE `clients_info` (
-  `client_info_id` int(11) NOT NULL,
-  `first_name` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `notes` text COLLATE utf8mb4_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `clients_info`
---
-
-INSERT INTO `clients_info` (`client_info_id`, `first_name`, `last_name`, `email`, `address`, `notes`) VALUES
-(21, 'Максим', '1', 'maxim.kliakhin@gmail.com', '213231', NULL),
-(22, '21312', '231', '2132', '123231321', NULL),
-(23, '1', '1', 'maxim.kliakhin@gmail.com', '213', NULL),
-(24, '213', '123', 'maxim.kliakhin@gmail.com', '321', NULL);
-
--- --------------------------------------------------------
-
---
 -- Структура таблицы `orders`
 --
 
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
-  `client_info_id` int(11) NOT NULL,
+  `first_name` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notes` text COLLATE utf8mb4_unicode_ci,
   `count_of_products` int(11) NOT NULL DEFAULT '1',
   `payment_method` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `delivery_method` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -66,11 +45,9 @@ CREATE TABLE `orders` (
 -- Дамп данных таблицы `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `client_info_id`, `count_of_products`, `payment_method`, `delivery_method`, `products_ids`, `total_price`) VALUES
-(14, 21, 1, 'direct', 'nova', '5,4', 468),
-(15, 22, 1, 'direct', 'nova', '5,4', 468),
-(16, 23, 1, 'direct', 'nova', '4', 233),
-(17, 24, 1, 'direct', 'nova', '4', 233);
+INSERT INTO `orders` (`order_id`, `first_name`, `last_name`, `email`, `address`, `notes`, `count_of_products`, `payment_method`, `delivery_method`, `products_ids`, `total_price`) VALUES
+(18, '1', '1', 'maxim.kliakhin@gmail.com', '12321213', NULL, 1, 'direct', 'nova', '3', 235),
+(19, '1', '1', 'maxim.kliakhin@gmail.com', '1213', NULL, 1, 'direct', 'nova', 'Array', 233);
 
 -- --------------------------------------------------------
 
@@ -127,22 +104,29 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_cost`, `short_des
 (32, 'text', 233, 'sadffadsssdfsdafadsf', 21, 1, NULL, '/views/img/products/hyperion-product-img-1.jpg'),
 (33, 'end', 235, 'dasdssadasdasadsdsd', 12, NULL, 1, '/views/img/products/hyperion-product-img-1.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 --
 -- Индексы сохранённых таблиц
 --
 
 --
--- Индексы таблицы `clients_info`
---
-ALTER TABLE `clients_info`
-  ADD PRIMARY KEY (`client_info_id`);
-
---
 -- Индексы таблицы `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`),
-  ADD KEY `client_info_id` (`client_info_id`);
+  ADD PRIMARY KEY (`order_id`);
 
 --
 -- Индексы таблицы `products`
@@ -151,20 +135,20 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- Индексы таблицы `users`
 --
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT для таблицы `clients_info`
+-- AUTO_INCREMENT для сохранённых таблиц
 --
-ALTER TABLE `clients_info`
-  MODIFY `client_info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
@@ -173,14 +157,10 @@ ALTER TABLE `products`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- Ограничения внешнего ключа сохраненных таблиц
+-- AUTO_INCREMENT для таблицы `users`
 --
-
---
--- Ограничения внешнего ключа таблицы `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`client_info_id`) REFERENCES `clients_info` (`client_info_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
