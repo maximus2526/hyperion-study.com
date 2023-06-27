@@ -86,9 +86,11 @@
                                                             <?php echo $product['product_name'] ?>
                                                         </p>
                                                     </div>
-                                                    <div class="product-count">
+                                                    <div class="product-count display-flex space-between">
                                                         <input type="number" name="product-count" min="1" max="100"
-                                                            value="1">
+                                                            value="<?php echo $_GET['product-count'] ? $_GET['product-count'] : 1; ?>">
+                                                        <a
+                                                            href="/?action=cart&product-count=<?php echo $_GET['product-count'] ? $_GET['product-count'] : 1; ?>">Update</a>
                                                     </div>
                                                     <div class="delete-product">
                                                         <a
@@ -162,6 +164,18 @@
                                     </span>
                                 </div>
                             </div>
+                            <div class="personal-agree">
+                                <div class="style-bordered">
+                                    Your personal data will be used to process your order, support your experience
+                                    throughout this website, and for other purposes described in our privacy policy.
+                                </div>
+                                <div class="agree-input display-flex gap">
+                                    <input id="agree-terms" type="checkbox" name="agree-terms"> 
+                                    <label for="agree-terms">I have read and agree to the website <a href>terms and conditions</a> &nbsp;<abbr class="required"
+                                    title="required">*</abbr></label>
+                                </div>
+                            </div>
+
                             <button class="place-order btn bold" type="submit">PLACE ORDER</button>
                         </div>
                     </div>

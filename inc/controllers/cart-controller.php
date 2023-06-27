@@ -9,7 +9,7 @@ class Cart_Controller
         $this->products_model = $products_model;
         $this->cart_model = $cart_model;
     }
-    
+
     public function render_cart_action()
     {
         if (isset($_GET['product-id'])) {
@@ -19,7 +19,7 @@ class Cart_Controller
             if (!in_array($_GET['product-id'], $_SESSION['product_ids'])) {
                 $product_id = (int) $_GET['product-id'];
                 array_push($_SESSION['product_ids'], $product_id);
-            }
+            } // else: product_count ++
         }
 
         if (empty($_SESSION['product_ids']) or ($_SESSION['product_ids'] == NULL)) {
@@ -42,7 +42,11 @@ class Cart_Controller
 
     }
 
+    function add_product_action()
+    {
 
+        $this->cart_model->add_product_to_cart();
+    }
 
     function delete_product_action()
     {
@@ -57,51 +61,56 @@ class Cart_Controller
         // Handle form
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
             $post_array = $_POST;
 
-            foreach ($post_array as &$field) {
-                $field = trim(htmlspecialchars($field));
+            if($post_array['agree-terms'] != 'on') {
+                Errors::add_error("Please read and accept the terms and conditions to proceed with your order.");
             }
 
-
             $order_details = [
-                'payment-method' => $post_array['payment-method'],
-                'delivery-method' => $post_array['delivery-method'],
-                'total-price' => (int) $post_array['total-price'],
-                'product-count' => (int) $post_array['product-count'],
-                'first-name' => $post_array['first-name'],
-                'last-name' => $post_array['last-name'],
-                'email' => $post_array['email'],
-                'address' => $post_array['address']
+                'payment-method' => trim(htmlspecialchars($post_array['payment-method'])),
+                'delivery-method' => trim(htmlspecialchars($post_array['delivery-method'])),
+                'total-price' => (int) trim(htmlspecialchars($post_array['total-price'])),
+                'product-count' => (int) trim(htmlspecialchars($post_array['product-count'])),
+                'first-name' => trim(htmlspecialchars($post_array['first-name'])),
+                'last-name' => trim(htmlspecialchars($post_array['last-name'])),
+                'email' => trim(htmlspecialchars($post_array['email'])),
+                'address' => trim(htmlspecialchars($post_array['address']))
             ];
-            
+
+
+            $delivery_options = ['nova', 'ukr'];
+            $payment_options = ['direct', 'on-delivery'];
 
             if (!filter_var($post_array['email'], FILTER_VALIDATE_EMAIL)) {
                 Errors::add_error("Invalid email");
             }
 
-            $has_have_empty_field = false;
+            if (empty($order_details['payment-method'])) {
+                Errors::add_error("Payment method field is empty!");
+            } elseif (empty($order_details['delivery-method'])) {
+                Errors::add_error("Delivery method field is empty!");
+            } elseif (empty($order_details['total-price'])) {
+                Errors::add_error("total-price field is empty! Contact with administrator.");
+            } elseif (empty($order_details['first-name'])) {
+                Errors::add_error("First name field is empty!");
+            } elseif (empty($order_details['last-name'])) {
+                Errors::add_error("Last name field is empty!");
+            } elseif (empty($order_details['email'])) {
+                Errors::add_error("Email field is empty!");
+            } elseif (empty($order_details['address'])) {
+                Errors::add_error("Address field is empty!");
+            }
 
-            $delivery_options = ['nova', 'ukr'];
-            $payment_options = ['direct', 'on-delivery'];
 
             if (!in_array($post_array['delivery-method'], $delivery_options) or !in_array($post_array['payment-method'], $payment_options)) {
-
                 Errors::add_error("Something wrong with radio buttons! Contact with administrator.");
             }
 
-            if ((count(array_filter($order_details, 'is_empty')) > 0)) {
-                $has_have_empty_field = true;
-            }
-
-            if ($has_have_empty_field) {
-                Errors::add_error("Empty fields for required* are not allowed ");
-            }
-
             $products_ids = implode(',', $_SESSION['product_ids']);
+
             $order_details['product-ids'] = $products_ids;
+            
             if (empty($products_ids)) {
                 Errors::add_error("Don't added any product!");
             }
