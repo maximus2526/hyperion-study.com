@@ -4,20 +4,19 @@ class Cart_Controller
 {
     public $products_model;
     public $cart_model;
+    public $products_ids;
+
     public function __construct($products_model, $cart_model)
     {
         $this->products_model = $products_model;
         $this->cart_model = $cart_model;
+        $this->products_ids = $this->cart_model->get_products_ids();
     }
 
     public function render_cart_action()
     {
-        if (empty($_SESSION['product_ids']) or ($_SESSION['product_ids'] == NULL)) {
-            Errors::add_error("Don't have any added products");
-            $products = [];
-        } else {
-            $products = $this->products_model->get_products_by_ids((array) $_SESSION['product_ids']);
-        }
+        $products = $this->products_model->get_products_by_ids((array) $this->products_ids);
+        
 
         foreach ($products as $product) {
             $total_price += $product['product_cost'];
@@ -26,6 +25,7 @@ class Cart_Controller
         $tamplate_data = [
             'products' => $products,
             'total_price' => $total_price,
+            'is_cart_empty' => $this->products_ids,
         ];
         render('cart', $tamplate_data);
     }
@@ -64,8 +64,6 @@ class Cart_Controller
                 'address' => trim(htmlspecialchars($post_array['address']))
             ];
 
-            $products_ids = $_SESSION['product_ids'];
-            
             $delivery_options = ['nova', 'ukr'];
             $payment_options = ['direct', 'on-delivery'];
 
@@ -93,11 +91,7 @@ class Cart_Controller
                 Errors::add_error("Something wrong with radio buttons! Contact with administrator.");
             }
 
-            $order_details['product-ids'] = $products_ids;
-
-            if (empty($products_ids)) {
-                Errors::add_error("Don't added any product!");
-            }
+            $order_details['product-ids'] = $this->products_ids;
 
             if (!empty($post_array['order-comments'])) {
                 $order_details['notes'] = trim(htmlspecialchars($post_array['order-comments']));

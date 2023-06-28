@@ -64,9 +64,6 @@ class Products_Model
         return $product;
     }
 
-
-
-
     public function get_bestsellers_products()
     {
         $sql = "SELECT * FROM `products` ORDER BY `products`.`order_number` DESC LIMIT 6";

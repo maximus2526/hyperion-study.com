@@ -31,10 +31,6 @@ function get_param_query($current_param)
     return http_build_query($queryParams);
 }
 
-function is_empty($value) {
-    return empty($value);
-}
-
 
 
 function redirect(string $path = '')

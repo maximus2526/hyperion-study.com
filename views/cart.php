@@ -69,61 +69,63 @@
                         <div class="checkout-order-review">
                             <div class="products-review  display-flex column gap">
                                 <?php
-
-                                foreach ($products as $product): ?>
-                                    <div class="product design-bordered bg-white display-flex">
-                                        <div class="row">
-                                            <div class="col-3">
-                                                <div class="product-img">
-                                                    <img src="<?php echo $product["product_img"] ?>" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-9">
-                                                <div class="product-info">
-
-                                                    <div class="product-name">
-                                                        <p class="title bold">
-                                                            <?php echo $product['product_name'] ?>
-                                                        </p>
-                                                    </div>
-                                                    <div class="product-count display-flex space-between">
-                                                        <input type="number" name="product-count" min="1" max="100"
-                                                            value="<?php echo $_GET['product-count'] ? $_GET['product-count'] : 1; ?>">
-                                                        <a
-                                                            href="/?action=cart&product-count=<?php echo $_GET['product-count'] ? $_GET['product-count'] : 1; ?>">Update</a>
-                                                    </div>
-                                                    <div class="delete-product">
-                                                        <a
-                                                            href="/?action=cart&delete_product=<?php echo $product["product_id"] ?>">Delete</a>
-                                                    </div>
-                                                    <div class="product-price text-right">
-                                                        <p class="price">
-                                                            <?php echo $product['product_cost'] ?>
-                                                        </p>
+                                if ($is_cart_empty):
+                                    Errors::add_error("Don't have any added products!");
+                                else:
+                                    foreach ($products as $product): ?>
+                                        <div class="product design-bordered bg-white display-flex">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <div class="product-img">
+                                                        <img src="<?php echo $product["product_img"] ?>" alt="">
                                                     </div>
                                                 </div>
+                                                <div class="col-9">
+                                                    <div class="product-info">
+
+                                                        <div class="product-name">
+                                                            <p class="title bold">
+                                                                <?php echo $product['product_name'] ?>
+                                                            </p>
+                                                        </div>
+                                                        <div class="product-count display-flex space-between">
+                                                            <input type="number" name="product-count" min="1" max="100"
+                                                                value="<?php echo $_GET['product-count'] ? $_GET['product-count'] : 1; ?>">
+                                                            <a
+                                                                href="/?action=cart&product-count=<?php echo $_GET['product-count'] ? $_GET['product-count'] : 1; ?>">Update</a>
+                                                        </div>
+                                                        <div class="delete-product">
+                                                            <a
+                                                                href="/?action=cart&delete_product=<?php echo $product["product_id"] ?>">Delete</a>
+                                                        </div>
+                                                        <div class="product-price text-right">
+                                                            <p class="price">
+                                                                <?php echo $product['product_cost'] ?>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
 
                                         </div>
+                                    <?php endforeach ?>
 
-                                    </div>
-                                <?php endforeach ?>
-
-                            </div>
-
-                            <div class="total-price display-flex space-between align-center">
-                                <div class="block-title">
-                                    <p class="title bold">Total</p>
                                 </div>
-                                <div class="total">
-                                    <p class="price size-l">
+
+                                <div class="total-price display-flex space-between align-center">
+                                    <div class="block-title">
+                                        <p class="title bold">Total</p>
+                                    </div>
+                                    <div class="total">
+                                        <p class="price size-l">
                                         <?php echo $total_price ?>
                                     </p>
                                     <input type="hidden" name="total-price" value="<?php echo $total_price ?>">
                                 </div>
 
                             </div>
-
+                            <?php endif; ?>
                             <div class="payment-method">
                                 <div class="block-title">
                                     <h3 class="title">Payment-method</h3>
@@ -170,9 +172,10 @@
                                     throughout this website, and for other purposes described in our privacy policy.
                                 </div>
                                 <div class="agree-input display-flex gap">
-                                    <input id="agree-terms" type="checkbox" name="agree-terms"> 
-                                    <label for="agree-terms">I have read and agree to the website <a href>terms and conditions</a> &nbsp;<abbr class="required"
-                                    title="required">*</abbr></label>
+                                    <input id="agree-terms" type="checkbox" name="agree-terms">
+                                    <label for="agree-terms">I have read and agree to the website <a href>terms and
+                                            conditions</a> &nbsp;<abbr class="required"
+                                            title="required">*</abbr></label>
                                 </div>
                             </div>
 
