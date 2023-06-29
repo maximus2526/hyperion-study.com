@@ -79,6 +79,11 @@ header {
         .sidebar-element p, .element-subtitle, .sidebar-title {
             display: none;
         }
+        .sidebar-element a {
+            &:hover {
+                border-right: 5px solid rgb(140, 127, 218);
+            }
+        }
         .sidebar-block {
             margin-bottom: 0;
         }

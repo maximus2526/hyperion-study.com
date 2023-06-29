@@ -69,6 +69,9 @@ header {
   .sidebar-section .sidebar-element p, .sidebar-section .element-subtitle, .sidebar-section .sidebar-title {
     display: none;
   }
+  .sidebar-section .sidebar-element a:hover {
+    border-right: 5px solid rgb(140, 127, 218);
+  }
   .sidebar-section .sidebar-block {
     margin-bottom: 0;
   }
