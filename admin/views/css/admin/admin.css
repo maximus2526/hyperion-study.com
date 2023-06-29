@@ -1,3 +1,92 @@
+header {
+  top: 0;
+  left: 0;
+  height: 50px;
+  background: #252b36;
+  width: 100%;
+  z-index: 2;
+}
+
+.col-3 {
+  width: 100%;
+}
+
 .sidebar-section {
-  background: #6480ce;
+  top: 50px;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  background: #252b36;
+}
+
+.page-content {
+  margin-top: 50px;
+  margin-left: 300px;
+}
+
+.page-header {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.sidebar-section .sidebar-block {
+  margin-bottom: 20px;
+}
+.sidebar-section .sidebar-element a {
+  display: flex;
+  padding-left: 10px;
+  height: 50px;
+}
+.sidebar-section .sidebar-element a:hover {
+  color: white;
+  background: #777777;
+}
+.sidebar-section .sidebar-element p {
+  margin-bottom: 0;
+}
+.sidebar-section .block-title {
+  padding: 20px 10px;
+  margin-bottom: 20px;
+}
+.sidebar-section .element-subtitle p, .sidebar-section a {
+  padding-left: 10px;
+}
+.sidebar-section .sidebar-img img {
+  width: 100%;
+}
+.sidebar-section .sidebar-img a {
+  display: block;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.page-header {
+  border-bottom: 2px solid gray;
+}
+
+.content-block {
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+.content {
+  position: relative;
+  min-height: 870px;
+}
+
+.content-section {
+  height: 100%;
+  width: 100%;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  flex: 0 0 auto;
+  padding: 15px;
+  background: #e6ffe6;
 }/*# sourceMappingURL=admin.css.map */
