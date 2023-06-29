@@ -11,17 +11,14 @@ header {
   width: 100%;
 }
 
-.sidebar-section {
-  top: 50px;
-  left: 0;
-  height: 100%;
-  width: 300px;
-  background: #252b36;
-}
-
 .page-content {
   margin-top: 50px;
   margin-left: 300px;
+}
+@media screen and (max-width: 1199px) {
+  .page-content {
+    margin-left: 50px;
+  }
 }
 
 .page-header {
@@ -29,6 +26,13 @@ header {
   padding: 10px;
 }
 
+.sidebar-section {
+  top: 50px;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  background: #252b36;
+}
 .sidebar-section .sidebar-block {
   margin-bottom: 20px;
 }
@@ -48,7 +52,8 @@ header {
   padding: 20px 10px;
   margin-bottom: 20px;
 }
-.sidebar-section .element-subtitle p, .sidebar-section a {
+.sidebar-section .element-subtitle p,
+.sidebar-section a {
   padding-left: 10px;
 }
 .sidebar-section .sidebar-img img {
@@ -56,6 +61,21 @@ header {
 }
 .sidebar-section .sidebar-img a {
   display: block;
+}
+@media screen and (max-width: 1199px) {
+  .sidebar-section {
+    width: 50px;
+  }
+  .sidebar-section .sidebar-element p, .sidebar-section .element-subtitle, .sidebar-section .sidebar-title {
+    display: none;
+  }
+  .sidebar-section .sidebar-block {
+    margin-bottom: 0;
+  }
+  .sidebar-section .element-subtitle p,
+  .sidebar-section a {
+    padding-left: 0;
+  }
 }
 
 .fixed {
