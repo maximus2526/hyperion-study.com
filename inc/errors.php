@@ -6,6 +6,11 @@ class Errors
         return !empty($_SESSION['errors']);
     }
 
+    static function has_message()
+    {
+        return !empty($_SESSION['success']);
+    }
+
     static public function add_error(string $error_text)
     {
         $_SESSION['errors'][] = $error_text;
@@ -14,6 +19,23 @@ class Errors
     static public function set_message(string $message_text)
     {
         $_SESSION['success'] = $message_text;
+    }
+
+    static public function display()
+    {
+        if (Errors::has_message()) {
+            Errors::tamplate_massage();
+        } 
+        elseif(Errors::has_errors()) {
+            Errors::tamplate_error();
+        }
+    }
+
+
+    static public function clean()
+    {
+        unset($_SESSION['errors']);
+        unset($_SESSION['success']);
     }
 
     static public function tamplate_massage()
@@ -38,23 +60,6 @@ class Errors
             echo "</div>";
             Errors::clean();
         }
-    }
-
-
-    static public function display()
-    {
-        if (!Errors::has_errors()) {
-            Errors::tamplate_massage();
-        } else {
-            Errors::tamplate_error();
-        }
-    }
-
-
-    static public function clean()
-    {
-        unset($_SESSION['errors']);
-        unset($_SESSION['success']);
     }
 
 

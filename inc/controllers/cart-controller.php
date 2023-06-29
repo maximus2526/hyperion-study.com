@@ -15,9 +15,10 @@ class Cart_Controller
 
     public function render_cart_action()
     {
-        $products = $this->products_model->get_products_by_ids((array) $this->products_ids);
-        
 
+        $product_ids = explode(',', $this->products_ids);
+
+        $products = $this->products_model->get_products_by_ids($product_ids);
         foreach ($products as $product) {
             $total_price += $product['product_cost'];
         }
@@ -25,14 +26,16 @@ class Cart_Controller
         $tamplate_data = [
             'products' => $products,
             'total_price' => $total_price,
-            'is_cart_empty' => $this->products_ids,
+            'is_cart_empty' => $this->cart_model->is_cart_empty(),
         ];
+
         render('cart', $tamplate_data);
     }
 
     function add_product_action()
     {
         $this->cart_model->add_product_to_cart();
+        
         redirect('?action=cart');
     }
 
@@ -40,15 +43,16 @@ class Cart_Controller
     {
         $id_to_delete = $_GET["delete_product"];
         $this->cart_model->delete_product_from_cart($id_to_delete);
+        redirect('?action=cart');
     }
 
 
     function post_order_action()
     {
         // Handle form
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' and !$this->cart_model->is_cart_empty()) {
             $post_array = $_POST;
-
+            echo $post_array['note'];
             if ($post_array['agree-terms'] != 'on') {
                 Errors::add_error("Please read and accept the terms and conditions to proceed with your order.");
             }
@@ -93,23 +97,16 @@ class Cart_Controller
 
             $order_details['product-ids'] = $this->products_ids;
 
-            if (!empty($post_array['order-comments'])) {
-                $order_details['notes'] = trim(htmlspecialchars($post_array['order-comments']));
+            if (!$post_array['notes']) {
+                $order_details['notes'] = trim(htmlspecialchars($post_array['notes']));
             }
-            if (!Errors::has_errors()) {
-                if ($this->cart_model->post_order($order_details)) {
-                    Errors::set_message('Successfully! Whait while you will be contacted by operator.');
-                    redirect('?action=order-complete');
-                }
+            if ($this->cart_model->post_order($order_details) and !Errors::has_errors()) {
+                Errors::set_message('Successfully! Wait while you will be contacted by operator.');
+                redirect('?action=order-complete');
             } else {
                 redirect('?action=cart');
-            
             }
-        } else {
-            Errors::add_error("Something wrong! Contact with administrator.");
         }
-
-        
     }
 
 }

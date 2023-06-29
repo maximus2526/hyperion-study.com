@@ -62,9 +62,9 @@
                             <h3 class="title">YOUR ORDER</h3>
                         </div>
                         <?php
-
+                        
                         Errors::display();
-
+                    
                         ?>
                         <div class="checkout-order-review">
                             <div class="products-review  display-flex column gap">
@@ -184,8 +184,6 @@
                     </div>
                 </div>
             </div>
-
-
         </form>
     </div>
 </div>

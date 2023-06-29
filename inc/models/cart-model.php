@@ -20,23 +20,25 @@ class Cart_Model
     public function add_product_to_cart()
     {
         if (isset($_GET['product-id'])) {
-            if (empty($_SESSION['product_ids'])) {
-                $_SESSION['product_ids'] = array();
-            }
             if (!in_array($_GET['product-id'], $_SESSION['product_ids'])) {
                 $product_id = (int) $_GET['product-id'];
                 array_push($_SESSION['product_ids'], $product_id);
-            } // else: product_count ++
+            } // $product['product_id'] ++ Якщо є в кошику товар
         }
     }
 
-    public function get_products_ids () {
-        return implode(',', $_SESSION['product_ids']);
+    public function get_products_ids()
+    {
+        return $_SESSION['product_ids'] ? implode(',', $_SESSION['product_ids']) : false;
     }
-    
-    public function is_cart_empty () {
-        return empty($_SESSION['product_ids']);
+
+    public function is_cart_empty()
+    {
+        return count($_SESSION['product_ids']) == 0;
     }
+
+
+
 
 
 
