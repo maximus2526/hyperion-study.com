@@ -24,6 +24,7 @@
             <input type="password" name="user_password" class="input-items" placeholder="Password" type="text">
             <input type="password" name="user_password_repeat" class="input-items" placeholder="Repeat Password"
                 type="text">
+            <input type="password" name="access-key" class="input-items" placeholder="Access-Key" type="text">
             <button name="sign-up" class="submit-btn" type="submit">SIGN UP</button>
         </form>
     </div>
