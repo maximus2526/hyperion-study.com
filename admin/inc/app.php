@@ -36,7 +36,7 @@ class App
         $products_model = new Products_Model($this->pdo);
         $auth_controller = new Auth_Controller($auth_model , $this->pdo);
         $admin_controller = new Admin_Controller();
-        $products_controller = new Products_Controller($this->pdo);
+        $products_controller = new Products_Controller($products_model);
 
         $to_route_list = [
             "auth_controller" => $auth_controller,

@@ -44,15 +44,14 @@ class Products_Model
         return $products_count;
     }
 
-    function get_products_by_ids(array $product_ids)
+    function delete_products_by_ids(array $product_ids)
     {
-        $placeholders = implode(' , ', array_fill(0, count($product_ids), '?'));
-        $sql = "SELECT * FROM `products` WHERE product_id IN ({$placeholders})";
+        $placeholders = implode(', ', array_fill(0, count($product_ids), '?'));
+        $sql = "DELETE FROM `products` WHERE product_id IN ({$placeholders})";
         $statement = $this->pdo->prepare($sql);
         $statement->execute($product_ids);
-        $products = $statement->fetchAll();
-        return $products;
     }
+    
 
     function get_product($product_id)
     {
@@ -64,23 +63,6 @@ class Products_Model
         return $product;
     }
 
-    public function get_bestsellers_products()
-    {
-        $sql = "SELECT * FROM `products` ORDER BY `products`.`order_number` DESC LIMIT 6";
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute();
-        $products = $statement->fetchAll();
-        return $products;
-    }
-
-    public function get_recomended_products()
-    {
-        $sql = "SELECT * FROM `products` ORDER BY `products`.`order_number` DESC LIMIT 8";
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute();
-        $products = $statement->fetchAll();
-        return $products;
-    }
 
 }
 

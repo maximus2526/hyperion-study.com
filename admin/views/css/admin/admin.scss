@@ -2,20 +2,24 @@ header {
     top: 0;
     left: 0;
     height: 50px;
-    background: #252b36;
+    background: #000000;
     width: 100%;
     z-index: 2;
+    padding: 0 20px;
 }
 
 .col-3 {
     width: 100%;
 }
 
-
+.price {
+    margin-bottom: 0;
+}
 
 .page-content {
     margin-top: 50px;
     margin-left: 300px;
+
     @media screen and (max-width: 1199px) {
         margin-left: 50px;
     }
@@ -31,9 +35,11 @@ header {
 .sidebar-section {
     top: 50px;
     left: 0;
+    bottom: 0;
     height: 100%;
     width: 300px;
     background: #252b36;
+
     .sidebar-block {
         margin-bottom: 20px;
     }
@@ -48,6 +54,10 @@ header {
         padding-left: 10px;
         height: 50px;
 
+    }
+    
+    .active {
+        background: #777777;
     }
 
     .sidebar-element {
@@ -76,17 +86,23 @@ header {
 
     @media screen and (max-width: 1199px) {
         width: 50px;
-        .sidebar-element p, .element-subtitle, .sidebar-title {
+
+        .sidebar-element p,
+        .element-subtitle,
+        .sidebar-title {
             display: none;
         }
+
         .sidebar-element a {
             &:hover {
                 border-right: 5px solid rgb(140, 127, 218);
             }
         }
+
         .sidebar-block {
             margin-bottom: 0;
         }
+
         .element-subtitle p,
         a {
             padding-left: 0;
@@ -107,8 +123,7 @@ header {
     border-radius: 5px;
 }
 
-.content {
-    position: relative;
+.content-section {
     min-height: 870px;
 }
 
@@ -118,11 +133,103 @@ header {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
     flex: 0 0 auto;
     padding: 15px;
     background: #e6ffe6;
+}
+
+// pagination
+.pagination {
+    margin: 0 auto;
+    margin-bottom: 100px;
+    max-width: 100%;
+    overflow: auto;
+    width: fit-content;
+    position: relative;
+
+    p {
+        margin-bottom: 0;
+    }
+
+    & .active {
+        color: rgb(0, 0, 0);
+    }
+
+
+    .pagination-button a {
+        display: block;
+        color: black;
+    }
+
+    .pagination-button.active a {
+        color: white;
+        background-color: #1169b6;
+        border: 1px solid black;
+    }
+
+    .pagination-button a {
+
+        background-color: #ffffff;
+        border: 1px solid black;
+        padding: 5px 15px;
+    }
+
+    .text {
+        opacity: 100%;
+        font-size: 15px;
+    }
+
+    .arrow-right img {
+        filter: invert(0%);
+        margin-left: 2px;
+    }
+}
+
+// product table 
+.products table {
+    display: flex;
+    justify-content: center;
+
+    th {
+        font-style: italic;
+    }
+
+    tr.table-content {
+        background: #f8fcf6;
+        border-bottom: 5px solid white;
+        &:hover {
+            background: #e0e0df;
+        }
+    }
+
+    td {
+        padding: 10px 50px;
+    }
+
+
+    margin-bottom: 50px;
+}
+.product-img {
+    max-width: 50px;
+}
+
+
+.products-form {
+    .delete-btn {
+        background: none;
+        border: none;
+    }
+}
+
+.update_form, .add_form {
+    padding: 20px;
+    input {
+        &::placeholder {
+            padding-left: 5px; 
+        }
+        &:focus::placeholder {
+            opacity: 0;
+        }
+    }
+
 }

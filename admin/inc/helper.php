@@ -43,7 +43,7 @@ function render(string $name, array $tamplate_data = NULL)
     if (isset($tamplate_data))
         extract($tamplate_data);
     include_once 'views/header.php';
-    include_once 'views/' . $name . '.php';
+    include_once 'views/base.php';
 }
 
 function render_auth(string $name)

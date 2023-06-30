@@ -20,6 +20,18 @@ class Router
             case 'register':
                 $this->auth_controller->add_user_action();
                 break;     
+            case 'products':
+                $this->products_controller->render_products_action();
+                break;     
+            case 'delete-products':
+                $this->products_controller->delete_products_action();
+                break;     
+            case 'edit-product':
+                $this->products_controller->edit_product_action();
+                break;     
+            case 'add-product':
+                $this->products_controller->add_product_action();
+                break;     
             default:        
             if (!is_logged_in()) {
                 $this->auth_controller->render_login_action();
