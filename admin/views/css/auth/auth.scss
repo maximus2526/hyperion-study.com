@@ -1,0 +1,28 @@
+.auth-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    border: 1px solid black;
+    padding: 25px;
+    gap: 100px;
+    input {
+        &:focus::placeholder {
+            opacity: 0;
+        }
+        &::placeholder {
+            padding-left: 10px;
+        }
+    }
+    button {    
+        background: #054d91;
+        color: white;
+        border-radius: 5px;
+        border-style: none;
+        padding: 5px 0;
+    }
+}
+
+body {
+    background: #262763;
+}

@@ -38,7 +38,7 @@
                         <div class="sidebar-elements">
                             <ul>
                                 <li class="sidebar-element">
-                                    <a class="display-flex align-center gap" href="/">
+                                    <a class="display-flex align-center gap" href="?action=products">
                                         <img src="img/svg/sidebar-icons/products.svg" alt="">
                                         <p class="text">Products</p>
                                     </a>
@@ -73,16 +73,11 @@
                             <div class="col-6">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente itaque voluptatum soluta fugit omnis temporibus laborum ea ex dignissimos rem, distinctio dolorem eaque! Laudantium porro laborum modi quis, alias quia!
                             </div>
-    
                         </div>
                     </div>
-                        
-                   
-                    
                 </div>
                 <!-- footer -->
                 <?php include 'footer.php' ?>
-                
             </div>
 
             

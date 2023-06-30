@@ -1,6 +1,6 @@
 <?php
 
-class Product_Controller
+class Products_Controller
 {
     public $products_model;
     public function __construct($products_model)
