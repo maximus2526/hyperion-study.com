@@ -51,7 +51,7 @@ class Products_Model
         $statement = $this->pdo->prepare($sql);
         $statement->execute($product_ids);
     }
-    
+
 
     function get_product($product_id)
     {
@@ -63,7 +63,34 @@ class Products_Model
         return $product;
     }
 
+    function add_product($product_data)
+    {
+        $sql = "INSERT INTO `products` (product_img, product_name, product_cost, recommended, hot, short_description)
+                VALUES (:product_img, :product_name, :product_cost, :recommended, :hot, :short_description)";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindParam(':product_img', $product_data['product_img'], PDO::PARAM_STR);
+        $statement->bindParam(':product_name', $product_data['product_name'], PDO::PARAM_STR);
+        $statement->bindParam(':product_cost', $product_data['product_cost'], PDO::PARAM_INT);
+        $statement->bindParam(':recommended', $product_data['recommended'], PDO::PARAM_INT);
+        $statement->bindParam(':hot', $product_data['hot'], PDO::PARAM_INT);
+        $statement->bindParam(':short_description', $product_data['short_description'], PDO::PARAM_STR);
+        $statement->execute();
+        return $this->pdo->lastInsertId();
+    }
+    
+    function update_product($product_id, $product_data)
+    {
+        $fields = array_keys($product_data);
+        $placeholders = implode(' = ?, ', $fields) . ' = ?';
+        $sql = "UPDATE `products` SET {$placeholders} WHERE product_id = ?";
 
+        $statement = $this->pdo->prepare($sql);
+
+        $values = array_values($product_data);
+        $values[] = $product_id;
+
+        return $statement->execute($values);
+    }
 }
 
 

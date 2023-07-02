@@ -186,11 +186,45 @@ footer {
 }
 
 .update_form, .add_form {
+  width: 400px;
+  margin: 0 auto;
   padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
 }
 .update_form input::placeholder, .add_form input::placeholder {
   padding-left: 5px;
 }
 .update_form input:focus::placeholder, .add_form input:focus::placeholder {
   opacity: 0;
+}
+.update_form label, .add_form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.update_form input:not([type=checkbox]),
+.update_form textarea, .add_form input:not([type=checkbox]),
+.add_form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.update_form .form-btn, .add_form .form-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+.update_form .checkbox-block, .add_form .checkbox-block {
+  display: flex;
+  justify-content: space-between;
+}
+.update_form .checkbox-block input, .add_form .checkbox-block input {
+  margin-left: auto;
 }/*# sourceMappingURL=admin.css.map */

@@ -222,7 +222,12 @@ footer {
 }
 
 .update_form, .add_form {
+    width: 400px;
+    margin: 0 auto;
     padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
     input {
         &::placeholder {
             padding-left: 5px; 
@@ -232,4 +237,41 @@ footer {
         }
     }
 
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    input:not([type="checkbox"]),
+    textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .form-btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+
+    .checkbox-block {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .checkbox-block input {
+        margin-left: auto;
+    }
+
+    
 }
+
+

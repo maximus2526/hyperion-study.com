@@ -26,8 +26,8 @@ class Router
             case 'delete-products':
                 $this->products_controller->delete_products_action();
                 break;     
-            case 'edit-product':
-                $this->products_controller->edit_product_action();
+            case 'update-product':
+                $this->products_controller->update_product_action();
                 break;     
             case 'add-product':
                 $this->products_controller->add_product_action();

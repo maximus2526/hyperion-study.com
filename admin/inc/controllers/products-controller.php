@@ -27,13 +27,13 @@ class Products_Controller
         ];
 
         $count_of_buttons = $this->products_model->get_count_of_buttons($model_options);
-        
+
         $template_data = [
             'count_of_products' => $count_of_products,
             'products_limit' => $products_limit,
             'products' => $this->products_model->get_paginated_products($model_options),
             'pages' => $count_of_buttons,
-            
+
         ];
 
         render('products', $template_data);
@@ -44,7 +44,7 @@ class Products_Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $post_array = $_POST;
             $products_ids = [];
-            if (empty($post_array)){
+            if (empty($post_array)) {
                 Errors::add_error('No selected any products!');
             }
             foreach ($post_array as $key => $value) {
@@ -57,31 +57,92 @@ class Products_Controller
             if (!Errors::has_errors()) {
                 $this->products_model->delete_products_by_ids($products_ids);
             }
-            
-        } 
+
+        }
         redirect('admin/?action=products');
     }
-    public function edit_product_action()
+    public function update_product_action()
     {
+
         $template_data = [
             'product' => $this->products_model->get_product((int) $_GET['product-id']),
         ];
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
-            // Form handling
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $required_fields = ['product_img', 'product_name', 'product_cost', 'short_description'];
+            $missing_fields = [];
+
+            foreach ($required_fields as $field) {
+                if (!isset($_POST[$field]) || empty($_POST[$field])) {
+                    $missing_fields[] = $field;
+                }
+            }
+            $product_id = $_POST['product_id'];
+            if (!empty($missing_fields)) {
+                Errors::add_error("Please fill in all required fields");
+            } else {
+                $product_data = [
+                    'product_img' => $_POST['product_img'],
+                    'product_name' => $_POST['product_name'],
+                    'product_cost' => $_POST['product_cost'],
+                    'recommended' => isset($_POST['recommended']) ? 1 : 0,
+                    'hot' => isset($_POST['hot']) ? 1 : 0,
+                    'short_description' => $_POST['short_description']
+                ];
+
+                $result = $this->products_model->update_product($product_id, $product_data);
+
+                if ($result) {
+                    Errors::set_message("Product updated successfully.");
+                } else {
+                    Errors::add_error("Failed to update product.");
+                }
+            }
         }
-        render('product-edit', $template_data);
+
+        render('update-product', $template_data);
     }
-    
+
     public function add_product_action()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
-            // Form handling
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $required_fields = ['product_img', 'product_name', 'product_cost', 'short_description'];
+            $missing_fields = [];
+
+            foreach ($required_fields as $field) {
+                if (!isset($_POST[$field]) || empty($_POST[$field])) {
+                    $missing_fields[] = $field;
+                }
+            }
+
+            if (!empty($missing_fields)) {
+                var_dump($missing_fields);
+                Errors::add_error("Please fill in all required fields");
+            } else {
+                $product_data = [
+                    'product_img' => $_POST['product_img'],
+                    'product_name' => $_POST['product_name'],
+                    'product_cost' => $_POST['product_cost'],
+                    'recommended' => isset($_POST['recommended']) ? 1 : 0,
+                    'hot' => isset($_POST['hot']) ? 1 : 0,
+                    'short_description' => $_POST['short_description']
+                ];
+                $result = $this->products_model->add_product($product_data);
+
+                if ($result) {
+                    Errors::set_message("Product added successfully.");
+                } else {
+                    Errors::add_error("Failed to add product.");
+                }
+            }
         }
+
         render('add-product');
     }
-    
 
-    
 
-   
+
+
+
 }

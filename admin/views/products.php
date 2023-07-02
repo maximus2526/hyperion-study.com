@@ -49,7 +49,7 @@
                     </td>
                     <td>
                         <span class="display-flex content-center gap">
-                            <a href="?action=edit-product&product-id=<?php echo $product['product_id'] ?>">Edit</a>
+                            <a href="?action=update-product&product-id=<?php echo $product['product_id'] ?>">Edit</a>
                             <input type="checkbox" name="product-id-<?php echo $product['product_id'] ?>"
                                 value="<?php echo $product['product_id'] ?>">
                         </span>
