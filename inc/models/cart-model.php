@@ -17,14 +17,12 @@ class Cart_Model
         }
     }
 
-    public function add_product_to_cart()
+    public function add_product_to_cart($product_id)
     {
-        if (isset($_GET['product-id'])) {
-            if (!in_array($_GET['product-id'], $_SESSION['product_ids'])) {
-                $product_id = (int) $_GET['product-id'];
-                array_push($_SESSION['product_ids'], $product_id);
-            } // $product['product_id'] ++ Якщо є в кошику товар
+        if (!isset($_SESSION['product_ids'])) {
+            $_SESSION['product_ids'] = [];
         }
+        array_push($_SESSION['product_ids'], $product_id);
     }
 
     public function get_products_ids()

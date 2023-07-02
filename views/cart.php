@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <span class="input-wrapper display-flex column">
-                                    <label for="first-name" class="">First name&nbsp;<abbr class="required"
+                                    <label for="first-name" class="text">First name&nbsp;<abbr class="required"
                                             title="required">*</abbr></label>
                                     <input type="text" class="input-text" name="first-name" id="first-name"
                                         placeholder="" value="" autocomplete="given-name" required>
@@ -24,7 +24,7 @@
                             </div>
                             <div class="col-6">
                                 <span class="input-wrapper display-flex column">
-                                    <label for="last-name" class="">Last name&nbsp;<abbr class="required"
+                                    <label for="last-name" class="text">Last name&nbsp;<abbr class="required"
                                             title="required">*</abbr></label>
                                     <input type="text" class="input-text" name="last-name" id="last-name" placeholder=""
                                         value="" autocomplete="family-name" required>
@@ -35,19 +35,19 @@
                         </div>
 
                         <span class="input-wrapper display-flex column">
-                            <label for="email" class="">Email&nbsp;<abbr class="required"
+                            <label for="email" class="text">Email&nbsp;<abbr class="required"
                                     title="required">*</abbr></label>
                             <input type="text" class="input-text" name="email" id="email" placeholder="" value=""
                                 autocomplete="email" required>
                         </span>
                         <span class="input-wrapper display-flex column">
-                            <label for="address" class="">Address&nbsp;<abbr class="required"
+                            <label for="address" class="text">Address&nbsp;<abbr class="required"
                                     title="required">*</abbr></label>
                             <input type="text" class="input-text" name="address" id="address" placeholder="" value=""
                                 autocomplete="address-line1" required>
                         </span>
                         <span class="input-wrapper display-flex column">
-                            <label for="notes" class="">Order notes&nbsp;<span
+                            <label for="notes" class="text">Order notes&nbsp;<span
                                     class="optional">(optional)</span></label>
                             <textarea name="notes" class="input-text " id="notes"
                                 placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"
@@ -62,9 +62,7 @@
                             <h3 class="title">YOUR ORDER</h3>
                         </div>
                         <?php
-                        
                         Errors::display();
-                    
                         ?>
                         <div class="checkout-order-review">
                             <div class="products-review  display-flex column gap">

@@ -12,7 +12,9 @@
         </div>
     </div>
     <div class="products scheme-dark">
-        <?php Errors::display(); ?>
+        <?php 
+        Errors::display(); 
+        ?>
         <table>
             <tr>
                 <th>Product Image</th>

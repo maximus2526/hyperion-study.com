@@ -1,9 +1,14 @@
 <div class="page-header">
     <div class="block-title">
-        <h5 class="title">Home - Products - Edit Product_Id: <?php echo $product["product_id"]?></h5>
-       
+        <h5 class="title">Home - Products - Edit Product_Id:
+            <?php echo $product["product_id"] ?>
+        </h5>
+
     </div>
 </div>
+<?php
+Errors::display();
+?>
 <form class="update_form display-flex column gap" action="?action=update-product" method="POST">
     <div class="display-flex gap">
         <label for="product_img">Product Image:</label>

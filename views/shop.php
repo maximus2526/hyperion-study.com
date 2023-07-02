@@ -5,9 +5,7 @@
 </style>
 <div class="content">
     <?php
-
     Errors::display();
-
     ?>
     <div class="container">
         <div class="shop-heading size-s opacity-50 scheme-dark display-flex align-center space-between">
@@ -202,7 +200,7 @@
                     <div class="pagination display-flex content-center gap">
                         <div class="arrow-left">
                             <a
-                                href="<?php echo get_url() ?>?<?php echo get_param_query(['page_num'=> $_GET['page_num'] <= 1 ? 1 : $_GET['page_num'] - 1]); ?>">
+                                href="<?php echo get_url() ?>?<?php echo get_param_query(['page_num' => $_GET['page_num'] <= 1 ? 1 : $_GET['page_num'] - 1]); ?>">
                                 <img src="<?php get_url() ?>views/img/svg/arrow-3/arrow-left.svg" alt>
                             </a>
                         </div>
@@ -211,8 +209,7 @@
                             ?>
                             <div
                                 class="pagination-button <? echo $pagenum == $_GET['page_num'] ? 'active' : '' ?> scheme-light">
-                                <a
-                                    href="<?php echo get_url() ?>?<?php echo get_param_query(['page_num'=> $pagenum]); ?>"><?php echo $pagenum ?></a>
+                                <a href="<?php echo get_url() ?>?<?php echo get_param_query(['page_num' => $pagenum]); ?>"><?php echo $pagenum ?></a>
                             </div>
                             <?php
                         endforeach;
@@ -220,8 +217,7 @@
 
                         <div class="arrow-right scheme-dark">
                             <a class="display-flex"
-                            
-                                href="<?php echo get_url() ?>?<?php echo get_param_query(['page_num'=>$_GET['page_num'] < end($pages) ? $_GET['page_num'] + 1 : $_GET['page_num']]); ?>">
+                                href="<?php echo get_url() ?>?<?php echo get_param_query(['page_num' => $_GET['page_num'] < end($pages) ? $_GET['page_num'] + 1 : $_GET['page_num']]); ?>">
                                 <p class="text">Next</p>
                                 <img src="<?php get_url() ?>views/img/svg/arrow-3/arrow-right.svg" alt>
                             </a>

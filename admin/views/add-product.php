@@ -1,9 +1,12 @@
 <div class="page-header">
     <div class="block-title">
         <h5 class="title">Home - Products - Add Product</h5>
-       
+
     </div>
 </div>
+<?php
+Errors::display();
+?>
 <form class="add_form display-flex column gap" action="?action=add-product" method="POST">
     <div class="display-flex gap">
         <label for="product_img">Product Image:</label>

@@ -34,10 +34,23 @@ class Cart_Controller
 
     function add_product_action()
     {
-        $this->cart_model->add_product_to_cart();
-        
+        if (isset($_GET['product-id'])) {
+            $product_id = $_GET['product-id'];
+    
+            // Перевірка, чи вже існує товар з таким product_id в кошику
+            if (!in_array($product_id, $_SESSION['product_ids'])) {
+                $this->cart_model->add_product_to_cart($product_id);
+            } else {
+                // $this->cart_model->increase_product_quantity($product_id);
+                Errors::add_error("Product is already in the cart.");
+            }
+        } else {
+            Errors::add_error("Product ID is missing.");
+        }
+    
         redirect('?action=cart');
     }
+    
 
     function delete_product_action()
     {

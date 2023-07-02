@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin panel login</title>
-    <link rel="stylesheet" href="<?php echo get_url()?>/admin/views/css/auth/auth.css">
-    <link rel="stylesheet" href="<?php echo get_url()?>/admin/views/css/base.css">
+    <link rel="stylesheet" href="<?php echo get_url() ?>/admin/views/css/auth/auth.css">
+    <link rel="stylesheet" href="<?php echo get_url() ?>/admin/views/css/base.css">
 </head>
 
 <body>
-    <?php Errors::display(); ?>
+    <?php
+    Errors::display();
+    ?>
     <div class="auth-form display-flex bg-white">
         <form action="?action=login" class="login-form display-flex column gap" method="POST">
             <p class="title">LOGIN</p>

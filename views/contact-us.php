@@ -73,9 +73,7 @@
                 </div>
             </div>
             <?php
-
             Errors::display();
-
             ?>
             <div class="row">
                 <div class="col-7">

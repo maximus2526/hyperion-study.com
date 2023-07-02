@@ -29,6 +29,7 @@ class Errors
         elseif(Errors::has_errors()) {
             Errors::tamplate_error();
         }
+        Errors::clean();
     }
 
 
@@ -45,7 +46,7 @@ class Errors
             $message = $_SESSION['success'];
             echo "<p class='massage-text'>{$message}</p>";
             echo "</div>";
-            Errors::clean();
+
         }
     }
 
@@ -58,7 +59,6 @@ class Errors
                 echo "<p class='text bold'>$error</p>";
             }
             echo "</div>";
-            Errors::clean();
         }
     }
 
