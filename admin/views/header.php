@@ -17,14 +17,21 @@
                 </div>
             </div>
             <div class="col-auto">
-                <div class="profile-block display-flex gap align-center col-right">
-                    <div class="user-name">
-                        <a href>Admin</a>
+                <div class="profile-block display-flex gap  col-right style-bordered">
+                    <div class="profile display-flex gap">
+                        <div class="user-name">
+                            <a href="?action=profile">Admin</a>
+                        </div>
+                        <div class="profile-img">
+                            <a href="?action=profile"><img src="<?php echo get_url() ?>/admin/views/img/author-img.png" alt></a>
+                        </div>
                     </div>
-                    <div class="profile-img">
-                        <a href><img src="<?php echo get_url() ?>/admin/views/img/author-img.png" alt></a>
+
+                    <div class="log-out">
+                        <a href="?action=logout">Log-Out</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </header>

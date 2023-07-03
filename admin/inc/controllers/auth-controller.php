@@ -80,7 +80,7 @@ class Auth_Controller{
         }
     }
 
-    public function log_out(){
+    public function log_out_action(){
         if(is_logged_in()){
             $this->auth->log_out();
         }

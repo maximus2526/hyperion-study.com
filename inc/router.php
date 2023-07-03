@@ -48,6 +48,7 @@ class Router
             case 'order-complete':
                 $this->pages_controller->render_complete_test_action();
                 break;
+
             default:
                 $this->pages_controller->render_main_page_action();
         }

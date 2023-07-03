@@ -85,7 +85,7 @@
                                                             <p class="title bold">
                                                                 <?php echo $product['product_name'] ?>:
                                                             </p>
-                                                            <div class="product-price text-right">
+                                                            <div class="product-price">
                                                                 <p class="price">
                                                                     <?php echo $product['product_cost'] ?>
                                                                 </p>
@@ -167,7 +167,7 @@
                                 </div>
                             </div>
                             <div class="personal-agree">
-                                <div class="style-bordered">
+                                <div class="text italic">
                                     Your personal data will be used to process your order, support your experience
                                     throughout this website, and for other purposes described in our privacy policy.
                                 </div>

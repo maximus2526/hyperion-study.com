@@ -19,26 +19,30 @@ class Router
                 break;
             case 'register':
                 $this->auth_controller->add_user_action();
-                break;     
+                break;
             case 'products':
                 $this->products_controller->render_products_action();
-                break;     
+                break;
             case 'delete-products':
                 $this->products_controller->delete_products_action();
-                break;     
+                break;
             case 'update-product':
                 $this->products_controller->update_product_action();
-                break;     
+                break;
             case 'add-product':
                 $this->products_controller->add_product_action();
-                break;     
-            default:        
-            if (!is_logged_in()) {
-                $this->auth_controller->render_login_action();
-            } else {
-                $this->admin_controller->render_main_page_action();
-            }
-                
+                break;
+            case 'logout':
+                $this->auth_controller->log_out_action();
+                break;
+
+            default:
+                if (!is_logged_in()) {
+                    $this->auth_controller->render_login_action();
+                } else {
+                    $this->admin_controller->render_main_page_action();
+                }
+
         }
     }
 
