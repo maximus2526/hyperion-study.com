@@ -68,15 +68,17 @@ class Products_Model
         $sql = "INSERT INTO `products` (product_img, product_name, product_cost, recommended, hot, short_description)
                 VALUES (:product_img, :product_name, :product_cost, :recommended, :hot, :short_description)";
         $statement = $this->pdo->prepare($sql);
-        $statement->bindParam(':product_img', $product_data['product_img'], PDO::PARAM_STR);
-        $statement->bindParam(':product_name', $product_data['product_name'], PDO::PARAM_STR);
-        $statement->bindParam(':product_cost', $product_data['product_cost'], PDO::PARAM_INT);
-        $statement->bindParam(':recommended', $product_data['recommended'], PDO::PARAM_INT);
-        $statement->bindParam(':hot', $product_data['hot'], PDO::PARAM_INT);
-        $statement->bindParam(':short_description', $product_data['short_description'], PDO::PARAM_STR);
-        $statement->execute();
+        $statement->execute([
+            ':product_img' => $product_data['product_img'],
+            ':product_name' => $product_data['product_name'],
+            ':product_cost' => $product_data['product_cost'],
+            ':recommended' => $product_data['recommended'],
+            ':hot' => $product_data['hot'],
+            ':short_description' => $product_data['short_description']
+        ]);
         return $this->pdo->lastInsertId();
     }
+    
     
     function update_product($product_id, $product_data)
     {

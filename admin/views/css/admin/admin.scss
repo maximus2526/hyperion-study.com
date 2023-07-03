@@ -6,6 +6,9 @@ header {
     width: 100%;
     z-index: 2;
     padding: 0 20px;
+    .profile-block .profile {
+        align-items: center;
+    }
 }
 
 .col-3 {

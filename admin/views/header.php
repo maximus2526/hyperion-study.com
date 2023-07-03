@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-auto">
-                <div class="profile-block display-flex gap  col-right style-bordered">
+                <div class="profile-block display-flex gap  col-right  style-bordered">
                     <div class="profile display-flex gap">
                         <div class="user-name">
                             <a href="?action=profile">Admin</a>
