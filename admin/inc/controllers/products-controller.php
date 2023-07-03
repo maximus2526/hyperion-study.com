@@ -36,7 +36,7 @@ class Products_Controller
 
         ];
 
-        render('products', $template_data);
+        render_admin_pages('products', $template_data);
     }
 
     public function delete_products_action()
@@ -100,7 +100,7 @@ class Products_Controller
             }
         }
 
-        render('update-product', $template_data);
+        render_admin_pages('update-product', $template_data);
     }
 
     public function add_product_action()
@@ -136,7 +136,7 @@ class Products_Controller
             }
         }
 
-        render('add-product');
+        render_admin_pages('add-product');
     }
 
 

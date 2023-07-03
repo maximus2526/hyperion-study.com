@@ -16,7 +16,7 @@ class App
         if (empty($_SESSION))
             session_start();
         // connect to db
-        include "config.php";
+        include "../config/config.php";
         $dns = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8;';
         if (!$this->pdo)
             $this->pdo = new PDO($dns, DB_USERNAME, DB_PASSWORD, $this->PDO_OPTIONS);
@@ -24,7 +24,7 @@ class App
     public function run()
     {
         include_once "errors.php";
-        include_once 'helper.php';
+        include_once '../inc/helper.php';
         include_once "models/auth-model.php";
         include_once "models/products-model.php";
         include_once 'controllers/auth-controller.php';

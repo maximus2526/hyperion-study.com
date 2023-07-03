@@ -46,7 +46,24 @@ function render(string $name, array $tamplate_data = NULL)
     include_once 'views/footer.php';
 }
 
+function render_admin_pages(string $name, array $tamplate_data = NULL)
+{
+    if (isset($tamplate_data))
+        extract($tamplate_data);
+    include_once 'views/header.php';
+    include_once 'views/base.php';
+}
+
 function throw_404()
 {
     redirect("404.php");
+}
+
+function render_auth(string $name)
+{
+    include_once 'views/' . $name . '.php';
+}
+
+function is_logged_in(){
+    return isset($_SESSION["user_id"]);
 }

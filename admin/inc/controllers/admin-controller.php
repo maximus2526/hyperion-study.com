@@ -3,7 +3,7 @@ class Admin_Controller
 {
     public function render_main_page_action()
     {
-        render('admin');
+        render_admin_pages('admin');
     }
 }
 ?>
