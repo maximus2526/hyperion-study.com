@@ -57,7 +57,7 @@ class Cart_Model
             ':delivery_method' => $order_details["delivery-method"],
             ':total_price' => $order_details["total-price"],
             ':products_ids' => $order_details["product-ids"],
-            ':count_of_products' => $order_details["product-count"],
+            ':count_of_products' => $order_details["product-counts"],
             ':first_name' => $order_details["first-name"],
             ':last_name' => $order_details["last-name"],
             ':email' => $order_details["email"],

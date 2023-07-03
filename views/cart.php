@@ -92,7 +92,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="product-count display-flex space-between gap-5">
-                                                            <input type="number" name="product-count" min="1" max="100"
+                                                            <input type="number" name="count-product-<?php echo $product['product_id'] ?>" min="1" max="100"
                                                                 value="<?php echo $_GET['product-count'] ? $_GET['product-count'] : 1; ?>">
                                                             <a class="submit-btn btn bold"
                                                                 href="/?action=increase_product&product_id=<?php echo $product["product_id"] ?>">Update</a>
