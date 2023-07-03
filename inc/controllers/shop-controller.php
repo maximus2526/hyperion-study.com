@@ -45,8 +45,7 @@ class Shop_Controller
         if (isset($_GET['product-id'])) {
             $product_id = (int)$_GET['product-id'];
             $product = $this->products_model->get_product($product_id);
-
-            if (!is_null($product)) {
+            if ($product) {
                 $tamplate_data = [
                     'product' => $product,
                 ];

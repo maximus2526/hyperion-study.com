@@ -62,7 +62,7 @@ class Cart_Model
             ':last_name' => $order_details["last-name"],
             ':email' => $order_details["email"],
             ':client_address' => $order_details["address"],
-            ':notes' => isset($client_info["notes"]) ? $order_details["notes"] : NULL,
+            ':notes' => isset($order_details["notes"]) ? $order_details["notes"] : NULL,
         ];
 
         $sql = "INSERT INTO `orders` (`first_name`, `last_name`, `email`, `address`, `notes`, `count_of_products`, `payment_method`, `delivery_method`, `products_ids`, `total_price` ) 

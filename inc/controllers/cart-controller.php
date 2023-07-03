@@ -86,6 +86,10 @@ class Cart_Controller
                 'address' => trim(htmlspecialchars($post_array['address']))
             ];
 
+            if (!is_null($post_array['notes'])) {
+                $order_details['notes'] = trim(htmlspecialchars($post_array['notes']));
+            }
+
             $delivery_options = ['nova', 'ukr'];
             $payment_options = ['direct', 'on-delivery'];
 
@@ -115,9 +119,7 @@ class Cart_Controller
 
             $order_details['product-ids'] = $this->products_ids;
 
-            if (!$post_array['notes']) {
-                $order_details['notes'] = trim(htmlspecialchars($post_array['notes']));
-            }
+
             if ($this->cart_model->post_order($order_details) and !Errors::has_errors()) {
                 Errors::set_message('Successfully! Wait while you will be contacted by operator.');
                 redirect('?action=order-complete');
