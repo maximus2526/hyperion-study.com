@@ -51,7 +51,6 @@ class Products_Controller
                 if (strpos($key, "product-id") !== false) {
                     $product_id = (int) $value;
                     array_push($products_ids, $product_id);
-                    var_dump($product_id);
                 }
             }
             if (!Errors::has_errors()) {
@@ -63,9 +62,9 @@ class Products_Controller
     }
     public function update_product_action()
     {
-
+        $product_id = isset($_GET['product-id']) ? $_GET['product-id'] : Errors::add_error("Product-id is missing");
         $template_data = [
-            'product' => $this->products_model->get_product((int) $_GET['product-id']),
+            'product' => $this->products_model->get_product((int) $product_id),
         ];
 
 
@@ -117,7 +116,6 @@ class Products_Controller
             }
 
             if (!empty($missing_fields)) {
-                var_dump($missing_fields);
                 Errors::add_error("Please fill in all required fields");
             } else {
                 $product_data = [

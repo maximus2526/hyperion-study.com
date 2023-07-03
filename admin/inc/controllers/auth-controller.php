@@ -6,7 +6,6 @@ class Auth_Controller{
     public function __construct($auth, $pdo){
         $this->auth = $auth;
         $this->pdo = $pdo;
-
     }
 
     public function render_login_action(){
