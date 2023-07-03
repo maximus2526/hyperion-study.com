@@ -13,6 +13,8 @@ class Auth_Controller{
             render_auth('auth'); 
         }
     }
+
+    
     public function is_user_exist($user_name){
         // Returns 1 / 0
         $params = ['user_name' => $user_name ];

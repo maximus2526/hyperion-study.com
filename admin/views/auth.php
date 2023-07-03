@@ -12,6 +12,7 @@
 <body>
     <?php
     Errors::display();
+
     ?>
     <div class="auth-form display-flex bg-white">
         <form action="?action=login" class="login-form display-flex column gap" method="POST">
