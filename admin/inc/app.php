@@ -23,7 +23,7 @@ class App
     }
     public function run()
     {
-        include_once "errors.php";
+        include_once "../inc/errors.php";
         include_once '../inc/helper.php';
         include_once "models/auth-model.php";
         include_once "models/products-model.php";
