@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 27 2023 г., 17:49
+-- Время создания: Июл 03 2023 г., 17:01
 -- Версия сервера: 5.7.33
 -- Версия PHP: 7.1.33
 
@@ -34,7 +34,7 @@ CREATE TABLE `orders` (
   `email` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
   `notes` text COLLATE utf8mb4_unicode_ci,
-  `count_of_products` int(11) NOT NULL DEFAULT '1',
+  `count_of_products` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_method` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `delivery_method` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `products_ids` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -46,8 +46,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `first_name`, `last_name`, `email`, `address`, `notes`, `count_of_products`, `payment_method`, `delivery_method`, `products_ids`, `total_price`) VALUES
-(18, '1', '1', 'maxim.kliakhin@gmail.com', '12321213', NULL, 1, 'direct', 'nova', '3', 235),
-(19, '1', '1', 'maxim.kliakhin@gmail.com', '1213', NULL, 1, 'direct', 'nova', 'Array', 233);
+(48, '21213232', '12321322', 'maxim.kliakhin@gmail.com', '21312323', '21312323', '55,55', 'direct', 'nova', '12,11', 23765),
+(49, '21213232', '12321322', 'maxim.kliakhin@gmail.com', '21312323', '21312323', '1,2', 'direct', 'nova', '12,11', 23765),
+(50, '123', '123', 'maxim.kliakhin@gmail.com', '123', '123', '1,2', 'direct', 'nova', '11,12', 23765);
 
 -- --------------------------------------------------------
 
@@ -60,9 +61,9 @@ CREATE TABLE `products` (
   `product_name` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_cost` int(11) NOT NULL,
   `short_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `order_number` int(11) NOT NULL,
-  `recommended` int(1) DEFAULT NULL,
-  `hot` int(1) DEFAULT NULL,
+  `order_number` int(11) NOT NULL DEFAULT '0',
+  `recommended` int(1) DEFAULT '0',
+  `hot` int(1) DEFAULT '0',
   `product_img` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -71,16 +72,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_cost`, `short_description`, `order_number`, `recommended`, `hot`, `product_img`) VALUES
-(2, 'text1', 233, 'sadffadsssdfsdafadsf', 21, 1, 1, '/views/img/products/hyperion-product-img-1.jpg'),
-(3, 'text2', 235, 'dasdssadasdasadsdsd', 12, NULL, NULL, '/views/img/products/hyperion-product-img-1.jpg'),
-(4, 'text2', 233, 'sadffadsssdfsdafadsf', 21, 0, 1, '/views/img/products/hyperion-product-img-1.jpg'),
-(5, 'text2', 235, 'dasdssadasdasadsdsd', 12, NULL, 1, '/views/img/products/hyperion-product-img-1.jpg'),
-(6, 'text3', 233, 'sadffadsssdfsdafadsf', 21, 1, NULL, '/views/img/products/hyperion-product-img-1.jpg'),
-(7, 'text2', 235, 'dasdssadasdasadsdsd', 12, NULL, 1, '/views/img/products/hyperion-product-img-1.jpg'),
-(8, 'text4', 233, 'sadffadsssdfsdafadsf', 21, 1, NULL, '/views/img/products/hyperion-product-img-1.jpg'),
-(9, 'text2', 235, 'dasdssadasdasadsdsd', 12, NULL, 1, '/views/img/products/hyperion-product-img-1.jpg'),
-(10, 'text5', 233, 'sadffadsssdfsdafadsf', 21, 1, NULL, '/views/img/products/hyperion-product-img-1.jpg'),
-(11, 'text2', 235, 'dasdssadasdasadsdsd', 12, NULL, NULL, '/views/img/products/hyperion-product-img-1.jpg'),
+(11, 'text223', 23532, 'dasdssadasdasadsdsd', 12, 0, 0, '/views/img/products/hyperion-product-img-1.jpg'),
 (12, 'text6', 233, 'sadffadsssdfsdafadsf', 21, 0, 1, '/views/img/products/hyperion-product-img-1.jpg'),
 (13, 'text2', 235, 'dasdssadasdasadsdsd', 12, NULL, 1, '/views/img/products/hyperion-product-img-1.jpg'),
 (14, 'text', 233, 'sadffadsssdfsdafadsf', 21, 1, NULL, '/views/img/products/hyperion-product-img-1.jpg'),
@@ -102,7 +94,8 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_cost`, `short_des
 (30, 'text', 233, 'sadffadsssdfsdafadsf', 21, 1, NULL, '/views/img/products/hyperion-product-img-1.jpg'),
 (31, 'text2', 235, 'dasdssadasdasadsdsd', 12, NULL, 1, '/views/img/products/hyperion-product-img-1.jpg'),
 (32, 'text', 233, 'sadffadsssdfsdafadsf', 21, 1, NULL, '/views/img/products/hyperion-product-img-1.jpg'),
-(33, 'end', 235, 'dasdssadasdasadsdsd', 12, NULL, 1, '/views/img/products/hyperion-product-img-1.jpg');
+(33, 'end', 235, 'dasdssadasdasadsdsd', 12, NULL, 1, '/views/img/products/hyperion-product-img-1.jpg'),
+(34, '12123', 12343421, '213443', 0, 1, 1, '1231');
 
 -- --------------------------------------------------------
 
@@ -111,12 +104,17 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_cost`, `short_des
 --
 
 CREATE TABLE `users` (
-  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `create_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_name`, `user_password`) VALUES
+(1, 'admin', '$2y$10$nhgnaYUYz3nabCeuYDYgSe8gxJ8lhRGm2IUpAPycwf6K7LN61wi3u');
 
 --
 -- Индексы сохранённых таблиц
@@ -138,7 +136,8 @@ ALTER TABLE `products`
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `user_name` (`user_name`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -148,19 +147,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
