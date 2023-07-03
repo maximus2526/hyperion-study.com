@@ -83,24 +83,26 @@
 
                                                         <div class="product-name">
                                                             <p class="title bold">
-                                                                <?php echo $product['product_name'] ?>
+                                                                <?php echo $product['product_name'] ?>:
                                                             </p>
+                                                            <div class="product-price text-right">
+                                                                <p class="price">
+                                                                    <?php echo $product['product_cost'] ?>
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                        <div class="product-count display-flex space-between">
+                                                        <div class="product-count display-flex space-between gap-5">
                                                             <input type="number" name="product-count" min="1" max="100"
                                                                 value="<?php echo $_GET['product-count'] ? $_GET['product-count'] : 1; ?>">
-                                                            <a
+                                                            <a class="submit-btn btn bold"
                                                                 href="/?action=increase_product&product_id=<?php echo $product["product_id"] ?>">Update</a>
-                                                        </div>
-                                                        <div class="delete-product">
-                                                            <a
+
+                                                            <a class="delete-btn btn bold"
                                                                 href="/?action=cart&delete_product=<?php echo $product["product_id"] ?>">Delete</a>
+
                                                         </div>
-                                                        <div class="product-price text-right">
-                                                            <p class="price">
-                                                                <?php echo $product['product_cost'] ?>
-                                                            </p>
-                                                        </div>
+
+
                                                     </div>
                                                 </div>
 

@@ -1,6 +1,8 @@
 .checkout {
-    padding: 50px 0;
-
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
     .input-text {
         padding-left: 5px;
         max-width: 100%;
@@ -31,6 +33,46 @@
 
     .agree-input {
         margin: 20px 0;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    input:not([type="checkbox"], [type="radio"]),
+    textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .submit-btn {
+        padding: 5px;
+        margin-left: 10px;
+        background: #74a32f;
+        border-style: none;
+        color: white;
+        &:hover {
+          background: #5c7b2d;
+        }
+    }
+
+    .delete-btn {
+        padding: 5px;
+        background: #a31d05;
+        border-style: none;
+        color: white;
+        &:hover {
+          background: #ee5e3a;
+        }
+    }
+
+    .product-count {
+        padding-bottom: 10px;
     }
 
 

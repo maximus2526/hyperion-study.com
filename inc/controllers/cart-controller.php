@@ -52,7 +52,7 @@ class Cart_Controller
     {
         $product_id = isset($_GET['product_id']) ? (int) $_GET['product_id'] : Errors::add_error('Dont valide product_id!');
         $quantity = isset($_GET['quantity']) ? (int) $_GET['product_id'] : Errors::add_error('Dont valide product_id!');
-        $this->cart_model->increase_product_quantity($product_id, );
+        $this->cart_model->increase_product_quantity($product_id);
         $product_count = $_SESSION["products_quantities"][$product_id];
         redirect("?action=cart&product-count={$product_count}");
     }
