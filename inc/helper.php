@@ -4,7 +4,6 @@ function get_url()
     return 'http://' . $_SERVER['SERVER_NAME'];
 }
 
-
 function get_param_query($current_param)
 {
     $params_list = [

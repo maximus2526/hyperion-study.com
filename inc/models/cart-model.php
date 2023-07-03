@@ -17,6 +17,16 @@ class Cart_Model
         }
     }
 
+    public function increase_product_quantity($product_id, $quantity)
+    {
+        if ($product_id) {
+            $_SESSION["products_quantities"][$product_id] = $quantity;
+        } else {
+            Errors::add_error('Product_id is not found');
+        }
+
+
+    }
     public function add_product_to_cart($product_id)
     {
         if (!isset($_SESSION['product_ids'])) {

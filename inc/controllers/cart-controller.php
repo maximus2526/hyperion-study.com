@@ -20,7 +20,7 @@ class Cart_Controller
 
         $products = $this->products_model->get_products_by_ids($product_ids);
         foreach ($products as $product) {
-            $total_price += $product['product_cost'];
+            $total_price += $product['product_cost'] * (isset($_SESSION['product_quantities']) ? $_SESSION['product_quantities'][$product['product_id']] : 1);
         }
 
         $tamplate_data = [
@@ -36,21 +36,26 @@ class Cart_Controller
     {
         if (isset($_GET['product-id'])) {
             $product_id = $_GET['product-id'];
-    
-            // Перевірка, чи вже існує товар з таким product_id в кошику
             if (!in_array($product_id, $_SESSION['product_ids'])) {
                 $this->cart_model->add_product_to_cart($product_id);
             } else {
-                // $this->cart_model->increase_product_quantity($product_id);
                 Errors::add_error("Product is already in the cart.");
             }
         } else {
             Errors::add_error("Product ID is missing.");
         }
-    
+
         redirect('?action=cart');
     }
-    
+
+    function increase_product_quantity_action()
+    {
+        $product_id = isset($_GET['product_id']) ? (int) $_GET['product_id'] : Errors::add_error('Dont valide product_id!');
+        $quantity = isset($_GET['quantity']) ? (int) $_GET['product_id'] : Errors::add_error('Dont valide product_id!');
+        $this->cart_model->increase_product_quantity($product_id, );
+        $product_count = $_SESSION["products_quantities"][$product_id];
+        redirect("?action=cart&product-count={$product_count}");
+    }
 
     function delete_product_action()
     {

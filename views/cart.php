@@ -90,7 +90,7 @@
                                                             <input type="number" name="product-count" min="1" max="100"
                                                                 value="<?php echo $_GET['product-count'] ? $_GET['product-count'] : 1; ?>">
                                                             <a
-                                                                href="/?action=cart&product-count=<?php echo $_GET['product-count'] ? $_GET['product-count'] : 1; ?>">Update</a>
+                                                                href="/?action=increase_product&product_id=<?php echo $product["product_id"] ?>">Update</a>
                                                         </div>
                                                         <div class="delete-product">
                                                             <a
