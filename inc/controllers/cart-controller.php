@@ -70,16 +70,21 @@ class Cart_Controller
         // Handle form
         if ($_SERVER['REQUEST_METHOD'] === 'POST' and !$this->cart_model->is_cart_empty()) {
             $post_array = $_POST;
-            echo $post_array['note'];
             if ($post_array['agree-terms'] != 'on') {
                 Errors::add_error("Please read and accept the terms and conditions to proceed with your order.");
             }
-
+            foreach ($post_array as $key => $value) {
+                if (strpos($key, 'count-product-') === 0) {
+                    $product_counts .=  $value . ',';
+                } 
+            }
+            $product_counts = rtrim($product_counts, ','); // Delete in the end whitespaces or selected char
+            
             $order_details = [
                 'payment-method' => trim(htmlspecialchars($post_array['payment-method'])),
                 'delivery-method' => trim(htmlspecialchars($post_array['delivery-method'])),
                 'total-price' => (int) trim(htmlspecialchars($post_array['total-price'])),
-                'product-count' => (int) trim(htmlspecialchars($post_array['product-count'])),
+                'product-counts' => trim(htmlspecialchars($product_counts)),
                 'first-name' => trim(htmlspecialchars($post_array['first-name'])),
                 'last-name' => trim(htmlspecialchars($post_array['last-name'])),
                 'email' => trim(htmlspecialchars($post_array['email'])),
@@ -119,7 +124,7 @@ class Cart_Controller
 
             $order_details['product-ids'] = $this->products_ids;
 
-
+            var_dump($product_counts);
             if ($this->cart_model->post_order($order_details) and !Errors::has_errors()) {
                 Errors::set_message('Successfully! Wait while you will be contacted by operator.');
                 redirect('?action=order-complete');
