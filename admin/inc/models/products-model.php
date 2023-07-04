@@ -11,7 +11,7 @@ class Products_Model
     function get_paginated_products(array $options)
     {
         $offset = ($options['page_num'] - 1) * $options['products_limit'];
-        $sql = "SELECT * FROM `products` LIMIT :limit OFFSET :offset";
+        $sql = "SELECT * FROM `products` ORDER BY `products`.`product_id` DESC LIMIT :limit OFFSET :offset ";
         $statement = $this->pdo->prepare($sql);
         $statement->bindParam(':limit', $options['products_limit'], PDO::PARAM_INT);
         $statement->bindParam(':offset', $offset, PDO::PARAM_INT);

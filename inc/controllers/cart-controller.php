@@ -17,7 +17,6 @@ class Cart_Controller
     {
 
         $product_ids = explode(',', $this->products_ids);
-
         $products = $this->products_model->get_products_by_ids($product_ids);
         foreach ($products as $product) {
             $total_price += $product['product_cost'] * (isset($_SESSION['product_quantities']) ? $_SESSION['product_quantities'][$product['product_id']] : 1);

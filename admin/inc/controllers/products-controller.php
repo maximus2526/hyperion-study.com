@@ -42,12 +42,13 @@ class Products_Controller
     public function delete_products_action()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $post_array = $_POST;
+
             $products_ids = [];
-            if (empty($post_array)) {
+
+            if (empty($_POST)) {
                 Errors::add_error('No selected any products!');
             }
-            foreach ($post_array as $key => $value) {
+            foreach ($_POST as $key => $value) { // По інакшому не знаю як
                 if (strpos($key, "product-id") !== false) {
                     $product_id = (int) $value;
                     array_push($products_ids, $product_id);
@@ -62,7 +63,7 @@ class Products_Controller
     }
     public function update_product_action()
     {
-        if (isset($_GET['product-id'])) {
+        if (!empty($_GET['product-id'])) {
             $product_id = $_GET['product-id'];
         } else {
             Errors::add_error("Product-id is missing");
@@ -70,7 +71,7 @@ class Products_Controller
         }
 
         $template_data = [
-            'product' => $this->products_model->get_product((int) $product_id),
+            'product' => $this->products_model->get_product((int) $product_id) ? $this->products_model->get_product((int) $product_id) : Errors::add_error('This entry do not exist!'),
         ];
 
 
@@ -138,7 +139,8 @@ class Products_Controller
                 }
 
                 if (isset($result)) {
-                    Errors::set_message("Product added successfully.");
+                    redirect("admin/?action=update-product&product-id={$result}");
+                    Errors::set_message("Product added successfully."); // TODO: Чомусь не хоче виводити сповіщення
                 } else {
                     Errors::add_error("Failed to add product.");
                 }
