@@ -68,12 +68,11 @@ class Cart_Controller
     function post_order_action()
     {
         // Handle form
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' and !$this->cart_model->is_cart_empty()) {
-            $post_array = $_POST;
-            if ($post_array['agree-terms'] != 'on') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$this->cart_model->is_cart_empty()) {
+            if ($_POST['agree-terms'] != 'on') {
                 Errors::add_error("Please read and accept the terms and conditions to proceed with your order.");
             }
-            foreach ($post_array as $key => $value) {
+            foreach ($_POST as $key => $value) {
                 if (strpos($key, 'count-product-') === 0) {
                     $product_counts .=  $value . ',';
                 } 
@@ -81,56 +80,63 @@ class Cart_Controller
             $product_counts = rtrim($product_counts, ','); // Delete in the end whitespaces or selected char
             
             $order_details = [
-                'payment-method' => trim(htmlspecialchars($post_array['payment-method'])),
-                'delivery-method' => trim(htmlspecialchars($post_array['delivery-method'])),
-                'total-price' => (int) trim(htmlspecialchars($post_array['total-price'])),
-                'product-counts' => trim(htmlspecialchars($product_counts)),
-                'first-name' => trim(htmlspecialchars($post_array['first-name'])),
-                'last-name' => trim(htmlspecialchars($post_array['last-name'])),
-                'email' => trim(htmlspecialchars($post_array['email'])),
-                'address' => trim(htmlspecialchars($post_array['address']))
+                'payment-method' => trim(htmlspecialchars($_POST['payment-method'])),
+                'delivery-method' => trim(htmlspecialchars($_POST['delivery-method'])),
+                'total-price' => (int) trim(htmlspecialchars($_POST['total-price'])),
+                'product-counts' => trim(htmlspecialchars($_POST)),
+                'first-name' => trim(htmlspecialchars($_POST['first-name'])),
+                'last-name' => trim(htmlspecialchars($_POST['last-name'])),
+                'email' => trim(htmlspecialchars($_POST['email'])),
+                'address' => trim(htmlspecialchars($_POST['address']))
             ];
 
-            if (!is_null($post_array['notes'])) {
-                $order_details['notes'] = trim(htmlspecialchars($post_array['notes']));
+            if (!is_null($_POST['notes'])) {
+                $order_details['notes'] = trim(htmlspecialchars($_POST['notes']));
             }
 
             $delivery_options = ['nova', 'ukr'];
             $payment_options = ['direct', 'on-delivery'];
 
-            if (!filter_var($post_array['email'], FILTER_VALIDATE_EMAIL)) {
+            if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 Errors::add_error("Invalid email");
             }
 
             if (empty($order_details['payment-method'])) {
                 Errors::add_error("Payment method field is empty!");
-            } elseif (empty($order_details['delivery-method'])) {
+            } 
+            if (empty($order_details['delivery-method'])) {
                 Errors::add_error("Delivery method field is empty!");
-            } elseif (empty($order_details['total-price'])) {
+            } 
+            if (empty($order_details['total-price'])) {
                 Errors::add_error("total-price field is empty! Contact with administrator.");
-            } elseif (empty($order_details['first-name'])) {
+            } 
+            if (empty($order_details['first-name'])) {
                 Errors::add_error("First name field is empty!");
-            } elseif (empty($order_details['last-name'])) {
+            } 
+            if (empty($order_details['last-name'])) {
                 Errors::add_error("Last name field is empty!");
-            } elseif (empty($order_details['email'])) {
+            } 
+            if (empty($order_details['email'])) {
                 Errors::add_error("Email field is empty!");
-            } elseif (empty($order_details['address'])) {
+            } 
+            if (empty($order_details['address'])) {
                 Errors::add_error("Address field is empty!");
             }
 
-            if (!in_array($post_array['delivery-method'], $delivery_options) or !in_array($post_array['payment-method'], $payment_options)) {
+            if (!in_array($_POST['delivery-method'], $delivery_options) or !in_array($_POST['payment-method'], $payment_options)) {
                 Errors::add_error("Something wrong with radio buttons! Contact with administrator.");
             }
 
             $order_details['product-ids'] = $this->products_ids;
 
-            var_dump($product_counts);
-            if ($this->cart_model->post_order($order_details) and !Errors::has_errors()) {
+            if ($this->cart_model->post_order($order_details)  && !Errors::has_errors()) {
                 Errors::set_message('Successfully! Wait while you will be contacted by operator.');
                 redirect('?action=order-complete');
             } else {
                 redirect('?action=cart');
             }
+        } else {
+            redirect('?action=cart');
         }
     }
 

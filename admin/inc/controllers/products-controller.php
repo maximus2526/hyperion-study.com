@@ -22,7 +22,7 @@ class Products_Controller
         }
 
         $model_options = [
-            'page_num' => (!$page_num or ($page_num <= 1)) ? 1 : $page_num,
+            'page_num' => (!$page_num || ($page_num <= 1)) ? 1 : $page_num,
             'products_limit' => $products_limit,
         ];
 
@@ -62,7 +62,13 @@ class Products_Controller
     }
     public function update_product_action()
     {
-        $product_id = isset($_GET['product-id']) ? $_GET['product-id'] : Errors::add_error("Product-id is missing");
+        if (isset($_GET['product-id'])) {
+            $product_id = $_GET['product-id'];
+        } else {
+            Errors::add_error("Product-id is missing");
+            redirect("admin/?action=products");
+        }
+
         $template_data = [
             'product' => $this->products_model->get_product((int) $product_id),
         ];
@@ -126,9 +132,12 @@ class Products_Controller
                     'hot' => isset($_POST['hot']) ? 1 : 0,
                     'short_description' => $_POST['short_description']
                 ];
-                $result = $this->products_model->add_product($product_data);
 
-                if ($result) {
+                if (!Errors::has_errors()) {
+                    $result = $this->products_model->add_product($product_data);
+                }
+
+                if (isset($result)) {
                     Errors::set_message("Product added successfully.");
                 } else {
                     Errors::add_error("Failed to add product.");

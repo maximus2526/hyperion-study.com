@@ -15,16 +15,8 @@ class Shop_Controller
         $page_num = isset($_GET['page_num']) ? (int)$_GET['page_num'] : 1;
         $products_limit = isset($_GET['count_of_products']) ? (int)$_GET['count_of_products'] : $default_product_limit;
 
-        if ($products_limit < 1) {
-            Errors::add_error("Can't show a negative number of products");
-            $products_limit = $default_product_limit;
-        } elseif ($products_limit > $count_of_products) {
-            Errors::add_error("Can't show more products than available");
-            $products_limit = $default_product_limit;
-        }
-
         $model_options = [
-            'page_num' => $page_num <= 1 ? 1 : $page_num,
+            'page_num' => $page_num < 1 ? 1 : $page_num,
             'products_limit' => $products_limit,
         ];
 

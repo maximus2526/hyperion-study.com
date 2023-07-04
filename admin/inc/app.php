@@ -34,7 +34,7 @@ class App
         $errors = new Errors;
         $auth_model = new Auth_Model($this->pdo);
         $products_model = new Products_Model($this->pdo);
-        $auth_controller = new Auth_Controller($auth_model , $this->pdo);
+        $auth_controller = new Auth_Controller($auth_model);
         $admin_controller = new Admin_Controller();
         $products_controller = new Products_Controller($products_model);
 
