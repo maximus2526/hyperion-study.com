@@ -18,7 +18,6 @@
         <table>
             <tr>
                 <th>Product Image</th>
-                <th>№</th>
                 <th>Product ID</th>
                 <th>Product Name</th>
                 <th>Price</th>
@@ -27,13 +26,9 @@
 
             <?php
             foreach ($products as $product):
-                $counter += 1;
                 ?>
                 <tr class="table-content desing-bordered">
                     <td><img class="product-img" src="<?php echo $product['product_img'] ?>" alt="product's img"></td>
-                    <td>
-                        <?php echo $counter ?>
-                    </td>
                     <td>
                         <?php echo $product['product_id'] ?>
                     </td>

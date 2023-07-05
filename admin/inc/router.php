@@ -13,38 +13,44 @@ class Router
     }
     public function route()
     {
-
-        switch ($_GET['action']) {
-            case 'login':
-                $this->auth_controller->login_action();
-                break;
-            case 'register':
-                $this->auth_controller->add_user_action();
-                break;
-            case 'products':
-                $this->products_controller->render_products_action();
-                break;
-            case 'delete-products':
-                $this->products_controller->delete_products_action();
-                break;
-            case 'update-product':
-                $this->products_controller->update_product_action();
-                break;
-            case 'add-product':
-                $this->products_controller->add_product_action();
-                break;
-            case 'logout':
-                $this->auth_controller->log_out_action();
-                break;
-
-            default:
-                if (!is_logged_in()) {
+        if (!is_logged_in()) {
+            switch ($_GET['action']) {
+                case 'auth':
                     $this->auth_controller->render_login_action();
-                } else {
+                    break;
+                case 'login':
+                    $this->auth_controller->login_action();
+                    break;
+                case 'register':
+                    $this->auth_controller->add_user_action();
+                    break;
+                default:
+                    redirect('admin/?action=auth');
+            }
+        } else {
+            switch ($_GET['action']) {
+                case 'products':
+                    $this->products_controller->render_products_action();
+                    break;
+                case 'delete-products':
+                    $this->products_controller->delete_products_action();
+                    break;
+                case 'update-product':
+                    $this->products_controller->update_product_action();
+                    break;
+                case 'add-product':
+                    $this->products_controller->add_product_action();
+                    break;
+                case 'logout':
+                    $this->auth_controller->log_out_action();
+                    break;
+                default:
                     $this->admin_controller->render_main_page_action();
-                }
-
+            }
         }
+
+        
     }
+
 
 }
