@@ -29,16 +29,17 @@ class Cart_Model
     }
     public function add_product_to_cart($product_id)
     {
-        if (!isset($_SESSION['product_ids'])) {
-            $_SESSION['product_ids'] = [];
+        if (!in_array($product_id, $_SESSION['product_ids'])) {
+            if (!isset($_SESSION['product_ids'])) {
+                $_SESSION['product_ids'] = [];
+            }
+            array_push($_SESSION['product_ids'], $product_id);
+        } else {
+            Errors::add_error("Product is already in the cart.");
         }
-        array_push($_SESSION['product_ids'], $product_id);
     }
 
-    public function get_products_ids()
-    {
-        return $_SESSION['product_ids'] ? implode(',', $_SESSION['product_ids']) : false;
-    }
+
 
     public function is_cart_empty()
     {
@@ -50,27 +51,7 @@ class Cart_Model
 
 
 
-    public function post_order(array $order_details)
-    {
-        $orders_options = [
-            ':payment_method' => $order_details["payment-method"],
-            ':delivery_method' => $order_details["delivery-method"],
-            ':total_price' => $order_details["total-price"],
-            ':products_ids' => $order_details["product-ids"],
-            ':count_of_products' => $order_details["product-counts"],
-            ':first_name' => $order_details["first-name"],
-            ':last_name' => $order_details["last-name"],
-            ':email' => $order_details["email"],
-            ':client_address' => $order_details["address"],
-            ':notes' => isset($order_details["notes"]) ? $order_details["notes"] : NULL,
-        ];
 
-        $sql = "INSERT INTO `orders` (`first_name`, `last_name`, `email`, `address`, `notes`, `count_of_products`, `payment_method`, `delivery_method`, `products_ids`, `total_price` ) 
-        VALUES (:first_name, :last_name, :email, :client_address, :notes, :count_of_products, :payment_method, :delivery_method, :products_ids, :total_price )";
-
-        $statement = $this->pdo->prepare($sql);
-        return $statement->execute($orders_options);
-    }
 
 
 }

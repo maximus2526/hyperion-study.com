@@ -39,8 +39,8 @@ class Auth_Controller{
     public function add_user_action(){
         if (!is_logged_in()){
             $user_name = htmlspecialchars($_POST['user_name']);
-            $password = htmlspecialchars($_POST['user_password']);
-            $password_repeat = htmlspecialchars($_POST['user_password_repeat']);
+            $password = $_POST['user_password'];
+            $password_repeat = $_POST['user_password_repeat'];
             $user_existense = $this->auth->is_user_exist($user_name);
             if($user_existense == 1){
                 Errors::add_error("Username is used.");

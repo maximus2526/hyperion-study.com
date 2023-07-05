@@ -29,6 +29,7 @@ class App
         include_once "models/products-model.php";
         include_once 'controllers/auth-controller.php';
         include_once 'controllers/products-controller.php';
+        include_once 'controllers/products-controller.php';
         include_once 'controllers/admin-controller.php';
         include_once 'router.php';
         $errors = new Errors;

@@ -8,26 +8,54 @@ class Cart_Model
         $this->pdo = $pdo;
     }
 
-    public function post_order(array $order_details)
+    public function add_order(array $order_info)
     {
         $orders_options = [
-            ':payment_method' => $order_details["payment-method"],
-            ':delivery_method' => $order_details["delivery-method"],
-            ':total_price' => $order_details["total-price"],
-            ':products_ids' => $order_details["product-ids"],
-            ':count_of_products' => $order_details["product-counts"],
-            ':first_name' => $order_details["first-name"],
-            ':last_name' => $order_details["last-name"],
-            ':email' => $order_details["email"],
-            ':client_address' => $order_details["address"],
-            ':notes' => isset($order_details["notes"]) ? $order_details["notes"] : NULL,
+            ':payment_method' => $order_info["payment-method"],
+            ':delivery_method' => $order_info["delivery-method"],
+            ':total_price' => $order_info["total-price"],
+            ':first_name' => $order_info["first-name"],
+            ':last_name' => $order_info["last-name"],
+            ':email' => $order_info["email"],
+            ':client_address' => $order_info["address"],
+            ':notes' => isset($order_info["notes"]) ? $order_info["notes"] : NULL,
         ];
 
-        $sql = "INSERT INTO `orders` (`first_name`, `last_name`, `email`, `address`, `notes`, `count_of_products`, `payment_method`, `delivery_method`, `products_ids`, `total_price` ) 
-        VALUES (:first_name, :last_name, :email, :client_address, :notes, :count_of_products, :payment_method, :delivery_method, :products_ids, :total_price )";
+        $sql = "INSERT INTO `orders` (`first_name`, `last_name`, `email`, `address`, `notes`, `payment_method`, `delivery_method`, `total_price` ) 
+        VALUES (:first_name, :last_name, :email, :client_address, :notes, :payment_method, :delivery_method, :total_price )";
 
         $statement = $this->pdo->prepare($sql);
-        return $statement->execute($orders_options);
+        $statement->execute($orders_options);
+        return $this->pdo->lastInsertId();
+    }
+
+    public function add_order_products_info(array $order_products_info, int $order_id)
+    {
+        $no_has_error = true;
+        foreach ($order_products_info as $products_id => $product_count) {
+            $orders_options = [
+                ':order_id' => $order_id,
+                ':product_count' => $product_count,
+                ':products_id' => $products_id,
+            ];
+
+            $sql = "INSERT INTO `order_items` (`product_count`, `products_id` ) 
+            VALUES (:product_count, :products_id )";
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute($orders_options);
+            if (!$this->pdo->lastInsertId()) {
+                $no_has_error = false;
+            }
+        }
+
+        return $no_has_error;
+    }
+
+
+
+    public function get_products_ids()
+    {
+        return $_SESSION['product_ids'] ? $_SESSION['product_ids'] : false;
     }
     
     public function send_notification_to_email(array $order_details) {
