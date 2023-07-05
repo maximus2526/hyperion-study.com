@@ -51,6 +51,7 @@ class Orders_Model
         $orders_count = $statement->fetchColumn();
         return $orders_count;
     }
+    
     function get_order($orders_id)
     {
         $sql = "SELECT * FROM `orders` WHERE orders_id = :orders_id";
