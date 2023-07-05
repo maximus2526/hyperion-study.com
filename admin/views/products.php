@@ -45,7 +45,7 @@
                     <td>
                         <span class="display-flex content-center gap">
                             <a href="?action=update-product&product-id=<?php echo $product['product_id'] ?>">Edit</a>
-                            <input type="checkbox" name="product-id-<?php echo $product['product_id'] ?>"
+                            <input type="checkbox" name="products_ids[]"
                                 value="<?php echo $product['product_id'] ?>">
                         </span>
                     </td>

@@ -38,7 +38,7 @@ class Orders_Model
     function delete_orders_by_ids(array $orders_ids)
     {
         $placeholders = implode(', ', array_fill(0, count($orders_ids), '?'));
-        $sql = "DELETE FROM `orders` WHERE orders_id IN ({$placeholders})";
+        $sql = "DELETE FROM `orders` WHERE order_id IN ({$placeholders})";
         $statement = $this->pdo->prepare($sql);
         $statement->execute($orders_ids);
     }

@@ -43,16 +43,10 @@ class Products_Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $products_ids = [];
+            $products_ids = $_POST['products_ids'];
 
             if (empty($_POST)) {
                 Errors::add_error('No selected any products!');
-            }
-            foreach ($_POST as $key => $value) { // По інакшому не знаю як
-                if (strpos($key, "product-id") !== false) {
-                    $product_id = (int) $value;
-                    array_push($products_ids, $product_id);
-                }
             }
             if (!Errors::has_errors()) {
                 $this->products_model->delete_products_by_ids($products_ids);

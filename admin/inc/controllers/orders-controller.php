@@ -39,27 +39,31 @@ class Orders_Controller
         render_admin_pages('orders', $template_data);
     }
 
+    public function render_single_order_action()
+    {
+    
+        $template_data = [
+            'orders' => $this->orders_model->get_paginated_orders(),
+        ];
+
+        render_admin_pages('orders', $template_data);
+    }
+
     public function delete_orders_action()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $products_ids = [];
-
-            if (empty($_POST)) {
-                Errors::add_error('No selected any products!');
+            $orders_to_delete = $_POST['orders_to_delete'];
+            if (empty($orders_to_delete)) {
+                Errors::add_error('No selected any orders!');
             }
-            foreach ($_POST as $key => $value) { // По інакшому не знаю як
-                if (strpos($key, "product-id") !== false) {
-                    $product_id = (int) $value;
-                    array_push($products_ids, $product_id);
-                }
-            }
+           
             if (!Errors::has_errors()) {
-                $this->orders_model->delete_orders_by_ids($products_ids);
+                $this->orders_model->delete_orders_by_ids($orders_to_delete);
             }
 
         }
-        redirect('admin/?action=products');
+        redirect('admin/?action=orders');
     }
 
 

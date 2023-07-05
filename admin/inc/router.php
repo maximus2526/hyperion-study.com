@@ -46,6 +46,9 @@ class Router
                 case 'orders':
                     $this->orders_controller->render_orders_action();
                     break;
+                case 'delete-orders':
+                    $this->orders_controller->delete_orders_action();
+                    break;
                 case 'logout':
                     $this->auth_controller->log_out_action();
                     break;

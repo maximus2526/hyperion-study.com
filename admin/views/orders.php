@@ -47,14 +47,14 @@
                         </p>
                     </td>
                     <td>
-                    <p class="text">
+                        <p class="text">
                             <?php echo $order['notes'] ?>
                         </p>
                     </td>
                     <td>
                         <span class="display-flex content-center gap">
-                            <a href="?action=update-order&order-id=<?php echo $order['order_id'] ?>">More</a>
-                            <input type="checkbox" name="order-id-<?php echo $order['order_id'] ?>"
+                            <a href="?action=order&order-id=<?php echo $order['order_id'] ?>">More</a>
+                            <input type="checkbox" name="orders_to_delete[]"
                                 value="<?php echo $order['order_id'] ?>">
                         </span>
                     </td>
