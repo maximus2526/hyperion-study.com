@@ -68,7 +68,7 @@
                             <div class="products-review  display-flex column gap">
                                 <?php
                                 if ($is_cart_empty):
-                                    Errors::add_error("Don't have any added products!");
+                                    echo "<p class='errors'>Don't have any added products!<p>";
                                 else:
                                     foreach ($products as $product): ?>
                                         <div class="product design-bordered bg-white display-flex">
@@ -80,7 +80,6 @@
                                                 </div>
                                                 <div class="col-9">
                                                     <div class="product-info">
-
                                                         <div class="product-name">
                                                             <p class="title bold">
                                                                 <?php echo $product['product_name'] ?>:
@@ -93,16 +92,13 @@
                                                         </div>
                                                         <div class="product-count display-flex space-between gap-5">
                                                             <input type="number" name="product_count[]" min="1" max="100"
-                                                                value="<?php echo isset($product['product_id']) ? $product['product_id'] : 1 ?>">
+                                                                value="1">
                                                             <a class="submit-btn btn bold"
                                                                 href="/?action=increase_product&product_id=<?php echo $product["product_id"] ?>">Update</a>
 
                                                             <a class="delete-btn btn bold"
                                                                 href="/?action=cart&delete_product=<?php echo $product["product_id"] ?>">Delete</a>
-
                                                         </div>
-
-
                                                     </div>
                                                 </div>
 

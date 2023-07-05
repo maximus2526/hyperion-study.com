@@ -1,6 +1,6 @@
 <?php
 
-class Pages_Controller
+class Order_Controller
 {
     public $order_model;
     public $cart_model;
@@ -81,8 +81,8 @@ class Pages_Controller
             }
 
             if (!Errors::has_errors()) {
-                $add_order_result = $this->cart_model->add_order($order_info);
-                $order_products_result = $this->cart_model->add_order_products_info($order_products_info, $add_order_result);
+                $add_order_result = $this->order_model->add_order($order_info);
+                $order_products_result = $this->order_model->add_order_products_info($order_products_info, $add_order_result);
                 if ($add_order_result && $order_products_result) {
                     Errors::set_message('Successfully! Wait while you will be contacted by operator.');
                     redirect('?action=order-complete');

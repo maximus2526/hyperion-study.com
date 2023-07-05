@@ -4,20 +4,24 @@ class Cart_Controller
 {
     public $products_model;
     public $cart_model;
-    public $products_ids;
+    public $order_model;
 
-    public function __construct($products_model, $cart_model)
+    public function __construct($products_model, $cart_model, $order_model)
     {
         $this->products_model = $products_model;
         $this->cart_model = $cart_model;
-        $this->products_ids = $this->cart_model->get_products_ids();
+        $this->order_model = $order_model;
     }
 
     public function render_cart_action()
     {
-
-        $product_ids = explode(',', $this->products_ids);
-        $products = $this->products_model->get_products_by_ids($product_ids);
+        $product_ids = $this->order_model->get_products_ids();
+        if (!empty($product_ids)) {
+            $products = $this->products_model->get_products_by_ids($product_ids);
+        } else {
+            $products = [];
+        }
+        
         foreach ($products as $product) {
             $total_price += $product['product_cost'];
         }

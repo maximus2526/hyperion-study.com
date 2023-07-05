@@ -1,5 +1,5 @@
 <?php
-class Cart_Model
+class Order_Model
 {
     private $pdo;
 
@@ -35,12 +35,12 @@ class Cart_Model
         foreach ($order_products_info as $products_id => $product_count) {
             $orders_options = [
                 ':order_id' => $order_id,
-                ':product_count' => $product_count,
-                ':products_id' => $products_id,
+                ':product_id' => $products_id,
+                ':count_of_product' => $product_count,
             ];
 
-            $sql = "INSERT INTO `order_items` (`product_count`, `products_id` ) 
-            VALUES (:product_count, :products_id )";
+            $sql = "INSERT INTO `order_items` (`order_id`, `count_of_product`, `product_id` ) 
+            VALUES (:order_id, :count_of_product, :product_id )";
             $statement = $this->pdo->prepare($sql);
             $statement->execute($orders_options);
             if (!$this->pdo->lastInsertId()) {
@@ -55,21 +55,18 @@ class Cart_Model
 
     public function get_products_ids()
     {
-        return $_SESSION['product_ids'] ? $_SESSION['product_ids'] : false;
+        return $_SESSION['product_ids'] ? $_SESSION['product_ids'] : [];
     }
     
     public function send_notification_to_email(array $order_details) {
         $to = "xyz@somedomain.com";
         $subject = "This is subject";
-        
         $message = "<b>This is HTML message.</b>";
         $message .= "<h1>This is headline.</h1>";
-        
         $header = "From:abc@somedomain.com \r\n";
         $header .= "Cc:afgh@somedomain.com \r\n";
         $header .= "MIME-Version: 1.0\r\n";
         $header .= "Content-type: text/html\r\n";
-        
         $retval = mail ($to,$subject,$message,$header);
         
         if( $retval == true ) {

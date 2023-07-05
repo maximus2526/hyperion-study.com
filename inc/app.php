@@ -26,18 +26,22 @@ class App
         include_once 'helper.php';
         include_once "models/products-model.php";
         include_once "models/cart-model.php";
+        include_once "models/order-model.php";
         include_once "errors.php";
         include_once 'controllers/pages-controller.php';
         include_once 'controllers/shop-controller.php';
         include_once 'controllers/contact-us-controller.php';
         include_once 'controllers/cart-controller.php';
+        include_once 'controllers/order-controller.php';
         include_once 'router.php';
         $errors = new Errors;
         $products_model = new Products_Model($this->pdo);
         $cart_model = new Cart_Model($this->pdo);
+        $order_model = new Order_Model($this->pdo);
         $pages_controller = new Pages_Controller($products_model);
         $shop_controller = new Shop_Controller($products_model);
-        $cart_controller = new Cart_Controller($products_model, $cart_model);
+        $order_controller = new Order_Controller($order_model, $cart_model);
+        $cart_controller = new Cart_Controller($products_model, $cart_model, $order_model);
         $contact_us_controller = new Contact_Us_Controller();
         $to_route_list = [
             "pages_controller" => $pages_controller,
@@ -45,6 +49,7 @@ class App
             "single_product_controller" => $single_product_controller,
             "contact_us_controller" => $contact_us_controller,
             "cart_controller" => $cart_controller,
+            "order_controller" => $order_controller,
         ];
 
         $router = new Router($to_route_list);

@@ -6,6 +6,7 @@ class Router
     public $single_product_controller;
     public $contact_us_controller;
     public $cart_controller;
+    public $order_controller;
     public function __construct(array $to_route_list)
     {
         $this->pages_controller = $to_route_list['pages_controller'];
@@ -13,6 +14,7 @@ class Router
         $this->single_product_controller = $to_route_list['single_product_controller'];
         $this->contact_us_controller = $to_route_list['contact_us_controller'];
         $this->cart_controller = $to_route_list['cart_controller'];
+        $this->order_controller = $to_route_list['order_controller'];
     }
     public function route()
     {
@@ -30,7 +32,7 @@ class Router
                 $this->cart_controller->render_cart_action();
                 break;
             case 'post-order':
-                $this->cart_controller->post_order_action();
+                $this->order_controller->post_order_action();
                 break;
             case 'increase_product':
                 $this->cart_controller->increase_product_quantity_action();
