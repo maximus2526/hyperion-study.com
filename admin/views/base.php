@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li class="sidebar-element">
-                            <a class="display-flex align-center gap" href="/404.php">
+                            <a class="display-flex align-center gap" href="?action=orders">
                                 <img src="<?php echo get_url()?>/admin/views/img/svg/sidebar-icons/orders.svg" alt="">
                                 <p class="text">Orders</p>
                             </a>

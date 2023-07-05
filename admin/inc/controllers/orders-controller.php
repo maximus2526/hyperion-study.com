@@ -42,23 +42,24 @@ class Orders_Controller
     public function delete_orders_action()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $post_array = $_POST;
-            $orders_ids = [];
-            if (empty($post_array)) {
-                Errors::add_error('No selected any orders!');
+
+            $products_ids = [];
+
+            if (empty($_POST)) {
+                Errors::add_error('No selected any products!');
             }
-            foreach ($post_array as $key => $value) {
+            foreach ($_POST as $key => $value) { // По інакшому не знаю як
                 if (strpos($key, "product-id") !== false) {
                     $product_id = (int) $value;
-                    array_push($orders_ids, $product_id);
+                    array_push($products_ids, $product_id);
                 }
             }
             if (!Errors::has_errors()) {
-                $this->orders_model->delete_orders_by_ids($orders_ids);
+                $this->orders_model->delete_orders_by_ids($products_ids);
             }
 
         }
-        redirect('admin/?action=orders');
+        redirect('admin/?action=products');
     }
 
 

@@ -278,3 +278,37 @@ footer {
 }
 
 
+.orders table {
+    display: flex;
+    justify-content: center;
+
+    th {
+        font-style: italic;
+    }
+
+    tr.table-content {
+        background: #f8fcf6;
+        border-bottom: 5px solid white;
+        &:hover {
+            background: #e0e0df;
+        }
+    }
+
+    td {
+        padding: 10px 50px;
+    }
+
+
+    margin-bottom: 50px;
+}
+.order-img {
+    max-width: 50px;
+}
+
+
+.orders-form {
+    .delete-btn {
+        background: none;
+        border: none;
+    }
+}

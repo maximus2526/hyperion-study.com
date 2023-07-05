@@ -10,27 +10,27 @@ class Orders_Model
 
     function get_paginated_orders(array $options)
     {
-        $offset = ($options['page_num'] - 1) * $options['products_limit'];
-        $sql = "SELECT * FROM `products` LIMIT :limit OFFSET :offset";
+        $offset = ($options['page_num'] - 1) * $options['orders_limit'];
+        $sql = "SELECT * FROM `orders` LIMIT :limit OFFSET :offset";
         $statement = $this->pdo->prepare($sql);
-        $statement->bindParam(':limit', $options['products_limit'], PDO::PARAM_INT);
+        $statement->bindParam(':limit', $options['orders_limit'], PDO::PARAM_INT);
         $statement->bindParam(':offset', $offset, PDO::PARAM_INT);
         $statement->execute();
-        $products = $statement->fetchAll();
-        return $products;
+        $orders = $statement->fetchAll();
+        return $orders;
     }
 
 
     public function get_count_of_buttons(array $options)
     {
-        $sql = "SELECT COUNT(*) FROM `products`;";
+        $sql = "SELECT COUNT(*) FROM `orders`;";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
-        $products_count = $statement->fetchColumn();
-        if (empty($products_count)) {
+        $orders_count = $statement->fetchColumn();
+        if (empty($orders_count)) {
             return array();
         }
-        $chunked_array = array_chunk(range(1, $products_count), $options['products_limit']);
+        $chunked_array = array_chunk(range(1, $orders_count), $options['orders_limit']);
         $count_of_buttons = count($chunked_array, $options['orders_limit']);
         return range(1, round($count_of_buttons));
     }
@@ -43,7 +43,14 @@ class Orders_Model
         $statement->execute($orders_ids);
     }
 
-
+    public function get_count_of_orders()
+    {
+        $sql = "SELECT COUNT(*) FROM `orders`;";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        $orders_count = $statement->fetchColumn();
+        return $orders_count;
+    }
     function get_order($orders_id)
     {
         $sql = "SELECT * FROM `orders` WHERE orders_id = :orders_id";
