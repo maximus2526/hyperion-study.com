@@ -27,6 +27,7 @@ class App
         include_once "models/products-model.php";
         include_once "models/cart-model.php";
         include_once "models/order-model.php";
+        include_once "models/mail-model.php";
         include_once "errors.php";
         include_once 'controllers/pages-controller.php';
         include_once 'controllers/shop-controller.php';
@@ -38,9 +39,10 @@ class App
         $products_model = new Products_Model($this->pdo);
         $cart_model = new Cart_Model($this->pdo);
         $order_model = new Order_Model($this->pdo);
+        $mail_model = new Mail_Model();
         $pages_controller = new Pages_Controller($products_model);
         $shop_controller = new Shop_Controller($products_model);
-        $order_controller = new Order_Controller($order_model, $cart_model);
+        $order_controller = new Order_Controller($order_model, $cart_model, $mail_model);
         $cart_controller = new Cart_Controller($products_model, $cart_model, $order_model);
         $contact_us_controller = new Contact_Us_Controller();
         $to_route_list = [

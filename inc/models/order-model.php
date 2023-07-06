@@ -51,31 +51,32 @@ class Order_Model
         return $no_has_error;
     }
 
-
-
     public function get_products_ids()
     {
         return $_SESSION['product_ids'] ? $_SESSION['product_ids'] : [];
     }
-    
-    public function send_notification_to_email(array $order_details) {
-        $to = "xyz@somedomain.com";
-        $subject = "This is subject";
-        $message = "<b>This is HTML message.</b>";
-        $message .= "<h1>This is headline.</h1>";
-        $header = "From:abc@somedomain.com \r\n";
-        $header .= "Cc:afgh@somedomain.com \r\n";
-        $header .= "MIME-Version: 1.0\r\n";
-        $header .= "Content-type: text/html\r\n";
-        $retval = mail ($to,$subject,$message,$header);
-        
-        if( $retval == true ) {
-           echo "Message sent successfully...";
-        } else {
-           echo "Message could not be sent...";
-        }
-        // TODO: Зроби норм і налаштуй mail server, подумай чи це може в контроллері треба
 
+    public function get_order($order_id)
+    {
+        $sql = "SELECT * FROM `orders` WHERE order_id = :order_id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindParam(':order_id', $order_id, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
+    public function get_order_detail($order_id)
+    {
+        $sql = "SELECT order_items.*, products.product_cost
+        FROM order_items
+        JOIN products ON order_items.product_id = products.product_id
+        WHERE order_items.order_id = :order_id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindParam(':order_id', $order_id, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+
+
 }
 ?>

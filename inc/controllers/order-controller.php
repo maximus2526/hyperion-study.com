@@ -4,19 +4,29 @@ class Order_Controller
 {
     public $order_model;
     public $cart_model;
-    public function __construct($order_model, $cart_model)
+    public $mail_model;
+    public function __construct($order_model, $cart_model, $mail_model)
     {
         $this->order_model = $order_model;
         $this->cart_model = $cart_model;
+        $this->mail_model = $mail_model;
     }
 
     public function render_complete_order_action()
     {
-        $tamplate_data = [
-
-        ];
-
-        render('order-complete', $tamplate_data);
+        $order_id = $_GET['order_id'];
+        $order = $this->order_model->get_order($order_id);  
+        if($order) {
+            $order_items = $this->order_model->get_order_detail($order_id);
+            $template_data = [
+                'order' => $order,
+                'order_items' => $order_items,
+            ];
+            render('order-complete', $template_data);
+        }
+        else {
+            throw_404();
+        }
     }
 
     function post_order_action()
@@ -26,9 +36,6 @@ class Order_Controller
             if ($_POST['agree-terms'] != 'on') {
                 Errors::add_error("Please read and accept the terms and conditions to proceed with your order.");
             }
-
-            
-            
             $order_info = [
                 'payment-method' => trim(htmlspecialchars($_POST['payment-method'])),
                 'delivery-method' => trim(htmlspecialchars($_POST['delivery-method'])),
@@ -81,12 +88,23 @@ class Order_Controller
             }
 
             if (!Errors::has_errors()) {
+                // Post Order
                 $add_order_result = $this->order_model->add_order($order_info);
                 $order_products_result = $this->order_model->add_order_products_info($order_products_info, $add_order_result);
                 if ($add_order_result && $order_products_result) {
                     Errors::set_message('Successfully! Wait while you will be contacted by operator.');
-                    redirect('?action=order-complete');
-                    // $this->order_model->send_notification_to_email(); // mail sending
+                    $order = $this->order_model->get_order($add_order_result);  
+                    if($order) {
+                        $order_items = $this->order_model->get_order_detail($add_order_result);
+                        $template_data = [
+                            'order' => $order,
+                            'order_items' => $order_items,
+                        ];
+                        render('order-complete', $template_data);
+                    }
+                    $this->mail_model->send_order_info($order, $order_items); // mail sending
+                    redirect('?action=order-complete&order_id='.$add_order_result);
+                   
                 } else {
                     Errors::add_error('Unsuccessful! Try again or contact with administrator.');
                     redirect('?action=cart');

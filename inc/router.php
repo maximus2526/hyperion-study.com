@@ -46,9 +46,8 @@ class Router
             case 'product':
                 $this->shop_controller->render_single_product_action();
                 break;
-
             case 'order-complete':
-                $this->pages_controller->render_complete_test_action();
+                $this->order_controller->render_complete_order_action();
                 break;
 
             default:
