@@ -1,7 +1,7 @@
 <?php
 $template_content = "<div class='container'>
     <h3 class='title'>Order Details</h3>
-
+    <p class='text'>This notification is sent automatically after orders.</p>
     <table class='order-details'>
         <tr>
             <th>Order ID:</th>
