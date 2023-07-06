@@ -15,11 +15,6 @@ class Orders_Controller
         $count_of_orders = $this->orders_model->get_count_of_orders();
         $orders_limit = 10;
         $page_num = (int) $_GET['page_num'];
-        if ($orders_limit < 1) {
-            Errors::add_error("Can't show the negative number of orders");
-        } elseif ($orders_limit > $count_of_orders) {
-            Errors::add_error("Can't show bigger than have orders");
-        }
 
         $model_options = [
             'page_num' => (!$page_num || ($page_num <= 1)) ? 1 : $page_num,
@@ -41,12 +36,18 @@ class Orders_Controller
 
     public function render_single_order_action()
     {
-    
-        $template_data = [
-            'orders' => $this->orders_model->get_paginated_orders(),
-        ];
-
-        render_admin_pages('orders', $template_data);
+        $order_id = $_GET['order-id'];
+        $order = $this->orders_model->get_order($order_id);
+        if($order) {
+            $order_items = $this->orders_model->get_order_detail($order_id);
+            $template_data = [
+                'order' => $order,
+                'order_items' => $order_items,
+            ];
+            render_admin_pages('single-order', $template_data);
+        } else {
+            throw_404();
+        }   
     }
 
     public function delete_orders_action()

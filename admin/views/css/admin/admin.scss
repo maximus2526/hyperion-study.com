@@ -6,6 +6,7 @@ header {
     width: 100%;
     z-index: 2;
     padding: 0 20px;
+
     .profile-block .profile {
         align-items: center;
     }
@@ -58,7 +59,7 @@ header {
         height: 50px;
 
     }
-    
+
     .active {
         background: #777777;
     }
@@ -190,9 +191,7 @@ footer {
 
 // product table 
 .products table {
-    display: flex;
-    justify-content: center;
-
+    width: 100%;
     th {
         font-style: italic;
     }
@@ -200,6 +199,7 @@ footer {
     tr.table-content {
         background: #f8fcf6;
         border-bottom: 5px solid white;
+
         &:hover {
             background: #e0e0df;
         }
@@ -207,11 +207,13 @@ footer {
 
     td {
         padding: 10px 50px;
+
     }
 
 
     margin-bottom: 50px;
 }
+
 .product-img {
     max-width: 50px;
 }
@@ -224,17 +226,20 @@ footer {
     }
 }
 
-.update_form, .add_form {
+.update_form,
+.add_form {
     width: 400px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #fff;
+
     input {
         &::placeholder {
-            padding-left: 5px; 
+            padding-left: 5px;
         }
+
         &:focus::placeholder {
             opacity: 0;
         }
@@ -263,18 +268,18 @@ footer {
         color: #fff;
         cursor: pointer;
     }
-    
+
 
     .checkbox-block {
         display: flex;
         justify-content: space-between;
     }
-    
+
     .checkbox-block input {
         margin-left: auto;
     }
 
-    
+
 }
 
 
@@ -289,6 +294,7 @@ footer {
     tr.table-content {
         background: #f8fcf6;
         border-bottom: 5px solid white;
+
         &:hover {
             background: #e0e0df;
         }
@@ -301,6 +307,7 @@ footer {
 
     margin-bottom: 50px;
 }
+
 .order-img {
     max-width: 50px;
 }
@@ -312,3 +319,45 @@ footer {
         border: none;
     }
 }
+
+
+// Single order
+
+.italic {
+    font-style: italic;
+}
+
+.order-details,
+.order-items {
+    width: 100%;
+    margin-bottom: 20px;
+
+    th {
+        
+        background-color: #f1f0f0;
+        padding: 10px;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #b1b0b0;
+    }
+
+    & td:first-child {
+        margin-left: 20px;
+        font-style: italic;
+    }
+    
+    & a {
+        text-decoration: none;
+        color: #1169b6;
+    }
+    
+    & a:hover {
+        text-decoration: underline;
+    }
+}
+
+

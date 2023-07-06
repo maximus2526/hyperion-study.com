@@ -51,18 +51,28 @@ class Orders_Model
         $orders_count = $statement->fetchColumn();
         return $orders_count;
     }
-    
-    function get_order($orders_id)
+
+    public function get_order($order_id)
     {
-        $sql = "SELECT * FROM `orders` WHERE orders_id = :orders_id";
+        $sql = "SELECT * FROM `orders` WHERE order_id = :order_id";
         $statement = $this->pdo->prepare($sql);
-        $statement->bindParam(':orders_id', $orders_id, PDO::PARAM_INT);
+        $statement->bindParam(':order_id', $order_id, PDO::PARAM_INT);
         $statement->execute();
-        $product = $statement->fetch();
-        return $product;
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+    public function get_order_detail($order_id)
+    {
+        $sql = "SELECT order_items.*, products.product_cost
+        FROM order_items
+        JOIN products ON order_items.product_id = products.product_id
+        WHERE order_items.order_id = :order_id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindParam(':order_id', $order_id, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    
+
 }
 
 

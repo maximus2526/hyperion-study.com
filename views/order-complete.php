@@ -17,5 +17,5 @@
             </div>
         </div>
     </div>
-
+    <?php include 'mail-tamplates/order-complete-template.php' ?>
 </div>

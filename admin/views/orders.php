@@ -23,7 +23,7 @@
                     <th>Notes</th>
                     <th>Operations</th>
                 </tr>
-
+            
                 <?php
                 foreach ($orders as $order):
                     ?>

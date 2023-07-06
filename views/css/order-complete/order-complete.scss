@@ -1,0 +1,40 @@
+// Order complete
+
+.italic {
+    font-style: italic;
+}
+
+.order-details,
+.order-items {
+    width: 100%;
+    margin-bottom: 20px;
+
+    th {
+        
+        background-color: #f1f0f0;
+        padding: 10px;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #b1b0b0;
+    }
+
+    & td:first-child {
+        margin-left: 20px;
+        font-style: italic;
+    }
+    
+    & a {
+        text-decoration: none;
+        color: #1169b6;
+    }
+    
+    & a:hover {
+        text-decoration: underline;
+    }
+}
+
+

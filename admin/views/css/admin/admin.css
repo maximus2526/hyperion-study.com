@@ -161,8 +161,7 @@ footer {
 }
 
 .products table {
-  display: flex;
-  justify-content: center;
+  width: 100%;
   margin-bottom: 50px;
 }
 .products table th {
@@ -188,7 +187,8 @@ footer {
   border: none;
 }
 
-.update_form, .add_form {
+.update_form,
+.add_form {
   width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -196,26 +196,31 @@ footer {
   border-radius: 4px;
   background-color: #fff;
 }
-.update_form input::placeholder, .add_form input::placeholder {
+.update_form input::placeholder,
+.add_form input::placeholder {
   padding-left: 5px;
 }
-.update_form input:focus::placeholder, .add_form input:focus::placeholder {
+.update_form input:focus::placeholder,
+.add_form input:focus::placeholder {
   opacity: 0;
 }
-.update_form label, .add_form label {
+.update_form label,
+.add_form label {
   display: block;
   margin-bottom: 10px;
   font-weight: 700;
 }
 .update_form input:not([type=checkbox]),
-.update_form textarea, .add_form input:not([type=checkbox]),
+.update_form textarea,
+.add_form input:not([type=checkbox]),
 .add_form textarea {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.update_form .form-btn, .add_form .form-btn {
+.update_form .form-btn,
+.add_form .form-btn {
   width: 100%;
   padding: 10px;
   border: none;
@@ -224,11 +229,13 @@ footer {
   color: #fff;
   cursor: pointer;
 }
-.update_form .checkbox-block, .add_form .checkbox-block {
+.update_form .checkbox-block,
+.add_form .checkbox-block {
   display: flex;
   justify-content: space-between;
 }
-.update_form .checkbox-block input, .add_form .checkbox-block input {
+.update_form .checkbox-block input,
+.add_form .checkbox-block input {
   margin-left: auto;
 }
 
@@ -258,4 +265,40 @@ footer {
 .orders-form .delete-btn {
   background: none;
   border: none;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.order-details,
+.order-items {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.order-details th,
+.order-items th {
+  background-color: #f1f0f0;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+}
+.order-details td,
+.order-items td {
+  padding: 10px;
+  border-bottom: 1px solid #b1b0b0;
+}
+.order-details td:first-child,
+.order-items td:first-child {
+  margin-left: 20px;
+  font-style: italic;
+}
+.order-details a,
+.order-items a {
+  text-decoration: none;
+  color: #1169b6;
+}
+.order-details a:hover,
+.order-items a:hover {
+  text-decoration: underline;
 }/*# sourceMappingURL=admin.css.map */

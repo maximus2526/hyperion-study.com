@@ -4,12 +4,13 @@
 @import "about-us/about-us.css";
 @import "contact-us/contact-us.css";
 @import "single-product/single-product.css";
+@import "order-complete/order-complete.css";
 @import "cart/cart.css";
 /* Glogal options */
 .massage, .errors {
   border-radius: 5px;
   min-height: 100px;
-  margin: 30px 0;
+  margin: 20px 0;
   padding: 20px;
 }
 
@@ -67,10 +68,6 @@
   .promo-block {
     opacity: 0%;
   }
-}
-
-.complete-page {
-  padding: 100px 0;
 }
 
 .design-horizontal {
