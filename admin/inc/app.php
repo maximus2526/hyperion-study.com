@@ -31,7 +31,7 @@ class App
         include_once 'controllers/auth-controller.php';
         include_once 'controllers/orders-controller.php';
         include_once 'controllers/products-controller.php';
-        include_once 'controllers/admin-controller.php';
+        include_once 'controllers/dashboard-controller.php';
         include_once 'router.php';
         $errors = new Errors;
         $auth_model = new Auth_Model($this->pdo);
