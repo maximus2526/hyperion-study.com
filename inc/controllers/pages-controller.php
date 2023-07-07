@@ -26,11 +26,6 @@ class Pages_Controller
         render('about-us');
     }
 
-    public function render_complete_test_action()
-    {
-        render('order-complete');  // Подивись до цього
-    }
-
 
 
 

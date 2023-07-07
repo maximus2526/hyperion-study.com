@@ -46,8 +46,6 @@ class Order_Controller
                 $order_info['notes'] = trim(htmlspecialchars($_POST['notes']));
             }
 
-
-
             if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 Errors::add_error("Invalid email");
             }
@@ -89,7 +87,7 @@ class Order_Controller
                     Errors::set_message('Successfully! Wait while you will be contacted by operator.');
                     $order = $this->order_model->get($add_order_result);
                     if ($order) {
-                        render('order-complete', $order);
+                        redirect('?action=order-complete');
                     }
                     $this->mail_model->send_order_info($order); // mail sending
                     redirect('?action=order-complete&order_id=' . $add_order_result);
