@@ -24,7 +24,7 @@
             $hash = $statement->fetchColumn();
             return password_verify($password, $hash);
         }
-        public function get_user_id($user_name){
+        public function get_id($user_name){
             $params = ['user_name' => $user_name ];
             $sql = "SELECT `user_id` FROM `users` WHERE `user_name` = :user_name;";
             $statement = $this->pdo->prepare($sql);
@@ -41,7 +41,7 @@
             unset($_SESSION["user_id"]);
         }
 
-        public function add_user($user_name, $password){
+        public function add($user_name, $password){
             $crypted_password = password_hash($password, PASSWORD_DEFAULT);
             $params = [
                 'user_name' => $user_name, 

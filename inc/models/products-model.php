@@ -8,7 +8,7 @@ class Products_Model
         $this->pdo = $pdo;
     }
 
-    function get_paginated_products(array $options)
+    function get_paginated(array $options)
     {
         $offset = ($options['page_num'] - 1) * $options['products_limit'];
         $sql = "SELECT * FROM `products` LIMIT :limit OFFSET :offset";
@@ -35,7 +35,7 @@ class Products_Model
         return range(1, round($count_of_buttons));
     }
 
-    public function get_count_of_products()
+    public function get_count()
     {
         $sql = "SELECT COUNT(*) FROM `products`;";
         $statement = $this->pdo->prepare($sql);
@@ -44,7 +44,7 @@ class Products_Model
         return $products_count;
     }
 
-    function get_products_by_ids(array $product_ids)
+    function get_by_ids(array $product_ids)
     {
         $placeholders = implode(' , ', array_fill(0, count($product_ids), '?'));
         $sql = "SELECT * FROM `products` WHERE product_id IN ({$placeholders})";
@@ -54,7 +54,7 @@ class Products_Model
         return $products;
     }
 
-    function get_product($product_id)
+    function get($product_id)
     {
         $sql = "SELECT * FROM `products` WHERE product_id = :product_id";
         $statement = $this->pdo->prepare($sql);
@@ -64,7 +64,7 @@ class Products_Model
         return $product;
     }
 
-    public function get_bestsellers_products()
+    public function get_bestsellers()
     {
         $sql = "SELECT * FROM `products` ORDER BY `products`.`order_number` DESC LIMIT 6";
         $statement = $this->pdo->prepare($sql);
@@ -73,7 +73,7 @@ class Products_Model
         return $products;
     }
 
-    public function get_recomended_products()
+    public function get_recomended()
     {
         $sql = "SELECT * FROM `products` ORDER BY `products`.`order_number` DESC LIMIT 8";
         $statement = $this->pdo->prepare($sql);

@@ -29,7 +29,7 @@ class Order_Model
         return $this->pdo->lastInsertId();
     }
 
-    public function add_order_products_info(array $order_products_info, int $order_id)
+    public function add_products_info(array $order_products_info, int $order_id)
     {
         $no_has_error = true;
         foreach ($order_products_info as $products_id => $product_count) {
@@ -51,29 +51,33 @@ class Order_Model
         return $no_has_error;
     }
 
-    public function get_products_ids()
+    public function get_ids()
     {
         return $_SESSION['product_ids'] ? $_SESSION['product_ids'] : [];
     }
 
-    public function get_order($order_id)
+    public function get($order_id)
     {
         $sql = "SELECT * FROM `orders` WHERE order_id = :order_id";
         $statement = $this->pdo->prepare($sql);
         $statement->bindParam(':order_id', $order_id, PDO::PARAM_INT);
         $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC);
-    }
-    public function get_order_detail($order_id)
-    {
-        $sql = "SELECT order_items.*, products.product_cost
-        FROM order_items
-        JOIN products ON order_items.product_id = products.product_id
-        WHERE order_items.order_id = :order_id";
-        $statement = $this->pdo->prepare($sql);
-        $statement->bindParam(':order_id', $order_id, PDO::PARAM_INT);
-        $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        $order = $statement->fetch(PDO::FETCH_ASSOC);
+        if ($order) {
+            $sql = "SELECT order_items.*, products.product_cost, products.product_img
+            FROM order_items
+            JOIN products ON order_items.product_id = products.product_id
+            WHERE order_items.order_id = :order_id";
+            $statement = $this->pdo->prepare($sql);
+            $statement->bindParam(':order_id', $order_id, PDO::PARAM_INT);
+            $statement->execute();
+            $products_info = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return [
+                'order' => $order, 
+                'products_info' => $products_info
+            ];
+        } 
+        return false;
     }
     
 

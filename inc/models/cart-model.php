@@ -9,7 +9,7 @@ class Cart_Model
     }
 
 
-    public function delete_product_from_cart($product_id)
+    public function delete($product_id)
     {
         $index = array_search($product_id, $_SESSION['product_ids']);
         if ($index !== false) {
@@ -17,7 +17,7 @@ class Cart_Model
         }
     }
 
-    public function increase_product_quantity($product_id, $quantity)
+    public function increase_quantity($product_id, $quantity)
     {
         if ($product_id) {
             $_SESSION["products_quantities"][$product_id] = $quantity;
@@ -27,7 +27,7 @@ class Cart_Model
 
 
     }
-    public function add_product_to_cart($product_id)
+    public function add($product_id)
     {
         if (!in_array($product_id, $_SESSION['product_ids'])) {
             if (!isset($_SESSION['product_ids'])) {

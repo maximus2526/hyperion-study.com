@@ -2,7 +2,7 @@
 
 class Contact_Us_Controller {
 
-    public function render_contact_us_action()
+    public function render_action()
     {
         render('contact-us');
         

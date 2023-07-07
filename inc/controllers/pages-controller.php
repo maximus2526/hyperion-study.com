@@ -11,11 +11,11 @@ class Pages_Controller
     public function render_main_page_action()
     {
         $banner_products_id = [3, 4, 5]; // Choice product ids for home page banner's products
-        $banner_products = $this->products_model->get_products_by_ids($banner_products_id);
+        $banner_products = $this->products_model->get_by_ids($banner_products_id);
         $tamplate_data = [
             'banner_products' => $banner_products,
-            'bestsellers' => $this->products_model->get_bestsellers_products(),
-            'recomended_products' => $this->products_model->get_recomended_products(),
+            'bestsellers' => $this->products_model->get_bestsellers(),
+            'recomended_products' => $this->products_model->get_recomended(),
         ];
 
         render('home', $tamplate_data);
@@ -28,7 +28,7 @@ class Pages_Controller
 
     public function render_complete_test_action()
     {
-        render('order-complete');
+        render('order-complete');  // Подивись до цього
     }
 
 

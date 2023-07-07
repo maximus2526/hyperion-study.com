@@ -10,7 +10,7 @@ class Orders_Controller
     }
 
 
-    public function render_orders_action()
+    public function render_action()
     {
         $count_of_orders = $this->orders_model->get_count_of_orders();
         $orders_limit = 10;
@@ -34,23 +34,18 @@ class Orders_Controller
         render_admin_pages('orders', $template_data);
     }
 
-    public function render_single_order_action()
+    public function render_single_action()
     {
         $order_id = $_GET['order-id'];
-        $order = $this->orders_model->get_order($order_id);
-        if($order) {
-            $order_items = $this->orders_model->get_order_detail($order_id);
-            $template_data = [
-                'order' => $order,
-                'order_items' => $order_items,
-            ];
-            render_admin_pages('single-order', $template_data);
+        $order_data = $this->orders_model->get($order_id);
+        if( $order_data) {
+            render_admin_pages('single-order',  $order_data);
         } else {
             throw_404();
         }   
     }
 
-    public function delete_orders_action()
+    public function delete_action()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

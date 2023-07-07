@@ -5,7 +5,9 @@
         <tr>
             <th>Order ID:</th>
             <td>
-                <?php echo $order['order_id']; ?>
+                
+                <?php echo $order['order_id']; 
+                ?>
             </td>
         </tr>
         <tr>
@@ -63,12 +65,14 @@
     <table class="order-items">
         <tr>
             <th class="italic">Product ID</th>
+            <th class="italic">Product img</th>
             <th class="italic">Product Count</th>
             <th class="italic">Price</th>
         </tr>
-        <?php foreach ($order_items as $item): ?>
+        <?php foreach ($products_info as $item): ?>
             <tr>
                 <td><a href="/?action=product&product-id=<?php echo $item['product_id']; ?>"><?php echo $item['product_id']; ?></a></td>
+                <td><img class="product-img" src="<?php echo $item['product_img']; ?>" alt=""> </td>
                 <td>
                     <?php echo $item['count_of_product']; ?>
                 </td>
@@ -83,6 +87,7 @@
         <?php endforeach; ?>
         <tr>
             <th>Total:</th>
+            <th>-</th>
             <th>
                 <?php echo $total_count ?>
             </th>

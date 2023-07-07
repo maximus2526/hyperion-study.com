@@ -20,22 +20,22 @@ class Router
     {
         switch ($_GET['action']) {
             case 'shop':
-                $this->shop_controller->render_shop_action();
+                $this->shop_controller->render_action();
                 break;
             case 'add-to-cart':
-                $this->cart_controller->add_product_action();
+                $this->cart_controller->add_action();
                 break;
             case 'cart':
                 if (isset($_GET["delete_product"])) {
-                    $this->cart_controller->delete_product_action();
+                    $this->cart_controller->delete_action();
                 }
-                $this->cart_controller->render_cart_action();
+                $this->cart_controller->render_action();
                 break;
             case 'post-order':
-                $this->order_controller->post_order_action();
+                $this->order_controller->post_action();
                 break;
             case 'increase_product':
-                $this->cart_controller->increase_product_quantity_action();
+                $this->cart_controller->increase_quantity_action();
                 break;
             case 'about-us':
                 $this->pages_controller->render_about_us_action();
@@ -44,12 +44,11 @@ class Router
                 $this->contact_us_controller->render_contact_us_action();
                 break;
             case 'product':
-                $this->shop_controller->render_single_product_action();
+                $this->shop_controller->render_single_action();
                 break;
             case 'order-complete':
-                $this->order_controller->render_complete_order_action();
+                $this->order_controller->render_action();
                 break;
-
             default:
                 $this->pages_controller->render_main_page_action();
         }

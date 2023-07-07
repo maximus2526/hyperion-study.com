@@ -10,7 +10,7 @@ class Products_Controller
     }
 
 
-    public function render_products_action()
+    public function render_action()
     {
         $count_of_products = $this->products_model->get_count_of_products();
         $products_limit = 10;
@@ -39,7 +39,7 @@ class Products_Controller
         render_admin_pages('products', $template_data);
     }
 
-    public function delete_products_action()
+    public function delete_action()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -55,7 +55,7 @@ class Products_Controller
         }
         redirect('admin/?action=products');
     }
-    public function update_product_action()
+    public function update_action()
     {
         if (!empty($_GET['product-id'])) {
             $product_id = $_GET['product-id'];
@@ -104,7 +104,7 @@ class Products_Controller
         render_admin_pages('update-product', $template_data);
     }
 
-    public function add_product_action()
+    public function add_action()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $required_fields = ['product_img', 'product_name', 'product_cost', 'short_description'];

@@ -13,11 +13,11 @@ class Cart_Controller
         $this->order_model = $order_model;
     }
 
-    public function render_cart_action()
+    public function render_action()
     {
-        $product_ids = $this->order_model->get_products_ids();
+        $product_ids = $this->order_model->get_ids();
         if (!empty($product_ids)) {
-            $products = $this->products_model->get_products_by_ids($product_ids);
+            $products = $this->products_model->get_by_ids($product_ids);
         } else {
             $products = [];
         }
@@ -35,11 +35,11 @@ class Cart_Controller
         render('cart', $tamplate_data);
     }
 
-    function add_product_action()
+    function add_action()
     {
         if (isset($_GET['product-id'])) {
             $product_id = $_GET['product-id'];
-            $this->cart_model->add_product_to_cart($product_id);
+            $this->cart_model->add($product_id);
         } else {
             Errors::add_error("Product ID is missing.");
         }
@@ -47,15 +47,15 @@ class Cart_Controller
         redirect('?action=cart');
     }
 
-    function increase_product_quantity_action()
+    function increase_quantity_action()
     {
         // redirect("?action=cart&product-count={$product_count}");
     }
 
-    function delete_product_action()
+    function delete_action()
     {
         $id_to_delete = $_GET["delete_product"];
-        $this->cart_model->delete_product_from_cart($id_to_delete);
+        $this->cart_model->delete($id_to_delete);
         redirect('?action=cart');
     }
 

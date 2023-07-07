@@ -35,7 +35,7 @@ class Orders_Model
         return range(1, round($count_of_buttons));
     }
 
-    function delete_orders_by_ids(array $orders_ids)
+    function delete_by_ids(array $orders_ids)
     {
         $placeholders = implode(', ', array_fill(0, count($orders_ids), '?'));
         $sql = "DELETE FROM `orders` WHERE order_id IN ({$placeholders})";
@@ -52,25 +52,31 @@ class Orders_Model
         return $orders_count;
     }
 
-    public function get_order($order_id)
+    public function get($order_id)
     {
         $sql = "SELECT * FROM `orders` WHERE order_id = :order_id";
         $statement = $this->pdo->prepare($sql);
         $statement->bindParam(':order_id', $order_id, PDO::PARAM_INT);
         $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC);
+        $order = $statement->fetch(PDO::FETCH_ASSOC);
+        if ($order) {
+            $sql = "SELECT order_items.*, products.product_cost, products.product_img
+            FROM order_items
+            JOIN products ON order_items.product_id = products.product_id
+            WHERE order_items.order_id = :order_id";
+            $statement = $this->pdo->prepare($sql);
+            $statement->bindParam(':order_id', $order_id, PDO::PARAM_INT);
+            $statement->execute();
+            $products_info = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return [
+                'order' => $order, 
+                'products_info' => $products_info
+            ];
+
+        } 
+        return false;
     }
-    public function get_order_detail($order_id)
-    {
-        $sql = "SELECT order_items.*, products.product_cost
-        FROM order_items
-        JOIN products ON order_items.product_id = products.product_id
-        WHERE order_items.order_id = :order_id";
-        $statement = $this->pdo->prepare($sql);
-        $statement->bindParam(':order_id', $order_id, PDO::PARAM_INT);
-        $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
-    }
+
 
 
 }

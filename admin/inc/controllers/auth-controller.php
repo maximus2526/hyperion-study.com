@@ -6,7 +6,7 @@ class Auth_Controller{
         $this->auth = $auth;
     }
 
-    public function render_login_action(){
+    public function render_action(){
         if(!is_logged_in()){
             render_auth('auth'); 
         }

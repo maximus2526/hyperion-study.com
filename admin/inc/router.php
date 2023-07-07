@@ -32,31 +32,31 @@ class Router
         } else {
             switch ($_GET['action']) {
                 case 'products':
-                    $this->products_controller->render_products_action();
+                    $this->products_controller->render_action();
                     break;
                 case 'delete-products':
-                    $this->products_controller->delete_products_action();
+                    $this->products_controller->delete_action();
                     break;
                 case 'update-product':
-                    $this->products_controller->update_product_action();
+                    $this->products_controller->update_action();
                     break;
                 case 'add-product':
-                    $this->products_controller->add_product_action();
+                    $this->products_controller->add_action();
                     break;
                 case 'orders':
-                    $this->orders_controller->render_orders_action();
+                    $this->orders_controller->render_action();
                     break;
                 case 'order':
-                    $this->orders_controller->render_single_order_action();
+                    $this->orders_controller->render_single_action();
                     break;
                 case 'delete-orders':
-                    $this->orders_controller->delete_orders_action();
+                    $this->orders_controller->delete_action();
                     break;
                 case 'logout':
                     $this->auth_controller->log_out_action();
                     break;
                 default:
-                    $this->admin_controller->render_main_page_action();
+                    $this->admin_controller->render_action();
             }
         }
 

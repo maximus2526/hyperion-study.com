@@ -12,24 +12,18 @@ class Order_Controller
         $this->mail_model = $mail_model;
     }
 
-    public function render_complete_order_action()
+    public function render_action()
     {
         $order_id = $_GET['order_id'];
-        $order = $this->order_model->get_order($order_id);  
-        if($order) {
-            $order_items = $this->order_model->get_order_detail($order_id);
-            $template_data = [
-                'order' => $order,
-                'order_items' => $order_items,
-            ];
-            render('order-complete', $template_data);
-        }
-        else {
+        $order = $this->order_model->get($order_id);
+        if ($order) {
+            render('order-complete', $order);
+        } else {
             throw_404();
         }
     }
 
-    function post_order_action()
+    function post_action()
     {
         // Handle form
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$this->cart_model->is_cart_empty()) {
@@ -46,7 +40,7 @@ class Order_Controller
                 'address' => trim(htmlspecialchars($_POST['address'])),
             ];
 
-            $order_products_info = array_combine((array) $this->order_model->get_products_ids(), (array) $_POST['product_count']);
+            $order_products_info = array_combine((array) $this->order_model->get_ids(), (array) $_POST['product_count']);
 
             if (!is_null($_POST['notes'])) {
                 $order_info['notes'] = trim(htmlspecialchars($_POST['notes']));
@@ -60,22 +54,22 @@ class Order_Controller
 
             if (empty($order_info['payment-method'])) {
                 Errors::add_error("Payment method field is empty!");
-            } 
+            }
             if (empty($order_info['delivery-method'])) {
                 Errors::add_error("Delivery method field is empty!");
-            } 
+            }
             if (empty($order_info['total-price'])) {
                 Errors::add_error("total-price field is empty! Contact with administrator.");
-            } 
+            }
             if (empty($order_info['first-name'])) {
                 Errors::add_error("First name field is empty!");
-            } 
+            }
             if (empty($order_info['last-name'])) {
                 Errors::add_error("Last name field is empty!");
-            } 
+            }
             if (empty($order_info['email'])) {
                 Errors::add_error("Email field is empty!");
-            } 
+            }
             if (empty($order_info['address'])) {
                 Errors::add_error("Address field is empty!");
             }
@@ -90,28 +84,26 @@ class Order_Controller
             if (!Errors::has_errors()) {
                 // Post Order
                 $add_order_result = $this->order_model->add_order($order_info);
-                $order_products_result = $this->order_model->add_order_products_info($order_products_info, $add_order_result);
+                $order_products_result = $this->order_model->add_products_info($order_products_info, $add_order_result);
                 if ($add_order_result && $order_products_result) {
                     Errors::set_message('Successfully! Wait while you will be contacted by operator.');
-                    $order = $this->order_model->get_order($add_order_result);  
-                    if($order) {
-                        $order_items = $this->order_model->get_order_detail($add_order_result);
-                        $template_data = [
-                            'order' => $order,
-                            'order_items' => $order_items,
-                        ];
-                        render('order-complete', $template_data);
+                    $order = $this->order_model->get($add_order_result);
+                    if ($order) {
+                        render('order-complete', $order);
                     }
-                    $this->mail_model->send_order_info($order, $order_items); // mail sending
-                    redirect('?action=order-complete&order_id='.$add_order_result);
-                   
+                    $this->mail_model->send_order_info($order); // mail sending
+                    redirect('?action=order-complete&order_id=' . $add_order_result);
+
                 } else {
                     Errors::add_error('Unsuccessful! Try again or contact with administrator.');
                     redirect('?action=cart');
                 }
-                
+
             } else {
-                redirect('?action=cart');
+                $saved = isset($_POST) ? $_POST : '';
+                $queryParams = http_build_query(array('saved' => $saved));
+                redirect("?action=cart&$queryParams");
+
             }
         } else {
             redirect('?action=cart');

@@ -44,7 +44,7 @@ class Products_Model
         return $products_count;
     }
 
-    function delete_products_by_ids(array $product_ids)
+    function delete_by_ids(array $product_ids)
     {
         $placeholders = implode(', ', array_fill(0, count($product_ids), '?'));
         $sql = "DELETE FROM `products` WHERE product_id IN ({$placeholders})";
@@ -53,7 +53,7 @@ class Products_Model
     }
 
 
-    function get_product($product_id)
+    function get($product_id)
     {
         $sql = "SELECT * FROM `products` WHERE product_id = :product_id";
         $statement = $this->pdo->prepare($sql);
@@ -63,7 +63,7 @@ class Products_Model
         return $product;
     }
 
-    function add_product($product_data)
+    function add($product_data)
     {
         $sql = "INSERT INTO `products` (product_img, product_name, product_cost, recommended, hot, short_description)
                 VALUES (:product_img, :product_name, :product_cost, :recommended, :hot, :short_description)";
@@ -80,7 +80,7 @@ class Products_Model
     }
     
     
-    function update_product($product_id, $product_data)
+    function update($product_id, $product_data)
     {
         $fields = array_keys($product_data);
         $placeholders = implode(' = ?, ', $fields) . ' = ?';

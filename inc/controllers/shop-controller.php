@@ -8,9 +8,9 @@ class Shop_Controller
         $this->products_model = $products_model;
     }
 
-    public function render_shop_action()
+    public function render_action()
     {
-        $count_of_products = $this->products_model->get_count_of_products();
+        $count_of_products = $this->products_model->get_count();
         $default_product_limit = 20;
         $page_num = isset($_GET['page_num']) ? (int)$_GET['page_num'] : 1;
         $products_limit = isset($_GET['count_of_products']) ? (int)$_GET['count_of_products'] : $default_product_limit;
@@ -25,18 +25,18 @@ class Shop_Controller
         $template_data = [
             'count_of_products' => $count_of_products,
             'products_limit' => $products_limit,
-            'products' => $this->products_model->get_paginated_products($model_options),
+            'products' => $this->products_model->get_paginated($model_options),
             'pages' => $count_of_buttons,
         ];
 
         render('shop', $template_data);
     }
 
-    public function render_single_product_action()
+    public function render_single_action()
     {
         if (isset($_GET['product-id'])) {
             $product_id = (int)$_GET['product-id'];
-            $product = $this->products_model->get_product($product_id);
+            $product = $this->products_model->get($product_id);
             if ($product) {
                 $tamplate_data = [
                     'product' => $product,
