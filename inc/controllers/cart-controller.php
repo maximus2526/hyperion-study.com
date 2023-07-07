@@ -22,13 +22,9 @@ class Cart_Controller
             $products = [];
         }
         
-        foreach ($products as $product) {
-            $total_price += $product['product_cost'];
-        }
-
         $tamplate_data = [
             'products' => $products,
-            'total_price' => $total_price,
+            'total_price' => $this->cart_model->get_total_price($products),
             'is_cart_empty' => $this->cart_model->is_cart_empty(),
         ];
 

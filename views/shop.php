@@ -178,11 +178,12 @@
                                         <img src="<?php echo $product['product_img'] ?>" alt="product's img">
                                     </div>
                                     <div class="product-content">
-                                        <div class="product-title">
+                                        <div class="product-title display-flex">
                                             <a href="<?php get_url() ?>?action=product&product-id=<?php echo $product['product_id'] ?>"
                                                 class="product-title">
                                                 <?php echo $product['product_name'] ?>
                                             </a>
+                                            <a class="btn text-right" href="/?action=add-to-cart&product-id=<?php echo $product['product_id']?>"><img src="views/img/svg/plus.svg" alt=""></a>
                                         </div>
                                         <div class="price-block">
                                             <p class="price">

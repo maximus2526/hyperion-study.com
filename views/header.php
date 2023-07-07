@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="profile-element">
-                            <a class="content-center display-flex" href="#">
+                            <a class="content-center display-flex" href="?action=cart">
                                 <img src="<?php get_url() ?>views/img/svg/shop.svg" alt="Shop">
                                 <span>$280.00</span>
                             </a>

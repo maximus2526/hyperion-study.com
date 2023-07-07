@@ -48,9 +48,15 @@
                                                     </div>
 
                                                     <div class="product-content">
-                                                        <h5 class="title" href="#">
-                                                            <?php echo $product["product_name"] ?>
-                                                        </h5>
+                                                        <div class="product-title display-flex">
+                                                            <a href="<?php get_url() ?>?action=product&product-id=<?php echo $product['product_id'] ?>"
+                                                                class="product-title">
+                                                                <?php echo $product['product_name'] ?>
+                                                            </a>
+                                                            <a class="btn text-right"
+                                                                href="/?action=add-to-cart&product-id=<?php echo $product['product_id'] ?>"><img
+                                                                    src="views/img/svg/plus.svg" alt=""></a>
+                                                        </div>
                                                         <p class="price">
                                                             <?php echo $product["product_cost"] ?>
                                                         </p>
@@ -168,9 +174,14 @@
                                     <img src="<?php echo $product["product_img"] ?>" alt="product's img">
                                 </div>
                                 <div class="product-content">
-                                    <div class="product-title">
+                                    <div class="product-title display-flex">
                                         <a href="<?php get_url() ?>?action=product&product-id=<?php echo $product['product_id'] ?>"
-                                            class="product-title"><?php echo $product["product_name"] ?></a>
+                                            class="product-title">
+                                            <?php echo $product['product_name'] ?>
+                                        </a>
+                                        <a class="btn text-right"
+                                            href="/?action=add-to-cart&product-id=<?php echo $product['product_id'] ?>"><img
+                                                src="views/img/svg/plus.svg" alt=""></a>
                                     </div>
                                     <div class="price-block">
                                         <p class="price">
@@ -224,7 +235,8 @@
                             <p class="opacity-30">
                                 230 products
                             </p>
-                            <img class="brand-img" src="<?php get_url() ?>views/img/brands/brand-product/brands-product-1.png"
+                            <img class="brand-img"
+                                src="<?php get_url() ?>views/img/brands/brand-product/brands-product-1.png"
                                 alt="Brand's product">
                         </div>
                     </div>
@@ -235,7 +247,8 @@
                             <p class="opacity-30">
                                 239 products
                             </p>
-                            <img class="brand-img" src="<?php get_url() ?>views/img/brands/brand-product/brands-product-2.png"
+                            <img class="brand-img"
+                                src="<?php get_url() ?>views/img/brands/brand-product/brands-product-2.png"
                                 alt="Brand's product">
                         </div>
                     </div>
@@ -246,7 +259,8 @@
                             <p class="opacity-30">
                                 280 products
                             </p>
-                            <img class="brand-img" src="<?php get_url() ?>views/img/brands/brand-product/brands-product-3.png"
+                            <img class="brand-img"
+                                src="<?php get_url() ?>views/img/brands/brand-product/brands-product-3.png"
                                 alt="Brand's product">
                         </div>
                     </div>
@@ -257,7 +271,8 @@
                             <p class="opacity-30">
                                 23 products
                             </p>
-                            <img class="brand-img" src="<?php get_url() ?>views/img/brands/brand-product/brands-product-4.png"
+                            <img class="brand-img"
+                                src="<?php get_url() ?>views/img/brands/brand-product/brands-product-4.png"
                                 alt="Brand's product">
                         </div>
                     </div>
@@ -268,7 +283,8 @@
                             <p class="opacity-30">
                                 123 products
                             </p>
-                            <img class="brand-img" src="<?php get_url() ?>views/img/brands/brand-product/brands-product-5.png"
+                            <img class="brand-img"
+                                src="<?php get_url() ?>views/img/brands/brand-product/brands-product-5.png"
                                 alt="Brand's product">
                         </div>
                     </div>
@@ -279,7 +295,8 @@
                             <p class="opacity-30">
                                 67 products
                             </p>
-                            <img class="brand-img" src="<?php get_url() ?>views/img/brands/brand-product/brands-product-6.png"
+                            <img class="brand-img"
+                                src="<?php get_url() ?>views/img/brands/brand-product/brands-product-6.png"
                                 alt="Brand's product">
                         </div>
                     </div>
@@ -551,9 +568,14 @@
                                             <img src="<?php echo $product["product_img"] ?>" alt="product's img">
                                         </div>
                                         <div class="product-content">
-                                            <div class="product-title">
+                                            <div class="product-title display-flex">
                                                 <a href="<?php get_url() ?>?action=product&product-id=<?php echo $product['product_id'] ?>"
-                                                    class="product-title"><?php echo $product["product_name"] ?></a>
+                                                    class="product-title">
+                                                    <?php echo $product['product_name'] ?>
+                                                </a>
+                                                <a class="btn text-right"
+                                                    href="/?action=add-to-cart&product-id=<?php echo $product['product_id'] ?>"><img
+                                                        src="views/img/svg/plus.svg" alt=""></a>
                                             </div>
                                             <div class="price-block">
                                                 <p class="price">
