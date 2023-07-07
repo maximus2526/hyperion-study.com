@@ -40,7 +40,8 @@
 
                                     <div class="row">
 
-                                        <?php foreach ($banner_products as $product): ?>
+                                        <?php
+                                        foreach ($banner_products as $product): ?>
                                             <div class="col-12">
                                                 <div class="product design-horizontal bg-white">
                                                     <div class="product-img">

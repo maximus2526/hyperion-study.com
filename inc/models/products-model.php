@@ -46,13 +46,17 @@ class Products_Model
 
     function get_by_ids(array $product_ids)
     {
-        $placeholders = implode(' , ', array_fill(0, count($product_ids), '?'));
-        $sql = "SELECT * FROM `products` WHERE product_id IN ({$placeholders})";
+        $placeholders = implode(', ', $product_ids);
+        $sql = "SELECT * FROM `products` WHERE `products`.`product_id` IN ({$placeholders})";
         $statement = $this->pdo->prepare($sql);
-        $statement->execute($product_ids);
+        $statement->execute();
         $products = $statement->fetchAll();
+        var_dump($statement->errorInfo());
         return $products;
     }
+    
+    
+    
 
     function get($product_id)
     {

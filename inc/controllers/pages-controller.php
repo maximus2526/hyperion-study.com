@@ -11,9 +11,8 @@ class Pages_Controller
     public function render_main_page_action()
     {
         $banner_products_id = [3, 4, 5]; // Choice product ids for home page banner's products
-        $banner_products = $this->products_model->get_by_ids($banner_products_id);
         $tamplate_data = [
-            'banner_products' => $banner_products,
+            'banner_products' => $this->products_model->get_by_ids($banner_products_id),
             'bestsellers' => $this->products_model->get_bestsellers(),
             'recomended_products' => $this->products_model->get_recomended(),
         ];
@@ -21,7 +20,7 @@ class Pages_Controller
         render('home', $tamplate_data);
     }
 
-    public function render_about_us_action()
+    public function render_action()
     {
         render('about-us');
     }

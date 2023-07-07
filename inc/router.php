@@ -38,10 +38,10 @@ class Router
                 $this->cart_controller->increase_quantity_action();
                 break;
             case 'about-us':
-                $this->pages_controller->render_about_us_action();
+                $this->pages_controller->render_action();
                 break;
             case 'contact-us':
-                $this->contact_us_controller->render_contact_us_action();
+                $this->contact_us_controller->render_action();
                 break;
             case 'product':
                 $this->shop_controller->render_single_action();
