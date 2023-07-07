@@ -49,7 +49,7 @@ class Products_Controller
                 Errors::add_error('No selected any products!');
             }
             if (!Errors::has_errors()) {
-                $this->products_model->delete_products_by_ids($products_ids);
+                $this->products_model->delete_by_ids($products_ids);
             }
 
         }

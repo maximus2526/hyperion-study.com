@@ -8,7 +8,7 @@ class Orders_Model
         $this->pdo = $pdo;
     }
 
-    function get_paginated_orders(array $options)
+    function get_paginated(array $options)
     {
         $offset = ($options['page_num'] - 1) * $options['orders_limit'];
         $sql = "SELECT * FROM `orders` LIMIT :limit OFFSET :offset";

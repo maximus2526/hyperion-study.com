@@ -20,7 +20,7 @@ class Auth_Controller{
             $password = $_POST['user_password'];
             if ($this->auth->check_password($password, $user_name)){
                 if(!Errors::has_errors()){
-                    $user_id = $this->auth->get_user_id($user_name);
+                    $user_id = $this->auth->get_id($user_name);
                     $this->auth->log_in($user_id);
                     Errors::set_message("You successfully logined!");
                     redirect('admin/');
@@ -36,7 +36,7 @@ class Auth_Controller{
         }
     }
 
-    public function add_user_action(){
+    public function register_action(){
         if (!is_logged_in()){
             $user_name = htmlspecialchars($_POST['user_name']);
             $password = $_POST['user_password'];

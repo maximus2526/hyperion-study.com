@@ -26,7 +26,7 @@ class Orders_Controller
         $template_data = [
             'count_of_orders' => $count_of_orders,
             'orders_limit' => $orders_limit,
-            'orders' => $this->orders_model->get_paginated_orders($model_options),
+            'orders' => $this->orders_model->get_paginated($model_options),
             'pages' => $count_of_buttons,
 
         ];
@@ -55,7 +55,7 @@ class Orders_Controller
             }
            
             if (!Errors::has_errors()) {
-                $this->orders_model->delete_orders_by_ids($orders_to_delete);
+                $this->orders_model->delete_by_ids($orders_to_delete);
             }
 
         }

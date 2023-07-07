@@ -18,13 +18,13 @@ class Router
         if (!is_logged_in()) {
             switch ($_GET['action']) {
                 case 'auth':
-                    $this->auth_controller->render_login_action();
+                    $this->auth_controller->render_action();
                     break;
                 case 'login':
                     $this->auth_controller->login_action();
                     break;
                 case 'register':
-                    $this->auth_controller->add_user_action();
+                    $this->auth_controller->register_action();
                     break;
                 default:
                     redirect('admin/?action=auth');
