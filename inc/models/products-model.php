@@ -51,7 +51,6 @@ class Products_Model
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         $products = $statement->fetchAll();
-        var_dump($statement->errorInfo());
         return $products;
     }
     

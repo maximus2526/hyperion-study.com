@@ -8,13 +8,15 @@ class Cart_Model
         $this->pdo = $pdo;
     }
 
+    
     public function get_total_price($products)
     {
         foreach ($products as $product) {
-            $total_price += $product['product_cost'];
+            $total_price += $product['product_cost'] * (isset($product['product_count']) ? $product['product_count'] : 1) ;
         }
         return $total_price;
     }
+
     public function delete($product_id)
     {
         $index = array_search($product_id, $_SESSION['product_ids']);

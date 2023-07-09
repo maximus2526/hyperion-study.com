@@ -26,7 +26,7 @@ class Order_Controller
     function post_action()
     {
         // Handle form
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$this->cart_model->is_cart_empty()) {
+        if (isset($_POST['add_order']) && !$this->cart_model->is_cart_empty()) {
             if ($_POST['agree-terms'] != 'on') {
                 Errors::add_error("Please read and accept the terms and conditions to proceed with your order.");
             }

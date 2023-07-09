@@ -32,10 +32,11 @@ class Router
                 $this->cart_controller->render_action();
                 break;
             case 'post-order':
-                $this->order_controller->post_action();
-                break;
-            case 'increase_product':
-                $this->cart_controller->increase_quantity_action();
+                if(isset($_POST['add_order'])) {
+                    $this->order_controller->post_action();
+                } elseif (isset($_POST['increase_cart'])) {
+                    $this->cart_controller->increase_count();
+                }
                 break;
             case 'about-us':
                 $this->pages_controller->render_action();

@@ -21,7 +21,7 @@ class Cart_Controller
         } else {
             $products = [];
         }
-        
+
         $tamplate_data = [
             'products' => $products,
             'total_price' => $this->cart_model->get_total_price($products),
@@ -30,6 +30,27 @@ class Cart_Controller
 
         render('cart', $tamplate_data);
     }
+
+
+    function increase_count()
+    {
+        $product_count = $_POST['product_count'];
+        $product_ids = $this->order_model->get_ids();
+        $products = $this->products_model->get_by_ids($product_ids);
+        $counter = 0;
+
+        foreach ($products as $key => $product) {
+            $products[$key]['product_count'] = $product_count[$counter];
+            $counter++;
+        }
+        $tamplate_data = [
+            'products' => $products,
+            'total_price' => $this->cart_model->get_total_price($products),
+            'is_cart_empty' => $this->cart_model->is_cart_empty(),
+        ];
+        render('cart', $tamplate_data);
+    }
+
 
     function add_action()
     {
@@ -41,11 +62,6 @@ class Cart_Controller
         }
 
         redirect('?action=cart');
-    }
-
-    function increase_quantity_action()
-    {
-        // redirect("?action=cart&product-count={$product_count}");
     }
 
     function delete_action()
