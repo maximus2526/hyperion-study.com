@@ -20,7 +20,7 @@
                 <div class="profile-block display-flex gap  col-right  style-bordered">
                     <div class="profile display-flex gap">
                         <div class="user-name">
-                            <a href="?action=profile">Admin</a>
+                            <a href="?action=profile">Profile</a>
                         </div>
                         <div class="profile-img">
                             <a href="?action=profile"><img src="<?php echo get_url() ?>/admin/views/img/author-img.png" alt></a>

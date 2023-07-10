@@ -136,7 +136,6 @@
                             <a class="tag" href="#">Home</a>
                             <a class="tag" href="#">Garden</a>
                             <a class="tag" href="#">Clothes</a>
-                            Ніф
                         </div>
                     </div>
                 </div>

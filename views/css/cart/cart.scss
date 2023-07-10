@@ -77,3 +77,10 @@
 
 
 }
+
+
+input[name="increase_cart"] {
+    &:hover {
+        background: #daf3df;
+    }
+}

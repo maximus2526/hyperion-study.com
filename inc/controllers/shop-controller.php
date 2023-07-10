@@ -45,11 +45,11 @@ class Shop_Controller
             $product_id = (int)$_GET['product-id'];
             $product = $this->products_model->get($product_id);
             if ($product) {
-                $tamplate_data = [
+                $template_data = [
                     'product' => $product,
                 ];
         
-                render('single-product', $tamplate_data);
+                render('single-product', $template_data);
             } else {
                 throw_404();
             }

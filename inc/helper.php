@@ -10,13 +10,7 @@ function get_param_query($current_param)
         'action',
         'count_of_products',
         'layout',
-        'page_num',
-    ];
-
-    $sort_params = [
-        'by-name',
-        'by-price',
-        'by-date',
+        'page_num'
     ];
 
     $queryArray = [];
@@ -29,17 +23,12 @@ function get_param_query($current_param)
         }
     }
 
-    foreach ($sort_params as $sort_param) {
-        if (isset($current_param[$sort_param])) {
-            $queryParams[$sort_param] = $current_param[$sort_param];
-            break; 
-        }
+    if (!empty($current_param)) {
+        $queryParams = array_merge($queryParams, $current_param);
     }
 
     return http_build_query($queryParams);
 }
-
-
 
 
 function redirect(string $path = '')

@@ -59,7 +59,7 @@ class Auth_Controller{
                 redirect('admin/?action=auth');
             }
             if(!Errors::has_errors()){
-                $user_id = $this->auth->add_user($user_name, $password);
+                $user_id = $this->auth->add($user_name, $password);
                 $this->auth->log_in($user_id);
                 Errors::set_message("Register complete! You auto logined and redirected to main page.");
                 redirect();

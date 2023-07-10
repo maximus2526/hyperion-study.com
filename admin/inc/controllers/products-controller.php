@@ -31,7 +31,7 @@ class Products_Controller
         $template_data = [
             'count_of_products' => $count_of_products,
             'products_limit' => $products_limit,
-            'products' => $this->products_model->get_paginated_products($model_options),
+            'products' => $this->products_model->get_paginated($model_options),
             'pages' => $count_of_buttons,
 
         ];
@@ -65,7 +65,7 @@ class Products_Controller
         }
 
         $template_data = [
-            'product' => $this->products_model->get_product((int) $product_id) ? $this->products_model->get_product((int) $product_id) : Errors::add_error('This entry do not exist!'),
+            'product' => $this->products_model->get((int) $product_id) ? $this->products_model->get((int) $product_id) : Errors::add_error('This entry do not exist!'),
         ];
 
 
@@ -129,7 +129,7 @@ class Products_Controller
                 ];
 
                 if (!Errors::has_errors()) {
-                    $result = $this->products_model->add_product($product_data);
+                    $result = $this->products_model->add($product_data);
                 }
 
                 if (isset($result)) {

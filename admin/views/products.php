@@ -61,30 +61,19 @@
 
     <?php if (count($pages) > 1): ?>
         <div class="pagination display-flex content-center gap">
-            <div class="arrow-left">
-                <a
-                    href="<?php echo get_url() ?>/admin/?action=products&<?php echo get_param_query(['page_num' => $_GET['page_num'] <= 1 ? 1 : $_GET['page_num'] - 1]); ?>">
-                    <img src="<?php get_url() ?><?php echo get_url() ?>/admin/views/img/svg/page-arrow/arrow-left.svg" alt>
-                </a>
-            </div>
+        
             <?php
             foreach ($pages as $pagenum):
                 ?>
                 <div class="pagination-button <? echo $pagenum == $_GET['page_num'] ? 'active' : '' ?> scheme-light">
                     <a
-                        href="<?php echo get_url() ?>/admin/?action=products&<?php echo get_param_query(['page_num' => $pagenum]); ?>"><?php echo $pagenum ?></a>
+                        href="<?php echo get_url() ?>/admin/?<?php echo get_param_query(['page_num' => $pagenum]); ?>"><?php echo $pagenum ?></a>
                 </div>
                 <?php
             endforeach;
             ?>
 
-            <div class="arrow-right scheme-dark">
-                <a class="display-flex"
-                    href="<?php echo get_url() ?>/admin/?action=products&<?php echo get_param_query(['page_num' => $_GET['page_num'] < end($pages) ? $_GET['page_num'] + 1 : $_GET['page_num']]); ?>">
-                    <p class="text">Next</p>
-                    <img src="<?php get_url() ?>/admin/views/img/svg/page-arrow/arrow-right.svg" alt>
-                </a>
-            </div>
+        
         </div>
     <?php endif; ?>
 

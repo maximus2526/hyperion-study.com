@@ -64,4 +64,8 @@
 }
 .checkout .product-count {
   padding-bottom: 10px;
+}
+
+input[name=increase_cart]:hover {
+  background: #daf3df;
 }/*# sourceMappingURL=cart.css.map */
