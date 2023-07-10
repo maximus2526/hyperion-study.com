@@ -144,10 +144,27 @@
 
             <div class="col-9">
                 <div class="shop-heading display-flex content-center scheme-dark">
-                    <div class="block-title ">
+                    <div class="block-title "> 
                         <h4 class="title">Shop</h4>
                     </div>
-                    <div class="text-right display-flex align-center">
+                    <div class="text-right display-flex align-center gap">
+                        <span class="sort-by-order size-s opacity-80 display-flex gap-5">
+                            <a
+                                href="/?<?php echo get_param_query(['by-name' => isset($_GET['by-name']) ? ($_GET['by-name'] == 'DESC' ? 'ASC' : 'DESC') : 'DESC']); ?>">
+                                <?php echo isset($_GET['by-name']) ? ($_GET['by-name'] == 'DESC' ? 'Name ↓' : 'Name ↑') : 'Name'; ?>
+                            </a>
+                            <a
+                                href="/?<?php echo get_param_query(['by-price' => isset($_GET['by-price']) ? ($_GET['by-price'] == 'DESC' ? 'ASC' : 'DESC') : 'DESC']); ?>">
+                                <?php echo isset($_GET['by-price']) ? ($_GET['by-price'] == 'DESC' ? 'Price ↓' : 'Price ↑') : 'Price'; ?>
+                            </a>
+                            <a
+                                href="/?<?php echo get_param_query(['by-date' => isset($_GET['by-date']) ? ($_GET['by-date'] == 'DESC' ? 'ASC' : 'DESC') : 'DESC']); ?>">
+                                <?php echo isset($_GET['by-date']) ? ($_GET['by-date'] == 'DESC' ? 'Date ↓' : 'Date ↑') : 'Date'; ?>
+                            </a>
+
+
+
+                        </span>
                         <span class="show-more">
                             <p class="size-s opacity-80">
                                 Show:
@@ -183,7 +200,9 @@
                                                 class="product-title">
                                                 <?php echo $product['product_name'] ?>
                                             </a>
-                                            <a class="btn text-right" href="/?action=add-to-cart&product-id=<?php echo $product['product_id']?>"><img src="views/img/svg/plus.svg" alt=""></a>
+                                            <a class="btn text-right"
+                                                href="/?action=add-to-cart&product-id=<?php echo $product['product_id'] ?>"><img
+                                                    src="views/img/svg/plus.svg" alt=""></a>
                                         </div>
                                         <div class="price-block">
                                             <p class="price">
